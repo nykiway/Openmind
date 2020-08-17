@@ -1,5 +1,6 @@
 {
   "name": "openmind",
+  "description": "a headspace clone",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.11.1",
@@ -13,5 +14,27 @@
     "redux": "^4.0.5",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch --mode=development"
+  },
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nykiway/Openmind.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nykiway/Openmind/issues"
+  },
+  "homepage": "https://github.com/nykiway/Openmind#readme"
 }
