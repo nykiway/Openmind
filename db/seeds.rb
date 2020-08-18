@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.delete_all
+
+dalailama = User.create!(
+  username: 'thelamadama',
+  email: 'thelamadama@outlook.com'
+  password: 'tha_chosen1'
+)
+
+siddhartha = User.create!(
+  username: 'buddahbuddy',
+  email: 'buddhabuddy@gmail.com'
+  password: 'sunmoontruth108'
+)
+
+# yesterday: I worked on user auth, and set up my backend
+# today I plan to finish out my session forms
+# bugs / blockers: 

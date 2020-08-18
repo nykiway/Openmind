@@ -1,0 +1,110 @@
+/* login form box */
+/* come back to this! */
+.login-form-box {
+  /* background-color: wheat; */
+  font-family: Apercu, sans-serif;
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* header */
+
+.login-header {
+  font-family: Apercu, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #323233;
+}
+
+/* signup link */
+
+.signup-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #5A6175;
+}
+
+.signup-link-a {
+  color: #F47D31;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* input-fields */
+
+.login-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.login-fields > input {
+  width: 40%;
+  cursor: text;
+  font-size: 16px;
+  line-height: 12px;
+  font-weight: 400;
+  text-align: start;
+  letter-spacing: 0.7px;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px 0 0 0;
+}
+
+
+/* buttons */
+
+.login-form-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 0 0;
+}
+
+.login-form-button {
+  width: 45%;
+  font-family: Apercu, sans-serif;
+  color: white;
+  background-color: #0C6FF9;
+  border: none;
+  border-radius: 24px;
+  height: 45px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding-left: 24px;
+  padding-right: 24px;
+  letter-spacing: 2.5px;
+  line-height: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.demo-login-form-button {
+  width: 45%;
+  font-family: Apercu, sans-serif;
+  color: #323233;
+  background-color: #FAF6F4;
+  border: none;
+  border-radius: 24px;
+  height: 45px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding-left: 24px;
+  padding-right: 24px;
+  letter-spacing: 2.5px;
+  line-height: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
