@@ -1,10 +1,21 @@
+// login background
+
+.login-background {
+  background-color: #FAF6F4;
+  padding: 60px;
+}
+
 /* login form box */
-/* come back to this! */
+
 .login-form-box {
-  /* background-color: wheat; */
+  display: flex;
+  box-sizing: border-box;
+  background-color: white; 
+  width: 100%;
+  max-width: 38rem;
   font-family: Apercu, sans-serif;
   border-radius: 8px;
-  // padding: 24px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   margin-left: auto;
@@ -45,6 +56,10 @@
   padding: 0px 0px 0px 5px;
 }
 
+.signup-link-a:hover {
+  text-decoration: underline;
+}
+
 /* input-fields */
 
 .login-fields {
@@ -55,7 +70,7 @@
 }
 
 .login-fields > input {
-  width: 40%;
+  width: 90%;
   cursor: text;
   font-size: 16px;
   line-height: 12px;
@@ -77,14 +92,13 @@
 .login-form-buttons {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   padding: 20px 0 0 0;
 }
 
 .login-form-button {
   text-align: center;
-  width: 38%;
+  width: 90%;
   font-family: Apercu, sans-serif;
   color: white;
   background-color: #0C6FF9;
@@ -103,7 +117,7 @@
 
 .demo-login-form-button {
   text-align: center;
-  width: 40%;
+  width: 90%;
   font-family: Apercu, sans-serif;
   color: #323233;
   background-color: #FAF6F4;

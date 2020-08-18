@@ -7,14 +7,14 @@ const NavBar = ({ currentUserId, logout }) => {
   }
 
   return (
-    <div>
-      <Link to="/" className="header-logo-link">
+    <div className="nav-bar">
+      <Link to="/login">
         <img className="logo" src={window.logoURL} alt="logo" />
       </Link>
       <ul className="header-links">
         <li className="home">Home</li>
+        <li className="discover">Discover</li>
         <li className="profile">Profile</li>
-        <li className="search">Search</li>
       </ul>
     </div>
   );

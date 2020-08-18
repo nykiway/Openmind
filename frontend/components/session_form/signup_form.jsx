@@ -25,7 +25,7 @@ class SignUpForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="signup-background">
         <div className="signup-form-box">
           <h2 className="signup-header">Sign Up</h2>
           <div className="login-link">
