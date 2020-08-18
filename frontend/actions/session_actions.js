@@ -26,12 +26,12 @@ export const login = (formUser) => (dispatch) => {
 
 export const signup = (formUser) => (dispatch) => {
   return SessionAPI.signup(formUser).then((user) => {
-    dispatch(receiveCurrentUser(user));
+    return dispatch(receiveCurrentUser(user));
   });
 };
 
 export const logout = () => (dispatch) => {
   return SessionAPI.logout().then((user) => {
-    dispatch(logoutCurrentUser());
+    return dispatch(logoutCurrentUser());
   });
 };

@@ -4,7 +4,7 @@
   /* background-color: wheat; */
   font-family: Apercu, sans-serif;
   border-radius: 8px;
-  padding: 24px;
+  // padding: 24px;
   display: flex;
   flex-direction: column;
   margin-left: auto;
@@ -15,27 +15,34 @@
 
 .login-header {
   font-family: Apercu, sans-serif;
+  color: #323233;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #323233;
+  margin-bottom: 16px;
 }
 
 /* signup link */
 
 .signup-link {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
   color: #5A6175;
+  font-size: 14px;
 }
 
 .signup-link-a {
+  display: inline;
   color: #F47D31;
   cursor: pointer;
   text-decoration: none;
+  padding: 0px 0px 0px 5px;
 }
 
 /* input-fields */
@@ -45,7 +52,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 
 .login-fields > input {
@@ -62,6 +68,9 @@
   margin: 20px 0 0 0;
 }
 
+.login-fields > input:focus {
+  border: 1px solid orange;
+}
 
 /* buttons */
 
@@ -74,7 +83,8 @@
 }
 
 .login-form-button {
-  width: 45%;
+  text-align: center;
+  width: 38%;
   font-family: Apercu, sans-serif;
   color: white;
   background-color: #0C6FF9;
@@ -92,7 +102,8 @@
 }
 
 .demo-login-form-button {
-  width: 45%;
+  text-align: center;
+  width: 40%;
   font-family: Apercu, sans-serif;
   color: #323233;
   background-color: #FAF6F4;
@@ -101,10 +112,22 @@
   height: 45px;
   font-size: 12px;
   text-transform: uppercase;
-  padding-left: 24px;
-  padding-right: 24px;
   letter-spacing: 2.5px;
   line-height: 16px;
   font-weight: 700;
   cursor: pointer;
 }
+
+.login-form-button:hover {
+  background-color: #0e64dd;
+  -webkit-transition: all .2s ease-in-out;
+}
+
+.demo-login-form-button:hover {
+  background-color: #fffdfd;
+  -webkit-transition: all .2s ease-in-out;
+}
+
+// #0C6FF9 - blue
+// #FAF6F4 - beige
+// #323233 - darkgrey

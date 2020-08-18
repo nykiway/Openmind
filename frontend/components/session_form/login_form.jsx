@@ -30,11 +30,9 @@ class LoginForm extends React.Component {
           <h2 className="login-header">Log In</h2>
           <div className="signup-link">
             <p>New To Headspace?</p>
-            &nbsp;
             <Link to="/signup" className="signup-link-a">
               Sign Up
             </Link>
-            &nbsp;
           </div>
           <form>
             <div className="login-fields">
