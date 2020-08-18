@@ -8,6 +8,12 @@
 
 User.delete_all
 
+demouser = User.create!(
+  username: 'demouser',
+  email: 'demouser@gmail.com',
+  password: '12345678'
+)
+
 dalailama = User.create!(
   username: 'thelamadama',
   email: 'thelamadama@outlook.com',

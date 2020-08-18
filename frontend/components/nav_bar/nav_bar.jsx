@@ -12,9 +12,15 @@ const NavBar = ({ currentUserId, logout }) => {
         <img className="logo" src={window.logoURL} alt="logo" />
       </Link>
       <ul className="header-links">
-        <li className="home">Home</li>
-        <li className="discover">Discover</li>
-        <li className="profile">Profile</li>
+        <Link to="#">
+          <li className="home">Home</li>
+        </Link>
+        <Link to="/discover">
+          <li className="discover">Discover</li>
+        </Link>
+        <Link to="/profile">
+          <li className="profile">Profile</li>
+        </Link>
       </ul>
     </div>
   );
