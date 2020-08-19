@@ -8,6 +8,9 @@
 
 User.delete_all
 
+
+# Users:
+
 demouser = User.create!(
   username: 'demouser',
   email: 'demouser@gmail.com',
@@ -25,3 +28,16 @@ siddhartha = User.create!(
   email: 'buddhabuddy@gmail.com',
   password: 'sunmoontruth108'
 )
+
+confucius = User.create!(
+  username: 'confuciussays',
+  email: 'goldenrule@yahoo.com',
+  password: 'moralsnstuff'
+)
+
+# Meditations
+
+# m1 = Meditation.new({name: 'Find Your Focus', category: 'Focus', duration: '00:04:20'})
+# song = EzDownload.open('link here')
+# m1.mp3_file.attach(io: meditation, filename: 'Find Your Focus.mp3')
+# m1.save!

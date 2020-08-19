@@ -45,10 +45,6 @@
   margin: 0px 10px 0px 0px;
 }
 
-.profile {
-  margin: 0;
-}
-
 .home:hover {
   color: lightgrey;
 }
@@ -61,7 +57,12 @@
   color: lightgrey;
 }
 
+.logout:hover {
+  color: #F47D31;
+}
+
 // #0C6FF9 - blue
 // #FAF6F4 - beige
 // #323233 - darkgrey
 // #5A6175 - lighter grey
+// #F47D31 - orange
