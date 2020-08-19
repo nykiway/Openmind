@@ -12,17 +12,18 @@ import FooterContainer from './footer/footer_container';
 const App = () => (
   <div>
     <header>
-    <NavBarContainer/>
+      <NavBarContainer />
     </header>
-    <Route exact path="/">
-      <Redirect path="/home" component={HomeContainer} />
-    </Route>
+    <Switch>
+    <Route path="/home" component={HomeContainer} />
     <Route path="/login" component={LogInFormContainer} />
     <Route path="/signup" component={SignUpFormContainer} />
     <Route path="/discover" component={DiscoverContainer} />
     <Route path="/profile" component={ProfileContainer} />
+    <Redirect to="/home"></Redirect>
+    </Switch>
     
-    <FooterContainer/>
+    <FooterContainer />
   </div>
 );
 

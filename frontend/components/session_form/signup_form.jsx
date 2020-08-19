@@ -24,6 +24,7 @@ class SignUpForm extends React.Component {
   }
 
   render() {
+    const { errors } = this.props;
     return (
       <div className="signup-background">
         <div className="signup-form-box">
@@ -57,8 +58,14 @@ class SignUpForm extends React.Component {
                 onChange={this.update("password")}
               />
             </div>
+            <div className="error">
+              <p>{errors ? errors[0] : ""}</p>
+            </div>
             <div className="signup-form-buttons">
-              <button className="signup-form-button" onClick={this.handleSubmit}>
+              <button
+                className="signup-form-button"
+                onClick={this.handleSubmit}
+              >
                 Create An Account
               </button>
               <br />
