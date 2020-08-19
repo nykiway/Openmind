@@ -34,6 +34,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    const { errors } = this.props;
     return (
       <div className="login-background">
         <div className="login-form-box">
@@ -59,21 +60,23 @@ class LoginForm extends React.Component {
                 onChange={this.update("password")}
               />
             </div>
+            <div className="error">
+              <p>{errors ? errors[0] : ""}</p>
+            </div>
             <div className="login-form-buttons">
-              <button
-                className="login-form-button"
-                onClick={this.handleSubmit}>
+              <button className="login-form-button" onClick={this.handleSubmit}>
                 Log In
               </button>
               <br />
               <button
                 className="demo-login-form-button"
-                onClick={this.demoUser}>
+                onClick={this.demoUser}
+              >
                 Demo Log In
               </button>
             </div>
-            </form>
-          </div>
+          </form>
+        </div>
       </div>
     );
   }

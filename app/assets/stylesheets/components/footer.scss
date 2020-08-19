@@ -1,0 +1,50 @@
+.footer-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FAF6F4;
+  padding: 30px;
+  font-family: Apercu, sans-serif;
+  margin: 0px 0px 0px 0px;
+  border-top: 1px solid white;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  color: #444444;
+}
+
+.fa-github-alt {
+  margin: 0px 15px 0px 0px;
+}
+
+.fa-linkedin {
+  margin: 0px 15px 0px 0px;
+}
+
+.fa-angellist {
+  margin: 0px 0px 0px 0px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-notification {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.0px;
+  text-align: center;
+  margin: 10px 0px 0px 0px;
+  color: #323233;
+}
+
+
+
+// #0C6FF9 - blue
+// #FAF6F4 - beige
+// #323233 - darkgrey

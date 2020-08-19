@@ -27,7 +27,18 @@
   cursor: pointer;
   margin: 20px;
   margin-top: 40px;
+}
 
+.signup-nav-header {
+  margin: 0px 10px 0px 0px; 
+}
+
+.signup-nav-header:hover {
+  color: lightgrey; 
+}
+
+.login-nav-header:hover {
+  color: lightgrey; 
 }
 
 .home, .profile, .discover {
