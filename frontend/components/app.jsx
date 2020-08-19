@@ -14,7 +14,7 @@ const App = () => (
     <header>
     <NavBarContainer/>
     </header>
-    <Route exact path="/"> // why doesn't this render?
+    <Route exact path="/">
       <Redirect path="/home" component={HomeContainer} />
     </Route>
     <Route path="/login" component={LogInFormContainer} />
