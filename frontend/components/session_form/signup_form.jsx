@@ -13,6 +13,10 @@ class SignUpForm extends React.Component {
     this.update = this.update.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }

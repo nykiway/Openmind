@@ -10,6 +10,8 @@ import HomeContainer from './home/home_container';
 import FooterContainer from './footer/footer_container';
 import StatsContainer from './profile/stats/stats_container';
 
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+
 const App = () => (
   <div>
     <header>
@@ -17,12 +19,12 @@ const App = () => (
     </header>
     <Switch>
     <Route path="/home" component={HomeContainer} />
-    <Route path="/login" component={LogInFormContainer} />
-    <Route path="/signup" component={SignUpFormContainer} />
+    <AuthRoute exact path="/login" component={LogInFormContainer} />
+    <AuthRoute exact path="/signup" component={SignUpFormContainer} />
     <Route path="/discover" component={DiscoverContainer} />
     <Route path="/profile" component={ProfileContainer} />
     <Route path="/stats" component={StatsContainer} />
-    <Redirect to="/home"></Redirect>
+    <Redirect to="/home"/>
     </Switch>
     
     <FooterContainer />
