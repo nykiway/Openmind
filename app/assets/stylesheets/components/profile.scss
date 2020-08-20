@@ -1,0 +1,133 @@
+// Profile Header
+
+.profile-header {
+  background-color: #FAF6F4;
+  padding: 7px;
+  border-top: 1.5px solid #EBE8E4;
+  border-bottom: 4px solid #EBE8E4;
+}
+
+.profile-header-options {
+  display: flex;
+  font-size: 14px;
+  color: rgb(201, 198, 198);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  justify-content: space-evenly;
+}
+
+// Stats Hero
+
+.stats-hero {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 50px;
+  background-color: #5A6175;
+}
+
+.stats-hero h1 {
+  color: white;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 32px;
+  width: 256px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.meditate-stats-button {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 400;
+  letter-spacing: 2.5px;
+  line-height: 16px;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: transparent;
+  height: 40px;
+  border: 2px solid white;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out 0s;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+}
+
+.view-goals-button {
+  color: white;
+  font-weight: 200;
+  letter-spacing: 2.5px;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 16px;
+  opacity: 0.4;
+}
+
+// stats
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.stats h2 {
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(127, 127, 127);
+  font-weight: 400;
+  margin: 0px 0px 8px 0px;
+  letter-spacing: 0.5px;
+}
+
+.stats i {
+  color: #F47D31;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.stats h3 {
+  color: #4B5161;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 10px 10px 10px 10px;
+}
+
+
+
+.last-time-meditated, .current-run-streak,
+.sessions-completed, .total-time-meditated {
+  margin: 30px;
+}
+
+
+// #0C6FF9 - blue
+// #FAF6F4 - beige
+// #323233 - darkgrey
+// #F47D31 - orange

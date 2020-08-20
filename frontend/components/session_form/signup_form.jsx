@@ -66,7 +66,7 @@ class SignUpForm extends React.Component {
                 className="signup-form-button"
                 onClick={this.handleSubmit}
               >
-                Create An Account
+                <Link to="/profile">Create An Account</Link>
               </button>
               <br />
             </div>

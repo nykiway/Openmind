@@ -22,7 +22,7 @@ class Home extends React.Component {
             </Link>
           </div>
         </div>
-        // come back and add these photos later
+        {/* come back and add these photos later */}
         <div className="features-section">
           <img className="mindful-approach" src="" alt=""/>
           <img className="loves-science" src="" alt=""/>
