@@ -8,6 +8,7 @@ import ProfileContainer from './profile/profile_container';
 import DiscoverContainer from './discover/discover_container'
 import HomeContainer from './home/home_container';
 import FooterContainer from './footer/footer_container';
+import StatsContainer from './profile/stats/stats_container';
 
 const App = () => (
   <div>
@@ -20,6 +21,7 @@ const App = () => (
     <Route path="/signup" component={SignUpFormContainer} />
     <Route path="/discover" component={DiscoverContainer} />
     <Route path="/profile" component={ProfileContainer} />
+    <Route path="/stats" component={StatsContainer} />
     <Redirect to="/home"></Redirect>
     </Switch>
     
