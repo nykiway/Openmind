@@ -26,7 +26,6 @@ const App = () => (
     <Route path="/stats" component={StatsContainer} />
     <Redirect to="/home"/>
     </Switch>
-    
     <FooterContainer />
   </div>
 );

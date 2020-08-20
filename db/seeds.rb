@@ -6,7 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+# look at docs for me!!
+require 'open-uri' 
+
 User.delete_all
+Meditation.delete_all
 
 
 # Users:
@@ -37,7 +42,7 @@ confucius = User.create!(
 
 # Meditations
 
-# m1 = Meditation.new({name: 'Find Your Focus', category: 'Focus', duration: '00:04:20'})
-# song = EzDownload.open('link here')
-# m1.mp3_file.attach(io: meditation, filename: 'Find Your Focus.mp3')
-# m1.save!
+m1 = Meditation.new({name: 'Acceptance & Letting Go', category: 'sadness', duration: '00:00:53'})
+song = open_uri('https://openmind-seeds.s3-us-west-1.amazonaws.com/Acceptance+%26+Letting+Go.mp3')
+m1.mp3_file.attach(io: meditation, filename: 'Acceptance & Letting Go.mp3')
+m1.save!
