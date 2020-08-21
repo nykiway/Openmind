@@ -1,0 +1,65 @@
+.discover-hero {
+  padding: 175px;
+  text-align: center;
+  background-color: #F47D31;
+}
+
+.meditations-box {
+  color: #323233;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.meditations-list {
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.meditation-name {
+  text-align: center;
+  width: 150px;
+  height: 170px;
+  padding-top: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: #FAF6F4;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.fa-circle {
+  color: #F47D31;
+  font-size: 80px;
+  padding-top: 23px;
+}
+
+// search
+
+.search-form-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-form {
+  justify-content: center;
+  width: 250px;
+  margin: 30px;
+  padding: 15px;
+  border: 1px solid lightgrey;
+  border-radius: 50px;
+}
+
+.search-form:focus {
+  border: 1px solid #F47D31;
+}
+
+// #0C6FF9 - blue
+// #FAF6F4 - beige
+// #323233 - darkgrey
+// #F47D31 - orange

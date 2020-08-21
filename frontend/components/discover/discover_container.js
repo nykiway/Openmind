@@ -5,7 +5,7 @@ import { fetchMeditations, fetchMeditation } from '../../actions/meditation_acti
 
 const mapStateToProps = (state) => {
   return {
-    meditations: state.entities.meditations,
+    meditations: Object.values(state.entities.meditations),
     currentUser: state.entities.users[state.session.id]
   }
 };
