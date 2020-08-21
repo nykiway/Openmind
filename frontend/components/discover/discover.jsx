@@ -21,7 +21,11 @@ class Discover extends React.Component {
             <ProfileNav />
           </div>
           <div className="discover-hero">
-            <h1>This is the discover component</h1>
+            <img
+              className="discover-hero-image"
+              src={
+                "https://openmind-seeds.s3-us-west-1.amazonaws.com/images/hero_images/yellow_sun.jpg"}
+            />
           </div>
           <div className="search-form-box">
             <form>
@@ -42,7 +46,10 @@ class Discover extends React.Component {
                     to={`/meditations/${meditation.id}`}
                   >
                     {meditation.name} <br />
-                    <i class="fas fa-circle"></i>
+                    <span className="fa-stack fa-2x">
+                      <i className="fas fa-circle fa-stack-2x"></i>
+                      <i className="fas fa-headphones fa-stack-1x fa-inverse"></i>
+                    </span>
                   </Link>
                 </li>
               ))}

@@ -7,13 +7,15 @@ class MeditationItem extends React.Component {
   }
 
   render() {
-    const meditation = this.props;
+    let meditations;
 
-    return (
-      <div>
-        {meditation}
-      </div>
-    )
+    if(this.props.meditations !== undefined) {
+      return (
+        <div>
+          {meditation}
+        </div>
+      )
+    }
   }
 }
 

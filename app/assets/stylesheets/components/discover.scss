@@ -1,5 +1,7 @@
 .discover-hero {
-  padding: 175px;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 20px;
   text-align: center;
   background-color: #F47D31;
 }
@@ -58,6 +60,20 @@
 .search-form:focus {
   border: 1px solid #F47D31;
 }
+
+.fa-stack {
+  font-size: 2.5em;
+}
+
+.fa-headphones {
+  margin-top: 20px;
+  color: #F5A571;
+}
+
+.fa-stack i {
+  vertical-align: middle;
+}
+
 
 // #0C6FF9 - blue
 // #FAF6F4 - beige
