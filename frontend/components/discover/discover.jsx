@@ -1,12 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ProfileNav from '../profile/profile_nav/profile_nav';
 
 class Discover extends React.Component {
   render() {
     return (
       <div>
+        {/* placeholder start */}
+        <ProfileNav />
+        <div className="stats-hero"></div>
+        {/* placeholder end */}
         <h1>
-          This is the discover page, where you'll be able to search for and view meditations.
+          This is the discover page, where you'll be able to search for and view
+          meditations.
         </h1>
       </div>
     );
