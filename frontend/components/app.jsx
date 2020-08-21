@@ -29,7 +29,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
 
       <Route path="/discover" component={DiscoverContainer} />
-      <Route path="/discover/:meditationId" component={MeditationItem} />
+      <Route path="/meditations/:meditationId" component={MeditationItem} />
 
       <Route path="/profile" component={ProfileContainer} />
       <Route path="/stats" component={StatsContainer} />

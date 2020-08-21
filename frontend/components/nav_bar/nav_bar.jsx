@@ -40,7 +40,7 @@ const NavBar = ({ currentUser, logout }) => {
 
   return (
     <header className="nav-bar">
-      <Link to="/login">
+      <Link to="/home">
         <img className="logo" src={window.logoURL} alt="logo" />
       </Link>
       <div>
