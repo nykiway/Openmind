@@ -1,8 +1,16 @@
+.body {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
 .footer-box {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  // position: absolute;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
   background-color: #FAF6F4;
   padding: 30px;
   font-family: Apercu, sans-serif;

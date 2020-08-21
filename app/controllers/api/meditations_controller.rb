@@ -5,15 +5,7 @@ class Api::MeditationsController < ApplicationController
   end
   
   def show
-    @meditation = Meditation.find_by(id: params[:id])
-    if @meditation
-      render :show
-    else
-      render json @meditation.errors.full_messages, status: 422
-    end
-  end
-
-  def destroy
-  
+    @meditation = Meditation.find(params[:id])
+    render :show
   end
 end

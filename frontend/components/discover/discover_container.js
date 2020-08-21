@@ -1,12 +1,18 @@
 import { connect } from "react-redux";
 import Discover from "./discover";
+import { fetchMeditations, fetchMeditation } from '../../actions/meditation_actions';
 
-const mapStateToProps = (state) => ({
-  // do something here
-});
+
+const mapStateToProps = (state) => {
+  return {
+    meditations: state.entities.meditations,
+    currentUser: state.entities.users[state.session.id]
+  }
+};
 
 const mapDispatchToProps = (dispatch) => ({
-  // do something here
+  fetchMeditations: (data) => dispatch(fetchMeditations(data)),
+  fetchMeditation: (id) => dispatch(fetchMeditation(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Discover);

@@ -1,30 +1,30 @@
-import * as MeditationAPI from '../song/api/util';
+import * as MeditationAPI from '../util/meditation_api_util';
 
-export const RECEIVE_ALL_MEDITATIONS = "RECEIVE_ALL_MEDITATIONS";
+export const RECEIVE_MEDITATIONS = "RECEIVE_MEDITATIONS";
 export const RECEIVE_MEDITATION = "RECEIVE_MEDITATION";
 
-const receiveAllMeditations = (meditations) => {
+const receiveMeditations = (meditations) => { 
   return {
-    type: RECEIVE_ALL_MEDITATIONS,
+    type: RECEIVE_MEDITATIONS,
     meditations
   }
 };
 
-const receiveMeditation = meditation => {
+const receiveMeditation = ({ meditation }) => {
   return {
     type: RECEIVE_MEDITATION,
-    meditation
+    meditation,
   }
 }
 
 // Thunk Actions
 
-export const requestAllMeditations = () => dispatch => {
-  return MeditationAPI.fetchAllMeditations()
-    .then(() => dispatch(receiveAllMeditations(meditations)))
+export const fetchMeditations = () => dispatch => {
+  return MeditationAPI.fetchMeditations()
+    .then((meditations) => dispatch(receiveMeditations(meditations)))
 };
 
-export const requestMeditation = (id) => dispatch => {
+export const fetchMeditation = (id) => dispatch => {
   return MeditationAPI.fetchMeditation(id)
     .then(meditation => dispatch(receiveMeditation(meditation)))
 }

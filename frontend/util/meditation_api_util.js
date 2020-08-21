@@ -1,7 +1,8 @@
-export const fetchMeditations = () => {
+export const fetchMeditations = (data) => {
   return $.ajax({
     method: 'GET',
-    url: 'api/meditations'
+    url: 'api/meditations',
+    data
   })
 };
 
