@@ -16,7 +16,7 @@ class Profile extends React.Component {
         <Stats/>
         <Switch>
           <Route path="/profile/stats" component={StatsContainer} />
-          <Route path="/profile/discovery" component={StatsContainer} />
+          <Route path="/profile/journey" component={StatsContainer} />
           <Route path="/profile/settings" component={StatsContainer} />
         </Switch>
       </div>

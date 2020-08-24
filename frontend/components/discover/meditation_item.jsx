@@ -1,21 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import ProfileNav from "../profile/profile_nav/profile_nav";
 
 class MeditationItem extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  render() {
-    let meditations;
+  displayModal() {
+    if (this.state) {
+      return null;
+    }
+  }
 
-    if(this.props.meditations !== undefined) {
+  render() {
       return (
         <div>
-          {meditation}
+          <ProfileNav/>
+          <h1>I am the meditation!</h1>
         </div>
       )
-    }
   }
 }
 

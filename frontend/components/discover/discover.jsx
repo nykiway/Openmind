@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ProfileNav from '../profile/profile_nav/profile_nav';
 import MeditationItem from './meditation_item';
+import { openModal } from '../../actions/modal_actions'
 
 class Discover extends React.Component {
   constructor(props) {
@@ -11,9 +12,7 @@ class Discover extends React.Component {
   componentDidMount() {
     this.props.fetchMeditations();
   }
-  
   render () {
-
     if (this.props.meditations !== undefined) {
       return (
         <div>
@@ -24,7 +23,8 @@ class Discover extends React.Component {
             <img
               className="discover-hero-image"
               src={
-                "https://openmind-seeds.s3-us-west-1.amazonaws.com/images/hero_images/yellow_sun.jpg"}
+                "https://openmind-seeds.s3-us-west-1.amazonaws.com/images/hero_images/yellow_sun.jpg"
+              }
             />
           </div>
           <div className="search-form-box">
@@ -39,10 +39,10 @@ class Discover extends React.Component {
           <div className="meditations-box">
             <ul className="meditations-list">
               {this.props.meditations.map((meditation) => (
-                <li className="meditation-name">
+                <li className="meditation-name" key={meditation.id}>
                   <Link
+                    onClick={() => openModal('meditation')}
                     className="single-meditation"
-                    key={meditation.id}
                     to={`/meditations/${meditation.id}`}
                   >
                     {meditation.name} <br />
@@ -64,7 +64,7 @@ class Discover extends React.Component {
       </div>
     )
   }
-  }
+}
 }
 
 export default Discover;
