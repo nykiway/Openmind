@@ -1,10 +1,12 @@
+// modal stuff
+
 .modal-background {
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background: orange;
+  background: rgb(245, 139, 68);
   z-index: 10;
 }
 
@@ -20,4 +22,54 @@
   top: 50px;
   right: 5px;
   cursor: pointer;
+}
+
+// modal buttons
+
+.fa-stack-meditation-item .fa-circle {
+  position: relative;
+  font-size: 100px;
+  color: rgb(252, 245, 235);
+}
+
+.fa-play {
+  padding-top: 40px;
+  padding-left: 3px;
+  font-size: 35px;
+  color: rgb(90, 97, 117);
+}
+
+//text 
+
+.meditation-item {
+  // border: 1px solid black;
+  color: rgb(252, 245, 235);
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.fa-stack-meditation-item {
+  // border: 1px solid blue;
+}
+
+.meditation-name-title {
+  margin-bottom: 490px;
+  // border: 1px solid purple;
+}
+
+.meditation-length {
+  margin-top: -100px;
+  padding-bottom: 50px;
+  // border: 1px solid yellow;
+}
+
+.timer-countdown {
+  // border: 1px solid white;
+  position: relative;
+  font-weight: 200;
+  font-size: 12px;
+  padding-top: 50px;
 }

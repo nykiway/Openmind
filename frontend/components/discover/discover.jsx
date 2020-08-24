@@ -1,8 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import ProfileNav from '../profile/profile_nav/profile_nav';
-import MeditationItem from './meditation_item';
-import { openModal } from '../../actions/modal_actions'
 
 class Discover extends React.Component {
   constructor(props) {
@@ -12,6 +9,8 @@ class Discover extends React.Component {
   componentDidMount() {
     this.props.fetchMeditations();
   }
+
+  
   render () {
     if (this.props.meditations !== undefined) {
       return (
@@ -40,31 +39,27 @@ class Discover extends React.Component {
             <ul className="meditations-list">
               {this.props.meditations.map((meditation) => (
                 <li className="meditation-name" key={meditation.id}>
-                  <Link
-                    onClick={() => openModal('meditation')}
+                  <button
+                    onClick={(() => this.props.openModal("meditation"))}
                     className="single-meditation"
-                    to={`/meditations/${meditation.id}`}
                   >
-                    {meditation.name} <br />
-                    <span className="fa-stack fa-2x">
-                      <i className="fas fa-circle fa-stack-2x"></i>
-                      <i className="fas fa-headphones fa-stack-1x fa-inverse"></i>
-                    </span>
-                  </Link>
+                    {meditation.name}
+                    <br />
+                    <div className="index-meditation">
+                      <span className="fa-stack fa-2x">
+                        <i className="fas fa-circle fa-stack-2x"></i>
+                        <i className="fas fa-headphones fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </div>
+                  </button>
                 </li>
               ))}
             </ul>
           </div>
         </div>
       );
-  } else {
-    return (
-      <div>
-
-      </div>
-    )
+    }
   }
-}
 }
 
 export default Discover;

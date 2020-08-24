@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
-import MeditationItem from '../discover/meditation_item';
+import MeditationItem from '../discover/meditation_item'
 
-function Modal({ modal, closeModal }) {
+function Modal({ modal}) {
   if (!modal) {
     return null;
   }
@@ -18,7 +18,7 @@ function Modal({ modal, closeModal }) {
   }
 
   return (
-    <div className="modal-background" onClick={closeModal}>
+    <div className="modal-background">
       <div className="modal-child" onClick={e => e.stopPropagation()}>
         {component}
       </div>
