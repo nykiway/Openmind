@@ -17,10 +17,16 @@
   transform: translate(-50%, -50%);
 }
 
-.close-x {
+.close-x i{
   position: absolute;
-  top: 50px;
-  right: 5px;
+  z-index: 2;
+  color: rgb(252, 245, 235);
+  padding: 15px;
+  border-radius: 150px;
+  font-size: 24px;
+  line-height: 24px;
+  top: 10px;
+  left: 20px;
   cursor: pointer;
 }
 
@@ -56,12 +62,11 @@
 }
 
 .meditation-name-title {
-  margin-bottom: 490px;
+  margin-bottom: 30px;
   // border: 1px solid purple;
 }
 
 .meditation-length {
-  margin-top: -100px;
   padding-bottom: 50px;
   // border: 1px solid yellow;
 }

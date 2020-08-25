@@ -4,12 +4,17 @@ import ProfileNav from '../profile/profile_nav/profile_nav';
 class Discover extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchMeditations();
   }
 
+  handleClick() {
+    // pass along currentMeditation with this
+    this.props.openModal('meditation');
+  }
   
   render () {
     if (this.props.meditations !== undefined) {
@@ -40,7 +45,7 @@ class Discover extends React.Component {
               {this.props.meditations.map((meditation) => (
                 <li className="meditation-name" key={meditation.id}>
                   <button
-                    onClick={(() => this.props.openModal("meditation"))}
+                    onClick={this.handleClick}
                     className="single-meditation"
                   >
                     {meditation.name}

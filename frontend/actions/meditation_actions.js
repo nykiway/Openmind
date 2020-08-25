@@ -3,6 +3,7 @@ import * as MeditationAPI from '../util/meditation_api_util';
 export const RECEIVE_MEDITATIONS = "RECEIVE_MEDITATIONS";
 export const RECEIVE_MEDITATION = "RECEIVE_MEDITATION";
 
+
 const receiveMeditations = (meditations) => { 
   return {
     type: RECEIVE_MEDITATIONS,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
-import MeditationItem from '../discover/meditation_item'
+import MeditationItemContainer from '../discover/meditation_item_container'
 
 function Modal({ modal}) {
   if (!modal) {
@@ -11,7 +11,7 @@ function Modal({ modal}) {
   let component;
   switch(modal) {
     case 'meditation':
-      component = <MeditationItem />;
+      component = <MeditationItemContainer />;
       break;
     default:
       return null;
@@ -19,11 +19,14 @@ function Modal({ modal}) {
 
   return (
     <div className="modal-background">
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
+      <div onClick={closeModal} className="close-x">
+        <i className="fas fa-times"></i>
+      </div>
+      <div className="modal-child" onClick={(e) => e.stopPropagation()}>
         {component}
       </div>
     </div>
-  )
+  );
 }
 
 const mapStateToProps = state => {
