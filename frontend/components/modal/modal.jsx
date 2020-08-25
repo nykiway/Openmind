@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { closeModal } from '../../actions/modal_actions';
 import MeditationItemContainer from '../discover/meditation_item_container'
 
-function Modal({ modal}) {
+function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }

@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => ({
   receiveCurrentMeditation: (id) => dispatch(receiveCurrentMeditation(id)),
   openModal: (modal) => dispatch(openModal(modal)),
   closeModal: () => dispatch(closeModal()),
-  toggleMeditation: () => dispatch(toggleMeditation()),
+  toggleMeditation: () => dispatch(toggleMeditation()), // use props when dispatching!!!
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MeditationItem);

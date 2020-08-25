@@ -15,7 +15,7 @@ export default (state = {}, action) => {
       // action.meditation.isPlaying = true;
       // newState.meditation = action.meditation;
       // return newState;
-      action.meditation.isPlaying = true;
+      action.meditation.isPlaying = false;
       // newState.meditation = action.meditation;
       return Object.assign({}, action.meditation );
 

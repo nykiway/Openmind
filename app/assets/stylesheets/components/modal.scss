@@ -32,18 +32,40 @@
 
 // modal buttons
 
-.fa-stack-meditation-item .fa-circle {
-  position: relative;
-  font-size: 100px;
+.meditation-stack {
+  display: flex;
+  align-items: center;
+  width: 2em;
+  height: 2em;
+  vertical-align: middle;
+}
+
+.meditation-stack-1x,
+.meditation-stack-2x,
+.meditation-stack-3x {
+  position: absolute;
+  // left: 0;
+  width: 100%;
+  // text-align: center;
+}
+
+.meditation-stack-1x {
+  
+  line-height: inherit;
+  color: rgb(90, 97, 117);
+}
+
+.meditation-stack-2x {
+  
+  font-size: 3em;
   color: rgb(252, 245, 235);
 }
 
-.fa-play {
-  padding-top: 40px;
-  padding-left: 3px;
-  font-size: 35px;
-  color: rgb(90, 97, 117);
+.meditation-stack-3x {
+  font-size: 4em;
+  color: rgba(252, 245, 235, 0.262);
 }
+
 
 //text 
 
@@ -78,3 +100,20 @@
   font-size: 12px;
   padding-top: 50px;
 }
+
+
+// TEST TEST TEST
+
+
+// .icon-stack-1x {
+//   color: white;
+//   line-height: inherit;
+// }
+// .icon-stack-2x {
+//   color: antiquewhite;
+//   font-size: 1.5em;
+// }
+// .icon-stack-3x {
+//   color: brown;
+//   font-size: 2em;
+// }
