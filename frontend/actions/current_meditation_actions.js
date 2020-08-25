@@ -6,7 +6,7 @@ export const TOGGLE_PLAY = "TOGGLE PLAY";
 export const receiveCurrentMeditation = (meditation) => {
   return {
     type: RECEIVE_CURRENT_MEDITATION,
-    meditation,
+    meditation
   };
 };
 
@@ -18,10 +18,8 @@ export const toggleMeditation = () => {
 
 // Thunk Actions
 
-export const fetchCurrentMeditation = (id) => {
-  return (dispatch) => {
-    return MeditationAPI.fetchMeditation(id).then((meditation) => {
-      dispatch(receiveCurrentMeditation(meditation));
-    });
-  };
+export const fetchCurrentMeditation = (id) => (dispatch) => {
+  return MeditationAPI.fetchCurrentMeditation(id).then((meditation) =>
+    dispatch(receiveCurrentMeditation(meditation))
+  );
 };

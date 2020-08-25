@@ -14,7 +14,7 @@ class Discover extends React.Component {
 
   handleClick(meditationId) {
     this.props.openModal('meditation');
-    this.props.fetchMeditation(meditationId);
+    this.props.fetchCurrentMeditation(meditationId);
   }
   
   render () {

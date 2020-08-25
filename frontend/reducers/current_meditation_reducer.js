@@ -11,9 +11,14 @@ export default (state = {}, action) => {
   
   switch(action.type) {
     case RECEIVE_CURRENT_MEDITATION:
+      // this one worked!
+      // action.meditation.isPlaying = true;
+      // newState.meditation = action.meditation;
+      // return newState;
       action.meditation.isPlaying = true;
-      newState.meditation = action.meditation;
-      return newState;
+      // newState.meditation = action.meditation;
+      return Object.assign({}, action.meditation );
+
     case TOGGLE_PLAY:
       if (newState.meditation.isPlaying) newState.meditation.isPlaying = false;
       else newState.meditation.isPlaying = true;

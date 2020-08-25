@@ -1,2 +1,2 @@
-json.extract! @song, :id, :title, :album_id
-json.mp3 url_for(@song.mp3_file)
+json.extract! @meditation, :id, :name, :categories
+json.mp3 url_for(@meditation.mp3_file)

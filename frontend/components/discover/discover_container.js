@@ -1,7 +1,11 @@
 import { connect } from "react-redux";
 import Discover from "./discover";
 import { openModal, closeModal } from '../../actions/modal_actions';
-import { fetchMeditations, fetchMeditation } from '../../actions/meditation_actions';
+import { 
+  fetchMeditations, 
+  fetchMeditation } from '../../actions/meditation_actions';
+
+import { fetchCurrentMeditation } from '../../actions/current_meditation_actions'
 
 
 const mapStateToProps = (state) => {
@@ -15,6 +19,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchMeditations: (data) => dispatch(fetchMeditations(data)),
   fetchMeditation: (id) => dispatch(fetchMeditation(id)),
+  fetchCurrentMeditation: (id) => dispatch(fetchCurrentMeditation(id)),
   openModal: modal => dispatch(openModal(modal)),
   closeModal: () => dispatch(closeModal())
 });

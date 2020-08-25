@@ -4,6 +4,7 @@ import React from 'react';
 class MeditationItem extends React.Component {
   constructor(props) {
     super(props);
+    
   }
 
   displayModal() {
@@ -12,25 +13,28 @@ class MeditationItem extends React.Component {
     }
   }
 
+  playAudio() {
+    let audio = new Audio(`${this.props.currentMeditation.mp3}`);
+    audio.play();
+  }
+
+  // togglePlay = () => {
+
+  // }
+
 
   render() {
-    // let audio = new Audio(
-    //   "https://openmind-seeds.s3-us-west-1.amazonaws.com/meditations/Acceptance+%26+Letting+Go.mp3"
-    // );
-    const {currentMeditation } = this.props;
-
+    const { currentMeditation } = this.props;
+    
     return (
       <div className="meditation-item">
-        <h1 className="meditation-name-title">Title of Meditation Here</h1>
-        <h2 className="meditation-length">
-          Meditation Name Goes Here
-          {currentMeditation.name}
-        </h2>
+        <h1 className="meditation-name-title">{currentMeditation.name}</h1>
+        <h2 className="meditation-length"></h2>
+          {/* {currentMeditation.mp3} */}
         <button
           className="fa-stack-meditation-item fa-2x"
-          // onClick={() => audio.play()}
+          onClick={() => this.playAudio()}
         >
-          <audio src={this.props.meditation} />
           <i className="fas fa-circle fa-stack-2x"></i>
           <i className="fas fa-play fa-stack-1x"></i>
         </button>

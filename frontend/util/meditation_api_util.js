@@ -12,3 +12,10 @@ export const fetchMeditation = (id) => {
     url: `api/meditations/${id}`
   })
 }
+
+export const fetchCurrentMeditation = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/meditations/${id}`
+  })
+}

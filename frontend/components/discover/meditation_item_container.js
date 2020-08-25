@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchMeditations: (data) => dispatch(fetchMeditations(data)),
-  fetchMeditation: (id) => dispatch(fetchCurrentMeditation(id)),
+  fetchMeditation: (id) => dispatch(fetchMeditation(id)),
   receiveCurrentMeditation: (id) => dispatch(receiveCurrentMeditation(id)),
   openModal: (modal) => dispatch(openModal(modal)),
   closeModal: () => dispatch(closeModal()),
