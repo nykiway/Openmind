@@ -17,12 +17,14 @@ class MeditationItem extends React.Component {
     // let audio = new Audio(
     //   "https://openmind-seeds.s3-us-west-1.amazonaws.com/meditations/Acceptance+%26+Letting+Go.mp3"
     // );
+    const {currentMeditation } = this.props;
+
     return (
       <div className="meditation-item">
         <h1 className="meditation-name-title">Title of Meditation Here</h1>
         <h2 className="meditation-length">
           Meditation Name Goes Here
-          {/* {meditation.name} */}
+          {currentMeditation.name}
         </h2>
         <button
           className="fa-stack-meditation-item fa-2x"

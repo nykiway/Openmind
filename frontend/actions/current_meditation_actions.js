@@ -10,7 +10,7 @@ export const receiveCurrentMeditation = (meditation) => {
   };
 };
 
-export const toggleMeditation = (meditation) => {
+export const toggleMeditation = () => {
   return {
     type: TOGGLE_PLAY,
   };

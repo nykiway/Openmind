@@ -3,7 +3,7 @@ import {
   TOGGLE_PLAY,
 } from '../actions/current_meditation_actions';
 
-import merge from 'lodash';
+import { merge } from 'lodash';
 
 export default (state = {}, action) => {
   Object.freeze(state);
