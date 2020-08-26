@@ -7,6 +7,7 @@ import {
   fetchMeditations,
   fetchMeditation,
 } from "../../actions/meditation_actions";
+
 import { receiveCurrentMeditation, toggleMeditation} from '../../actions/current_meditation_actions';
 
 const mapStateToProps = (state) => {
@@ -18,11 +19,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchMeditations: (data) => dispatch(fetchMeditations(data)),
   fetchMeditation: (id) => dispatch(fetchMeditation(id)),
   receiveCurrentMeditation: (id) => dispatch(receiveCurrentMeditation(id)),
-  openModal: (modal) => dispatch(openModal(modal)),
-  closeModal: () => dispatch(closeModal()),
   toggleMeditation: () => dispatch(toggleMeditation()), // use props when dispatching!!!
 });
 

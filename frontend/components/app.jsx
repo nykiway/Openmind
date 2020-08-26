@@ -13,7 +13,6 @@ import ProfileContainer from './profile/profile_container';
 import StatsContainer from './profile/stats/stats_container';
 
 import DiscoverContainer from './discover/discover_container'
-import MeditationItem from './discover/meditation_item'
 
 import Footer from './footer/footer';
 
