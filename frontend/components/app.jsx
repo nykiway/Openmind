@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 
 import NavBarContainer from './nav_bar/nav_bar_container';
 import HomeContainer from './home/home_container';
@@ -9,10 +9,15 @@ import Modal from './modal/modal';
 import LogInFormContainer from "./session_form/login_form_container";
 import SignUpFormContainer from './session_form/signup_form_container';
 
-// import ProfileContainer from './profile/profile_container';
+// Profile
 import StatsContainer from './profile/stats/stats_container';
+import ListsContainer from './profile/lists/lists_container';
+// import SettingsContainer from './profile/settings/settings_container';
 
-import DiscoverContainer from './discover/discover_container'
+// Discover:
+// import JourneyContainer from './discover/journey/journey_container';
+// import TimersContainer from './discover/timers/timer_container';
+import DiscoverContainer from './discover/discover_container';
 
 import Footer from './footer/footer';
 
@@ -30,10 +35,13 @@ const App = () => (
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
 
-        <ProtectedRoute path="/discover" component={DiscoverContainer} />
-
-        {/* <ProtectedRoute path="/profile" component={StatsContainer} /> */}
         <ProtectedRoute path="/stats" component={StatsContainer} />
+        <ProtectedRoute path="/lists" component={ListsContainer} />
+        {/* <ProtectedRoute path="/settings" component={SettingsContainer} /> */}
+
+        {/* <ProtectedRoute path="/journey" component={JourneyContainer} /> */}
+        {/* <ProtectedRoute path="/timers" component={TimersContainer} /> */}
+        <ProtectedRoute path="/discover" component={DiscoverContainer} />
         <Redirect to="/home" />
       </Switch>
     </div>
