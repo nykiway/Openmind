@@ -15,7 +15,7 @@ const NavBar = ({ currentUser, logout }) => {
         <Link to="/discover">
           <li className="discover">Discover</li>
         </Link>
-        <Link to="/profile">
+        <Link to="/stats">
           <li className="profile">Profile</li>
         </Link>
         <Link to="/logout">

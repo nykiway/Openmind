@@ -38,21 +38,28 @@
   width: 2em;
   height: 2em;
   vertical-align: middle;
+  transition: all .5s ease-in-out;
+}
+
+.meditation-stack:hover {
+  // transform: scale(1.1);
+
 }
 
 .meditation-stack-1x,
 .meditation-stack-2x,
 .meditation-stack-3x {
   position: absolute;
-  // left: 0;
   width: 100%;
-  // text-align: center;
 }
 
 .meditation-stack-1x {
-  
   line-height: inherit;
   color: rgb(90, 97, 117);
+}
+
+.meditation-stack-1x .fa-play {
+  padding-left: 10px;
 }
 
 .meditation-stack-2x {
@@ -70,8 +77,6 @@
 //text 
 
 .meditation-item {
-  // border: 1px solid black;
-  color: rgb(252, 245, 235);
   font-size: 12px;
   line-height: 16px;
   text-align: center;
@@ -79,41 +84,21 @@
   text-transform: uppercase;
 }
 
-.fa-stack-meditation-item {
-  // border: 1px solid blue;
-}
 
 .meditation-name-title {
+  color: rgb(252, 245, 235);
   margin-bottom: 30px;
-  // border: 1px solid purple;
 }
 
 .meditation-length {
+  color: rgba(252, 245, 235, 0.796);
   padding-bottom: 50px;
-  // border: 1px solid yellow;
 }
 
 .timer-countdown {
-  // border: 1px solid white;
+  color: rgba(252, 245, 235, 0.652);
   position: relative;
   font-weight: 200;
   font-size: 12px;
   padding-top: 50px;
 }
-
-
-// TEST TEST TEST
-
-
-// .icon-stack-1x {
-//   color: white;
-//   line-height: inherit;
-// }
-// .icon-stack-2x {
-//   color: antiquewhite;
-//   font-size: 1.5em;
-// }
-// .icon-stack-3x {
-//   color: brown;
-//   font-size: 2em;
-// }

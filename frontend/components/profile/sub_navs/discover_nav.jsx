@@ -7,13 +7,13 @@ class DiscoverNav extends React.Component {
       <div className="profile-header">
         <ul className="profile-header-options">
           <Link to="/journey">
-            <li className="stats-header">Journey</li>
+            <li className="journey-header">Journey</li>
           </Link>
           <Link to="/discover">
-            <li className="journey-header">Discover</li>
+            <li className="discover-header">Discover</li>
           </Link>
           <Link to="/timers">
-            <li className="settings-header">Timers</li>
+            <li className="timers-header">Timers</li>
           </Link>
         </ul>
       </div>

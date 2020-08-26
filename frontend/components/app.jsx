@@ -9,7 +9,7 @@ import Modal from './modal/modal';
 import LogInFormContainer from "./session_form/login_form_container";
 import SignUpFormContainer from './session_form/signup_form_container';
 
-import ProfileContainer from './profile/profile_container';
+// import ProfileContainer from './profile/profile_container';
 import StatsContainer from './profile/stats/stats_container';
 
 import DiscoverContainer from './discover/discover_container'
@@ -32,7 +32,7 @@ const App = () => (
 
         <ProtectedRoute path="/discover" component={DiscoverContainer} />
 
-        <ProtectedRoute path="/profile" component={ProfileContainer} />
+        {/* <ProtectedRoute path="/profile" component={StatsContainer} /> */}
         <ProtectedRoute path="/stats" component={StatsContainer} />
         <Redirect to="/home" />
       </Switch>

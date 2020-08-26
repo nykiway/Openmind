@@ -5,14 +5,11 @@ class MeditationItem extends React.Component {
   constructor(props) {
     super(props);
     this.controlAudio = this.controlAudio.bind(this);
+    this.renderDuration = this.renderDuration.bind(this);
     this.renderCurrentTime = this.renderCurrentTime.bind(this);
   }
 
   controlAudio() {
-    if (!this.audio) {
-      this.audio = new Audio(`${this.props.currentMeditation.mp3}`);
-    }
-
     this.props.toggleMeditation();
     if (this.props.isPlaying) {
       this.audio.pause();
@@ -23,11 +20,19 @@ class MeditationItem extends React.Component {
   }
 
   renderCurrentTime() {
-    if (!this.audio) {
-      this.audio = new Audio(`${this.props.currentMeditation.mp3}`);
-    }
-    return moment(this.audio.currentTime).format("mm:ss");
+    return Math.floor(this.audio.currentTime) + " Seconds";
   }  
+
+  //create function that checks for conditional if song is playing and renders content based on that.
+  renderDuration() {
+
+    if (!this.audio.duration) {
+      return "";
+    } else {
+      const seconds = this.audio.duration;
+      return moment.duration(seconds, "seconds").humanize();
+    }
+  }
 
   
   render() {
@@ -35,12 +40,19 @@ class MeditationItem extends React.Component {
 
     const pauseIcon = <i className="fas fa-pause meditation-stack-1x" />
     const playIcon = <i className="fas fa-play meditation-stack-1x"  />
-    
+
+    if (!this.audio && currentMeditation.mp3) {
+      this.audio = new Audio(`${this.props.currentMeditation.mp3}`);
+    }
+
+    if (!this.audio) {
+      return null;
+    }
+
     return (
       <div className="meditation-item">
         <h1 className="meditation-name-title">{currentMeditation.name}</h1>
-        <h2 className="meditation-length">{`${"what the hell"}`}</h2>
-
+        <h2 className="meditation-length">{`${this.renderDuration()}`}</h2>
         <button
           className="meditation-stack fa-3x"
           onClick={() => this.controlAudio()}

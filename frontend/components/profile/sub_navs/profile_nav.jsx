@@ -9,8 +9,8 @@ class ProfileNav extends React.Component {
           <Link to="/stats">
             <li className="stats-header">Stats</li>
           </Link>
-          <Link to="/journey">
-            <li className="journey-header">Journey</li>
+          <Link to="/lists">
+            <li className="lists-header">Lists</li>
           </Link>
           <Link to="/settings">
             <li className="settings-header">Settings</li>
