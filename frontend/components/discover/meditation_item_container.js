@@ -1,13 +1,7 @@
 import { connect } from "react-redux";
+
 import MeditationItem from "./meditation_item";
-
-import { openModal, closeModal } from "../../actions/modal_actions";
-
-import {
-  fetchMeditations,
-  fetchMeditation,
-} from "../../actions/meditation_actions";
-
+import { fetchMeditation } from "../../actions/meditation_actions";
 import { receiveCurrentMeditation, toggleMeditation} from '../../actions/current_meditation_actions';
 
 const mapStateToProps = (state) => {
