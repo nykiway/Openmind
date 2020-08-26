@@ -6,8 +6,8 @@ class DiscoverNav extends React.Component {
     return (
       <div className="profile-header">
         <ul className="profile-header-options">
-          <Link to="/lists">
-            <li className="stats-header">Lists</li>
+          <Link to="/journey">
+            <li className="stats-header">Journey</li>
           </Link>
           <Link to="/discover">
             <li className="journey-header">Discover</li>

@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import ProfileNav from '../sub_navs/profile_nav';
+
 class Stats extends React.Component {
 
   render() {
     return (
       <div>
+        <ProfileNav />
         <div className="stats-hero">
           <h1>
             Every day is a chance to train your mind for a happier, healthier
@@ -16,7 +19,9 @@ class Stats extends React.Component {
             <button className="meditate-stats-button">Meditate</button>
           </Link>
           <br />
-          <button className="view-goals-button">View Goals</button>
+          <Link to="/journey">
+            <button className="view-goals-button">View Journey</button>
+          </Link>
         </div>
         <br />
         <div className="stats">
