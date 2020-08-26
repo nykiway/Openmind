@@ -20,22 +20,21 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
-    < Modal />
+    <Modal />
     <header>
       <NavBarContainer />
     </header>
     <div className="body">
       <Switch>
-      <Route path="/home" component={HomeContainer} />
-      <AuthRoute exact path="/login" component={LogInFormContainer} />
-      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+        <Route path="/home" component={HomeContainer} />
+        <AuthRoute exact path="/login" component={LogInFormContainer} />
+        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
 
-      <Route path="/discover" component={DiscoverContainer} />
-      <Route path="/meditations/:meditationId" component={Modal} />
+        <ProtectedRoute path="/discover" component={DiscoverContainer} />
 
-      <Route path="/profile" component={ProfileContainer} />
-      <Route path="/stats" component={StatsContainer} />
-      <Redirect to="/home"/>
+        <ProtectedRoute path="/profile" component={ProfileContainer} />
+        <ProtectedRoute path="/stats" component={StatsContainer} />
+        <Redirect to="/home" />
       </Switch>
     </div>
     <footer>
