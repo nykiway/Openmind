@@ -23,8 +23,8 @@ class SignUpForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createNewUser(this.state)
-      .then(() => this.props.history.push('/discover'))
+    this.props.processForm(this.state)
+      .then(() => this.props.history.push('/profile'))
   }
 
   render() {
