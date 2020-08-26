@@ -12,7 +12,9 @@ class Stats extends React.Component {
             life.
           </h1>
           <br />
-          <button className="meditate-stats-button">Meditate</button>
+          <Link to="/discover">
+            <button className="meditate-stats-button">Meditate</button>
+          </Link>
           <br />
           <button className="view-goals-button">View Goals</button>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileNav from '../profile/profile_nav/profile_nav';
+import DiscoverNav from '../profile/sub_navs/discover_nav';
 
 class Discover extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Discover extends React.Component {
       return (
         <div>
           <div>
-            <ProfileNav />
+            <DiscoverNav />
           </div>
           <div className="discover-hero">
             <img
