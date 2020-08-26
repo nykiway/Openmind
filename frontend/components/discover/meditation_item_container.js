@@ -13,6 +13,7 @@ const mapStateToProps = (state) => {
   return {
     meditations: Object.values(state.entities.meditations),
     currentMeditation: state.ui.currentMeditation,
+    isPlaying: state.ui.isPlaying
   };
 };
 
