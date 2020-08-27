@@ -76,7 +76,7 @@ class LoginForm extends React.Component {
                 className="demo-login-form-button"
                 onClick={this.demoUser}
               >
-                <Link to="/profile">Demo Log In</Link>
+                <Link to="/stats">Demo Log In</Link>
               </button>
             </div>
           </form>

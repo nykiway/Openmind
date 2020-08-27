@@ -14,7 +14,8 @@ class MeditationItem extends React.Component {
     if (this.props.isPlaying) {
       this.audio.pause();
     } else {
-      this.audio.play().then(() => console.log("yippee!"));
+      this.audio.play()
+      // .then(() => console.log("yippee!"));
     }
   }
 
@@ -40,8 +41,12 @@ class MeditationItem extends React.Component {
     const playIcon = <i className="fas fa-play meditation-stack-1x"  />
 
     if (!this.audio && currentMeditation.mp3) {
-      this.audio = new Audio(`${this.props.currentMeditation.mp3}`);
-      this.audio.crossOrigin = "anonymous";
+      // this.audio = new Audio(`${this.props.currentMeditation.mp3}`);
+      // this.audio.crossOrigin = "anonymous";
+
+      this.audio = document.createElement('audio')
+      this.audio.src = currentMeditation.mp3
+
     }
 
     if (!this.audio) {
