@@ -15,7 +15,7 @@ class MeditationItem extends React.Component {
       this.audio.pause();
     } else {
       this.audio.play()
-      // .then(() => console.log("yippee!"));
+      .then(() => console.log("yippee!"), (errors) => console.log(errors));
     }
   }
 
