@@ -24,34 +24,29 @@ class MeditationItem extends React.Component {
   }  
 
   renderDuration() {
-
-    if (!this.audio.duration) {
-      return "";
-    } else {
-      const seconds = this.audio.duration;
-      return moment.duration(seconds, "seconds").humanize();
-    }
+  //   if (!this.audio.duration) {
+  //     return "";
+  //   } else {
+  //     const seconds = this.audio.duration;
+  //     return moment.duration(seconds, "seconds").humanize();
+  //   }
+    return this.props.currentMeditation.duration;
   }
 
   
   render() {
     const { currentMeditation } = this.props;
-
+    
+    // dynamic pause & play icons 
     const pauseIcon = <i className="fas fa-pause meditation-stack-1x" />
     const playIcon = <i className="fas fa-play meditation-stack-1x"  />
 
+    // checks if audio & mp3 file exists
     if (!this.audio && currentMeditation.mp3) {
-      // this.audio = new Audio(`${this.props.currentMeditation.mp3}`);
-      // this.audio = new Audio(
-      //   "https://openmind-seeds.s3-us-west-1.amazonaws.com/meditations/Acceptance+%26+Letting+Go.mp3"
-      // );
-      // this.audio.crossOrigin = "anonymous";
-
       this.audio = document.createElement('audio')
       this.audio.src = currentMeditation.mp3
-
     }
-
+    // if audio file is non-existent return null
     if (!this.audio) {
       return null;
     }
