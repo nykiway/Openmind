@@ -14,9 +14,8 @@ class MeditationItem extends React.Component {
     if (this.props.isPlaying) {
       this.audio.pause();
     } else {
-      this.audio.play();
+      this.audio.play().then(() => console.log("yippee!"));
     }
-
   }
 
   renderCurrentTime() {

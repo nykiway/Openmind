@@ -10,14 +10,20 @@ class Footer extends React.Component {
             <i className="fab fa-github-alt" />
           </li>
           <li>
-            <i className="fab fa-linkedin" />
+            <a href="https://www.linkedin.com/in/nicolewiehe/">
+              <i className="fab fa-linkedin" />
+            </a>
           </li>
           <li>
-            <i className="fab fa-angellist" />
+            <a href="https://angel.co/u/nicole-wiehe">
+              <i className="fab fa-angellist" />
+            </a>
           </li>
         </ul>
         <div className="footer-links">
-          <p className="footer-notification">Clone of Headspace. Created by Nicole Wiehe. August 2020.</p>
+          <p className="footer-notification">
+            Clone of Headspace. Created by Nicole Wiehe. August 2020.
+          </p>
         </div>
       </div>
     );
