@@ -42,13 +42,13 @@ class MeditationItem extends React.Component {
 
     if (!this.audio && currentMeditation.mp3) {
       // this.audio = new Audio(`${this.props.currentMeditation.mp3}`);
-      this.audio = new Audio(
-        "https://openmind-seeds.s3-us-west-1.amazonaws.com/meditations/Acceptance+%26+Letting+Go.mp3"
-      );
+      // this.audio = new Audio(
+      //   "https://openmind-seeds.s3-us-west-1.amazonaws.com/meditations/Acceptance+%26+Letting+Go.mp3"
+      // );
       // this.audio.crossOrigin = "anonymous";
 
-      // this.audio = document.createElement('audio')
-      // this.audio.src = currentMeditation.mp3
+      this.audio = document.createElement('audio')
+      this.audio.src = currentMeditation.mp3
 
     }
 
