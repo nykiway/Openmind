@@ -32,7 +32,7 @@ confucius = User.create!(
 # Meditations
 
 m1 = Meditation.new({name: 'Acceptance & Letting Go', categories: ['sadness', 'acceptance', 'letting go']})
-meditation = open('https://openmind-seeds.s3-us-west-1.amazonaws.com/Acceptance+%26+Letting+Go.mp3')
+meditation = open('https://openmind-seeds.s3-us-west-1.amazonaws.com/meditations/Acceptance+%26+Letting+Go.mp3')
 m1.mp3_file.attach(io: meditation, filename: 'Acceptance & Letting Go.mp3')
 m1.save!
 
