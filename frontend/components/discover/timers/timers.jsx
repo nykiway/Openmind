@@ -5,7 +5,9 @@ import moment from 'moment';
 class Timers extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { count: 1 }
+    this.state = { count: 0 }
+    this.stopTimer = this.stopTimer.bind(this);
+    this.onClickStop = this.onClickStop.bind(this);
   }
 
   componentWillUnmount () {
@@ -48,6 +50,15 @@ class Timers extends React.Component {
     return formatted;
   }
 
+  onClickStop() {
+    this.stopTimer();
+    let bell = new Audio(
+      "https://openmind-seeds.s3-us-west-1.amazonaws.com/meditations/Japanese+temple+small+bell+-+Sound+effect.mp3"
+    );
+
+    bell.play();
+  }
+
   render() {
     return (
       <div>
@@ -59,7 +70,9 @@ class Timers extends React.Component {
           />
           <h1 className="unlimited-timer">The Unlimited Timer</h1>
           <div className="count-up-timer">
-            <h2 className="count-number">{this.secondsToTime(this.state.count)}</h2>
+            <h2 className="count-number">
+              {this.secondsToTime(this.state.count)}
+            </h2>
             <button
               id="count-up-button-1"
               className="count-up-button"
@@ -70,7 +83,7 @@ class Timers extends React.Component {
             <button
               id="count-up-button-2"
               className="count-up-button"
-              onClick={this.stopTimer.bind(this)}
+              onClick={() => this.onClickStop()}
             >
               Stop
             </button>

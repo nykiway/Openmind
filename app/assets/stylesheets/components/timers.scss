@@ -7,6 +7,7 @@
 
 
 .count-up-timer {
+  border: 2px solid white;
   color: #5A6175;
   background-color: #FAF6F4;
   align-items: center;
@@ -16,11 +17,14 @@
   padding: 30px;
   margin-bottom: 30px;
   border-radius: 5px 20px 20px 20px;
+  -webkit-transition: all .2s ease-in-out;
+
 }
 
 .count-up-timer:hover {
   background-color: white;
   border: 2px solid #FAF6F4;
+  -webkit-transition: all .2s ease-in-out;
 }
 
 .unlimited-timer {
@@ -38,10 +42,17 @@
   font-size: 12px;
   font-weight: 700;
   background-color: white;
+  border: 2px solid #FAF6F4;
   padding: 10px;
   margin: 5px;
   margin-top: 15px;
   border-radius: 5px;
+}
+
+.count-up-button:hover {
+  -webkit-transition: all .2s ease-in-out;
+  background-color: #FAF6F4;
+  border: 2px solid white;
 }
 
 .count-number {

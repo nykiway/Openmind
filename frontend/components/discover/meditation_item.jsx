@@ -22,7 +22,6 @@ class MeditationItem extends React.Component {
     return Math.floor(this.audio.currentTime) + " Seconds";
   }  
 
-  //create function that checks for conditional if song is playing and renders content based on that.
   renderDuration() {
 
     if (!this.audio.duration) {
