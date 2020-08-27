@@ -7,7 +7,9 @@ class Footer extends React.Component {
       <div className="footer-box">
         <ul className="footer-icons">
           <li>
-            <i className="fab fa-github-alt" />
+            <a href="https://github.com/nykiway">
+              <i className="fab fa-github-alt" />
+            </a>
           </li>
           <li>
             <a href="https://www.linkedin.com/in/nicolewiehe/">
