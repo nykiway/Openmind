@@ -3,8 +3,7 @@ import DiscoverNav from '../profile/sub_navs/discover_nav';
 
 class Discover extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = this.props.currentMeditation;
+    super(props); 
     this.handleClick = this.handleClick.bind(this);
   }
 
