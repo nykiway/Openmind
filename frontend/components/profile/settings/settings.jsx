@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ProfileNav from "../sub_navs/profile_nav";
+import ProfileNav from '../sub_navs/profile_nav';
 
-class Settings extends React.Component {
-  render() {
+const Settings = ({ logout }) => {
     return (
       <div>
         <ProfileNav />
@@ -29,14 +28,15 @@ class Settings extends React.Component {
               Save Changes
             </button>
             < br/>
-            <a className="logout-settings" href="/logout" onClick={logout}>
+            <Link to="/logout">
+            <h1 className="logout-settings" onClick={logout} >
               Log Out
-            </a>
+              </h1>
+            </Link>
           </form>
         </div>
       </div>
     );
   }
-}
 
 export default Settings;

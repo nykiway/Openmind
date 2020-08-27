@@ -42,6 +42,7 @@ class MeditationItem extends React.Component {
 
     if (!this.audio && currentMeditation.mp3) {
       this.audio = new Audio(`${this.props.currentMeditation.mp3}`);
+      this.audio.crossOrigin = "anonymous";
     }
 
     if (!this.audio) {

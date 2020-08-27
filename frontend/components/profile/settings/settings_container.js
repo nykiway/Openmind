@@ -1,13 +1,13 @@
-
+import { logout } from "../../../actions/session_actions";
 import { connect } from "react-redux";
 import Settings from "./settings";
 
 const mapStateToProps = (state) => ({
-  // do something here
+  currentUser: state.session.id,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  // do something here
+  logout: () => dispatch(logout()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

@@ -2,10 +2,6 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom'
 
 const NavBar = ({ currentUser, logout }) => {
-  // maybe add a dropdown later
-  // const showDropdown = () => {
-  //   document.getElementById('options').classList.toggle("show-dropdown")
-  // }
   const display = currentUser ? (
     <div>
       <ul className="header-links">
