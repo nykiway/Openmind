@@ -1,0 +1,63 @@
+.settings-div {
+  padding: 60px;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.settings-form-label {
+  width: 100%;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  color: rgb(179, 179, 179);
+  padding-bottom: 5px;
+  
+}
+
+.settings-form-input {
+  background-color: rgb(245, 242, 237);
+  padding: 6px;
+  border-radius: 2px;
+}
+
+.save-changes-settings {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+  border-radius: 5px;
+  margin-top: 30px;
+  padding: 30px 10px 30px 10px;
+  margin-bottom: 32px;
+  color: rgb(90, 97, 117);
+  background-color: rgb(245, 242, 237);
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 2.5px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.logout-settings {
+  border-top: 2px solid rgb(245, 242, 237);
+  border-bottom: 2px solid rgb(245, 242, 237);
+  color: rgb(244, 125, 49);
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+input::-webkit-input-placeholder {
+  letter-spacing: 1px;
+  color: rgb(105, 111, 130);
+  font-size: 14px;
+}

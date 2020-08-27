@@ -12,11 +12,11 @@ import SignUpFormContainer from './session_form/signup_form_container';
 // Profile
 import StatsContainer from './profile/stats/stats_container';
 import ListsContainer from './profile/lists/lists_container';
-// import SettingsContainer from './profile/settings/settings_container';
+import SettingsContainer from './profile/settings/settings_container';
 
 // Discover:
-// import JourneyContainer from './discover/journey/journey_container';
-// import TimersContainer from './discover/timers/timer_container';
+import JourneyContainer from './discover/journey/journey_container';
+import TimersContainer from './discover/timers/timers_container';
 import DiscoverContainer from './discover/discover_container';
 
 import Footer from './footer/footer';
@@ -37,10 +37,10 @@ const App = () => (
 
         <ProtectedRoute path="/stats" component={StatsContainer} />
         <ProtectedRoute path="/lists" component={ListsContainer} />
-        {/* <ProtectedRoute path="/settings" component={SettingsContainer} /> */}
+        <ProtectedRoute path="/settings" component={SettingsContainer} />
 
-        {/* <ProtectedRoute path="/journey" component={JourneyContainer} /> */}
-        {/* <ProtectedRoute path="/timers" component={TimersContainer} /> */}
+        <ProtectedRoute path="/journey" component={JourneyContainer} />
+        <ProtectedRoute path="/timers" component={TimersContainer} />
         <ProtectedRoute path="/discover" component={DiscoverContainer} />
         <Redirect to="/home" />
       </Switch>

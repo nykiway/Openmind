@@ -1,0 +1,93 @@
+.lists-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-meditation-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FAF6F4;
+  padding: 20px;
+  width: 30%;
+  border-radius: 100px;
+  margin: 30px 10px 10px 10px;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: #323233;
+}
+
+.add-meditation-button:hover {
+ background-color: rgb(255, 251, 251);
+  -webkit-transition: all .2s ease-in-out;
+}
+
+.list-content {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  background: rgb(31,26,119);
+  background: linear-gradient(317deg, rgba(31,26,119,1) 0%, rgba(14,100,221,1) 75%, rgba(14,100,221,1) 100%);
+  padding: 40px 10px 40px 10px;
+  width: 50%;
+  border-radius: 5px 20px 20px 20px;
+}
+
+.list-content:hover {
+  background: rgb(31,26,119);
+  background: linear-gradient(119deg, rgba(31,26,119,1) 0%, rgba(14,100,221,1) 75%, rgba(14,100,221,1) 100%);
+  -webkit-transition: all 3s ease-in-out;
+}
+
+.list-item {
+  color: white;
+}
+
+.list-name {
+  padding-left: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.list-details {
+  padding-left: 40px;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1.0px;
+}
+
+// icons
+
+.list-icons {
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+  color: white;
+  font-size: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+
+.list-icon-play,
+.list-icon-edit,
+.list-icon-times {
+  padding: 7px;
+  opacity: .5;
+
+}
+
+.list-icon-play:hover,
+.list-icon-edit:hover,
+.list-icon-times:hover {
+  opacity: 1;
+  -webkit-transition: all .2s ease-in-out;
+  
+}
+
+
