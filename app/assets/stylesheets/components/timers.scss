@@ -1,0 +1,50 @@
+.timers-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.count-up-timer {
+  color: #5A6175;
+  background-color: #FAF6F4;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 5px 20px 20px 20px;
+}
+
+.count-up-timer:hover {
+  background-color: white;
+  border: 2px solid #FAF6F4;
+}
+
+.unlimited-timer {
+  color: #5A6175;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 30px;
+}
+
+.count-up-button {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: white;
+  padding: 10px;
+  margin: 5px;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.count-number {
+  font-size: 30px;
+  font-weight: 700;
+}
