@@ -6,16 +6,14 @@
 
 <p align="center"><b>Openmind</b> is inspired by the popular meditation app Headspace. Openmind is a mindfulness webpage that allows a user to be completely immersed in their practice, by providing no distraction listening.</p>
 <br>
-<br>
 <p align="center">Check out the live page <a href="https://nw-openmind.herokuapp.com/">here</a></p>
-<br>
 <br>
 <p align="center">Designed for macOS Catalina. <i>Not yet tested on older versions of macOS.</i></p>
 <br>
-<br>
 
-
-![openmind preview](./app/assets/images/openmind_gif.gif)
+<p align="center">
+  <img src="./app/assets/images/openmind_gif.gif">
+</p>
 
 
 
