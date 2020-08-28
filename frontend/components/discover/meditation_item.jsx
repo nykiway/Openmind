@@ -6,7 +6,6 @@ class MeditationItem extends React.Component {
     super(props);
     this.controlAudio = this.controlAudio.bind(this);
     this.renderDuration = this.renderDuration.bind(this);
-    this.renderCurrentTime = this.renderCurrentTime.bind(this);
   }
 
   controlAudio() {
@@ -17,23 +16,20 @@ class MeditationItem extends React.Component {
       this.audio.play()
       .then(() => console.log("yippee!"), (errors) => console.log(errors));
     }
-  }
-
-  renderCurrentTime() {
-    return Math.floor(this.audio.currentTime) + " Seconds";
-  }  
+  } 
 
   renderDuration() {
-  //   if (!this.audio.duration) {
-  //     return "";
-  //   } else {
-  //     const seconds = this.audio.duration;
-  //     return moment.duration(seconds, "seconds").humanize();
-  //   }
-    return this.props.currentMeditation.duration;
+    const seconds = this.props.currentMeditation.duration;
+    return moment.duration(seconds, "seconds").humanize();
   }
 
-  
+
+  countdown() {
+    let timeLeft = this.props.currentMeditation.duration
+    if ()
+  }
+
+
   render() {
     const { currentMeditation } = this.props;
     
@@ -63,7 +59,7 @@ class MeditationItem extends React.Component {
           <i className="fas fa-circle meditation-stack-2x"></i>
           {this.props.isPlaying ? pauseIcon : playIcon}
         </button>
-        <h3 className="timer-countdown">{`${this.renderCurrentTime()}`}</h3>
+        <h3 className="timer-countdown">{`${currentMeditation.duration}`}</h3>
       </div>
     );
   }
