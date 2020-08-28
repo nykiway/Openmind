@@ -1,24 +1,8 @@
-# README
+# Openmind README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+<img src="https://i.ibb.co/fML6Kcb/Untitled-Artwork-4.jpg">
+`Openmind` is inspired by the popular meditation app Headspace. Openmind is a mindfulness webpage that allows a user to be completely immersed in their practice, by providing no distraction listening.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Designed for Desktop on Mac OS X
+<img src="https://i.ibb.co/ZNdXrtm/openmindpreview.gif" alt="openmindpreview" border="0">
