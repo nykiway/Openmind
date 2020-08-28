@@ -10,6 +10,7 @@
   color: #323233;
   font-weight: 700;
   letter-spacing: 1px;
+  margin-bottom: 50px;
 }
 
 .meditations-list {
@@ -73,6 +74,70 @@
 .fa-stack i {
   vertical-align: middle;
 }
+
+.form-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.form-buttons > button {
+  text-transform: uppercase;
+  color: white;
+  padding: 10px 20px 10px 20px;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin: 10px 10px 30px 10px;
+  border-radius: 20px;
+}
+
+.sleep {
+  background-color:#0C6FF9;
+}
+
+.sleep:hover {
+  background-color: #0959c9;
+  -webkit-transition: all .2s ease-in-out;
+}
+
+.relax {
+  background-color:#F47D31;
+}
+
+.relax:hover {
+  background-color:#eb7124;
+  -webkit-transition: all .2s ease-in-out;
+}
+
+.gratitude {
+  background-color:#7BCDC8;
+}
+
+.gratitude:hover {
+  background-color:#68bfb9;
+  -webkit-transition: all .2s ease-in-out;
+}
+
+
+.work {
+  background-color:#FED58C;
+}
+
+.work:hover {
+  background-color:#F5C471;
+  -webkit-transition: all .2s ease-in-out;
+}
+
+
+.anxiety {
+  background-color:#0C6FF9;
+}
+
+
 
 
 // #0C6FF9 - blue

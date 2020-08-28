@@ -43,6 +43,13 @@ class Discover extends React.Component {
               />
             </form>
           </div>
+          <div className="form-buttons">
+            <button className="sleep">Sleep</button>
+            <button className="relax">Relax</button>
+            <button className="gratitude">Gratitude</button>
+            <button className="work">Work</button>
+            <button className="anxiety">Anxiety</button>
+          </div>
           <div className="meditations-box">
             <ul className="meditations-list">
               {this.props.meditations.map((meditation) => (
@@ -64,6 +71,11 @@ class Discover extends React.Component {
               ))}
             </ul>
           </div>
+          <img
+            className="sun-image"
+            src="https://openmind-seeds.s3-us-west-1.amazonaws.com/images/hero_images/transparent_sun.svg"
+            alt="transparent-sun"
+          />
         </div>
       );
     }
