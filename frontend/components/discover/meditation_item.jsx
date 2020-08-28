@@ -24,25 +24,19 @@ class MeditationItem extends React.Component {
     return moment.duration(seconds, "seconds").humanize();
   }
 
-  // countdown(minutes) {
-  //   var seconds = 60;
-  //   var mins = minutes
-  //   function tick() {
-  //       //This script expects an element with an ID = "counter". You can change that to what ever you want. 
-  //       var counter = document.getElementById("counter");
-  //       var current_minutes = mins-1
-  //       seconds--;
-  //       counter.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
-  //       if( seconds > 0 ) {
-  //           setTimeout(tick, 1000);
-  //       } else {
-  //           if(mins > 1){
-  //               countdown(mins-1);           
-  //           }
-  //       }
-  //   }
-  //   tick();
-  // }
+  countdown() {
+    if (this.props.isPlaying) {
+      let t1 = this.props.currentMeditation.duration;
+      let t2 = t1.replace(':', "");
+      let time = t2.replace(':', "");
+
+      var count = time,
+        timer = setInterval(function () {
+          $("#counter").html(count--);
+          if (count == 1) clearInterval(timer);
+        }, 1000);
+    }
+  }
 
   render() {
     const { currentMeditation } = this.props;
@@ -76,7 +70,7 @@ class MeditationItem extends React.Component {
         <h3
           id="counter"
           className="timer-countdown"
-    >{this.countdown(1)}</h3>
+    >{this.countdown()}</h3>
       </div>
     );
   }
