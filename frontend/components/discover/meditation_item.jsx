@@ -6,8 +6,9 @@ class MeditationItem extends React.Component {
     super(props);
     this.controlAudio = this.controlAudio.bind(this);
     this.renderDuration = this.renderDuration.bind(this);
+    // this.countdown = this.countdown.bind(this);
   }
-
+  
   controlAudio() {
     this.props.toggleMeditation();
     if (this.props.isPlaying) {
@@ -17,18 +18,31 @@ class MeditationItem extends React.Component {
       .then(() => console.log("yippee!"), (errors) => console.log(errors));
     }
   } 
-
+  
   renderDuration() {
     const seconds = this.props.currentMeditation.duration;
     return moment.duration(seconds, "seconds").humanize();
   }
 
-
-  countdown() {
-    let timeLeft = this.props.currentMeditation.duration
-    if ()
-  }
-
+  // countdown(minutes) {
+  //   var seconds = 60;
+  //   var mins = minutes
+  //   function tick() {
+  //       //This script expects an element with an ID = "counter". You can change that to what ever you want. 
+  //       var counter = document.getElementById("counter");
+  //       var current_minutes = mins-1
+  //       seconds--;
+  //       counter.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+  //       if( seconds > 0 ) {
+  //           setTimeout(tick, 1000);
+  //       } else {
+  //           if(mins > 1){
+  //               countdown(mins-1);           
+  //           }
+  //       }
+  //   }
+  //   tick();
+  // }
 
   render() {
     const { currentMeditation } = this.props;
@@ -59,7 +73,10 @@ class MeditationItem extends React.Component {
           <i className="fas fa-circle meditation-stack-2x"></i>
           {this.props.isPlaying ? pauseIcon : playIcon}
         </button>
-        <h3 className="timer-countdown">{`${currentMeditation.duration}`}</h3>
+        <h3
+          id="counter"
+          className="timer-countdown"
+    >{this.countdown(1)}</h3>
       </div>
     );
   }

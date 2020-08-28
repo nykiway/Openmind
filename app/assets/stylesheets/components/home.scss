@@ -1,11 +1,12 @@
 .hero-content {
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   max-width: 100%;
   width: 100%;
   padding-left: 8px;
   padding-right: 8px;
-  flex-basis: 100%;
-  box-align: center;
+  // flex-basis: 100%;
+  // box-align: center;
   align-items: center;
   font-family: Apercu, sans-serif;
   text-align: center;
@@ -21,11 +22,23 @@
   letter-spacing: 2px;
 }
 
-.hero-content p {
+.hero-content h2, {
   font-size: 20px;
   line-height: 32px;
   font-weight: 400;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
+  color: #413D45;
+  max-width: 50%;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  max-width: 75%;
+
 }
 
 .home-signup-button {
@@ -49,4 +62,79 @@
 .home-signup-button:hover {
   background-color: #0e64dd;
   -webkit-transition: all .2s ease-in-out;
+}
+
+.radiating {
+  height: 150px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.features-section{
+  background-color: #F2F2F2;
+  padding: 30px;
+}
+
+.loves-science,
+.many-meditators,
+.mindful-approach {
+  height: 250px;
+}
+.features-images {
+  display: flex;
+  flex-direction: row;
+}
+
+.features-text {
+  display: flex;
+  text-align: center;
+  padding: 15px;
+}
+
+.loves-science-text > h1,
+.many-meditators-text > h1,
+.mindful-approach-text > h1 {
+  color:#413D45;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.loves-science-text,
+.many-meditators-text,
+.mindful-approach-text{
+  margin: 20px 50px 50px 20px;
+}
+
+.loves-science-text > p, 
+.many-meditators-text > p,
+.mindful-approach-text > p{
+  margin-top: 10px;
+  letter-spacing: .5px;
+  color: #413D45;
+  font-size: 14px;
+}
+
+.home-video {
+  margin: 30px;
+}
+
+.covid {
+  margin-bottom: 20px;
+}
+
+.other-resources {
+  padding: 40px;
+}
+
+.closer-image {
+  margin-top: 40px;
+}
+
+#under-video {
+  padding: 30px;
+  max-width: 45%
 }
