@@ -34,6 +34,10 @@ This allows users to leave distractions behind them as they begin their practice
 If users do not wish to participate in guided meditations, they can put their practice to the test.
 Users have access to several timers that can help them keep accountable to their session.
 
+<p align="center">
+  <img src="./app/assets/images/listening.gif">
+</p>
+
 ## Coming Soon
 
 - List CRUD
