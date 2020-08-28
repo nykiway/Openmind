@@ -13,9 +13,12 @@
 <p align="center">Designed for macOS Catalina. <i>Not yet tested on older versions of macOS.</i></p>
 <br>
 <br>
-<p align="center"><a href="./app/assets/images/openmind_gif.gif"/></p>
-<br>
-<br>
+
+
+![openmind preview](./app/assets/images/openmind_gif.gif)
+
+
+
 ## Technologies Used
 
 - Ruby on Rails
