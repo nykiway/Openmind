@@ -2,16 +2,26 @@
 
 
 <img src="https://i.ibb.co/fML6Kcb/Untitled-Artwork-4.jpg">
-`Openmind` is inspired by the popular meditation app Headspace. Openmind is a mindfulness webpage that allows a user to be completely immersed in their practice, by providing no distraction listening.
 
-Designed for macOS Catalina. Not yet tested on older versions of macOS.
+<b>Openmind</b> is inspired by the popular meditation app Headspace. Openmind is a mindfulness webpage that allows a user to be completely immersed in their practice, by providing no distraction listening.
+<br>
+<br>
+<a href="https://nw-openmind.herokuapp.com/">Visit the site</a>
+<br>
+<br>
+Designed for macOS Catalina. <i>Not yet tested on older versions of macOS.</i>
+<br>
+<br>
 ![Openmind Gif](app/assets/images/openmind_gif.gif)
+<br>
+<br>
 
 ## Technologies Used
 
-- Openmind was created with a Rails backend, PostgreSQL database, and React/Redux frontend.
-- Images and MP3 files are stored on AWS S3, increasing scalability.
-- The loading time of the app was optimized through the use of jBuilder and Rails' Active Storage.
+- Ruby on Rails
+- React / Redux
+- HTML / CSS / Javascript
+- Amazon Web Services (s3 Storage)
 
 ## Key Features
 
