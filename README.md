@@ -1,21 +1,23 @@
 # Openmind README
 
-
+<p align="center"> 
 <img src="https://i.ibb.co/fML6Kcb/Untitled-Artwork-4.jpg">
+</p>
 
-<b>Openmind</b> is inspired by the popular meditation app Headspace. Openmind is a mindfulness webpage that allows a user to be completely immersed in their practice, by providing no distraction listening.
+<p align="center"><b>Openmind</b> is inspired by the popular meditation app Headspace. Openmind is a mindfulness webpage that allows a user to be completely immersed in their practice, by providing no distraction listening.</p>
 <br>
 <br>
-<a href="https://nw-openmind.herokuapp.com/">Visit the site</a>
+<p align="center">Check out the live page <a href="https://nw-openmind.herokuapp.com/">here</a></p>
 <br>
 <br>
-Designed for macOS Catalina. <i>Not yet tested on older versions of macOS.</i>
+<p align="center">Designed for macOS Catalina. <i>Not yet tested on older versions of macOS.</i></p>
 <br>
 <br>
+<p align="center">
 ![Openmind Gif](app/assets/images/openmind_gif.gif)
+ </p>
 <br>
 <br>
-
 ## Technologies Used
 
 - Ruby on Rails
