@@ -26,6 +26,8 @@
 
 ## Key Features
 
+<img align="right" width="30%" src="./app/assets/images/listening.gif">
+
 - No Distraction Play
 In order for mindfulness to be encouraged, users are unable to continue listening upon exit of the modal.
 This allows users to leave distractions behind them as they begin their practice.
@@ -34,11 +36,10 @@ This allows users to leave distractions behind them as they begin their practice
 If users do not wish to participate in guided meditations, they can put their practice to the test.
 Users have access to several timers that can help them keep accountable to their session.
 
-<p align="center">
-  <img src="./app/assets/images/listening.gif">
-</p>
 
 ## Coming Soon
+
+<img align="left" width="30%" src="./app/assets/images/lists.gif">
 
 - List CRUD
 Users will be able to create personalized playlists, that they can add particular medtiations to.
