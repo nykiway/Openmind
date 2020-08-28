@@ -13,9 +13,7 @@
 <p align="center">Designed for macOS Catalina. <i>Not yet tested on older versions of macOS.</i></p>
 <br>
 <br>
-<p align="center">
-![Openmind Gif](app/assets/images/openmind_gif.gif)
- </p>
+<p align="center"><a href="./app/assets/images/openmind_gif.gif"/></p>
 <br>
 <br>
 ## Technologies Used
