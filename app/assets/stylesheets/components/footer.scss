@@ -1,16 +1,11 @@
-.body {
-  min-height: 100%;
-  display: grid;
-  grid-template-rows: 1fr auto;
-}
-
 .footer-box {
-  grid-row-start: 2;
-  grid-row-end: 3;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   background-color: #FAF6F4;
-  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-family: Apercu, sans-serif;
-  margin: 0px 0px 0px 0px;
   border-top: 1px solid white;
 }
 
