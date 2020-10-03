@@ -1,6 +1,5 @@
 import React from "react";
 import DiscoverNav from '../../profile/sub_navs/discover_nav';
-import moment from 'moment';
 
 class Timers extends React.Component {
   constructor(props) {

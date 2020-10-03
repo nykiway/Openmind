@@ -120,7 +120,6 @@ const mapDispatchToProps = (dispatch) => ({
   fetchMeditation: (id) => dispatch(fetchMeditation(id)),
   fetchCurrentMeditation: (id) => dispatch(fetchCurrentMeditation(id)),
   openModal: modal => dispatch(openModal(modal)),
-  closeModal: () => dispatch(closeModal())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DiscoverSearch);

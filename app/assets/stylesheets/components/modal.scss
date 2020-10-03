@@ -32,47 +32,40 @@
 
 // modal buttons
 
-.meditation-stack {
+.transparent-circle {
   display: flex;
   align-items: center;
-  width: 2em;
-  height: 2em;
-  vertical-align: middle;
-  transition: all .5s ease-in-out;
+  justify-content: center;
+  height: 140px;
+  width: 140px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: scale 3s ease-in-out infinite alternate;
 }
 
-.meditation-stack:hover {
-  // transform: scale(1.1);
-
+@keyframes scale {
+  from { transform: none;}
+  to { transform: scale(1.1, 1.1)}
 }
 
-.meditation-stack-1x,
-.meditation-stack-2x,
-.meditation-stack-3x {
-  position: absolute;
-  width: 100%;
+.opaque-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  width: 110px;
+  background: white;
+  border-radius: 50%;
 }
 
-.meditation-stack-1x {
-  line-height: inherit;
-  color: rgb(90, 97, 117);
+.fa-pause, .fa-play {
+  font-size: 35px;
+  color: #5A6175;
 }
 
-.meditation-stack-1x .fa-play {
-  padding-left: 10px;
+.fa-play {
+  margin-left: 5px;
 }
-
-.meditation-stack-2x {
-  
-  font-size: 3em;
-  color: rgb(252, 245, 235);
-}
-
-.meditation-stack-3x {
-  font-size: 4em;
-  color: rgba(252, 245, 235, 0.262);
-}
-
 
 //text 
 
