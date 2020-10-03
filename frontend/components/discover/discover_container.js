@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Discover from "./discover";
+import Discover from './discover';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { 
   fetchMeditations, 

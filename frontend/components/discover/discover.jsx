@@ -1,5 +1,6 @@
 import React from "react";
 import DiscoverNav from '../profile/sub_navs/discover_nav';
+import DiscoverSearch from '../discover/search/discover_search';
 
 class Discover extends React.Component {
   constructor(props) {
@@ -35,13 +36,9 @@ class Discover extends React.Component {
             />
           </div>
           <div className="search-form-box">
-            <form>
-              <input
-                type="text"
-                className="search-form"
-                placeholder="ie. sleep, anxiety, etc..."
+            <DiscoverSearch
+              meditations={this.props.meditations}
               />
-            </form>
           </div>
           <div className="form-buttons">
             <button className="sleep">Sleep</button>
@@ -54,19 +51,19 @@ class Discover extends React.Component {
             <ul className="meditations-list">
               {this.props.meditations.map((meditation) => (
                 <li className="meditation-name" key={meditation.id}>
+                  <div className="index-meditation">
                   <button
                     onClick={() => this.handleClick(meditation.id)}
                     className="single-meditation"
                   >
                     {meditation.name}
                     <br />
-                    <div className="index-meditation">
                       <span className="fa-stack fa-2x">
                         <i className="fas fa-circle fa-stack-2x"></i>
                         <i className="fas fa-headphones fa-stack-1x fa-inverse"></i>
                       </span>
-                    </div>
                   </button>
+                    </div>
                 </li>
               ))}
             </ul>

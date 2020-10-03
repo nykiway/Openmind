@@ -26,10 +26,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
   <div>
     <Modal />
-    <header>
       <NavBarContainer />
-    </header>
-    <div className="body">
       <Switch>
         <Route path="/home" component={HomeContainer} />
         <AuthRoute exact path="/login" component={LogInFormContainer} />
@@ -44,10 +41,7 @@ const App = () => (
         <ProtectedRoute path="/discover" component={DiscoverContainer} />
         <Redirect to="/home" />
       </Switch>
-    </div>
-    <footer>
       <Footer />
-    </footer>
   </div>
 );
 
