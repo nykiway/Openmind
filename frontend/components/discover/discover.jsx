@@ -47,27 +47,22 @@ class Discover extends React.Component {
             <button className="work">Work</button>
             <button className="anxiety">Anxiety</button>
           </div>
-          <div className="meditations-box">
+
+          <div className="meditations-container">
             <ul className="meditations-list">
               {this.props.meditations.map((meditation) => (
-                <li className="meditation-name" key={meditation.id}>
-                  <div className="index-meditation">
-                  <button
-                    onClick={() => this.handleClick(meditation.id)}
-                    className="single-meditation"
-                  >
-                    {meditation.name}
-                    <br />
-                      <span className="fa-stack fa-2x">
-                        <i className="fas fa-circle fa-stack-2x"></i>
-                        <i className="fas fa-headphones fa-stack-1x fa-inverse"></i>
-                      </span>
-                  </button>
+                <li className="meditation-item" key={meditation.id}>
+                  <button onClick={() => this.handleClick(meditation.id)} >
+                    <p className="meditation-name">{meditation.name}</p>
+                    <div className="meditation-circle">
+                      <i className="fas fa-headphones"/>
                     </div>
+                  </button>
                 </li>
               ))}
             </ul>
           </div>
+
           <img
             className="sun-image"
             src="https://openmind-seeds.s3-us-west-1.amazonaws.com/images/hero_images/transparent_sun.svg"

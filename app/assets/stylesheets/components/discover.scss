@@ -6,11 +6,7 @@
   background-color: #F47D31;
 }
 
-.meditations-box {
-  color: #323233;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin: 10px 50px 50px 50px;
+.meditations-container {
 }
 
 .meditations-list {
@@ -20,25 +16,42 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .meditation-name {
+  color: #323233;
+  font-weight: 700;
+  letter-spacing: 1px;
   text-align: center;
   width: 150px;
   height: 170px;
-  padding-top: 30px;
-  padding-right: 20px;
-  padding-left: 20px;
   background-color: #FAF6F4;
-  margin: 10px;
+  padding: 20px;
   border-radius: 10px;
+  margin: 10px;
 }
 
-.index-meditation .fa-circle {
-  color: #F47D31;
-  font-size: 80px;
-  padding-top: 23px;
+.meditation-item {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.meditation-circle {
+  margin-top: 30px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: #F47D31;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-headphones {
+  color: #F5A571;
+  font-size: 50px;
 }
 
 // search
@@ -60,19 +73,6 @@
 
 .search-input:focus {
   border: 1px solid #F47D31;
-}
-
-.fa-stack {
-  font-size: 2.5em;
-}
-
-.fa-headphones {
-  margin-top: 20px;
-  color: #F5A571;
-}
-
-.fa-stack i {
-  vertical-align: middle;
 }
 
 .form-buttons {
