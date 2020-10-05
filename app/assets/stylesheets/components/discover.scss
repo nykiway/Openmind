@@ -111,8 +111,11 @@
 
 .search-dropdown {
   position: absolute;
-  margin-left: 105px;
-  margin-top: -20px;
+  margin-right: auto;
+  margin-left: auto;
+  right: 0;
+  left: 0;
+  width: 30%;
   background-color: white;
   padding: 30px;
   z-index: 2;

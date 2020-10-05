@@ -22,6 +22,10 @@ class DiscoverSearch extends Component {
     this.update = this.update.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchMeditations();
+  }
+
   searchedMeditations() {
     const meditations = [];
     for (let i = 0; i < this.props.meditations.length; i++) {
@@ -108,6 +112,22 @@ class DiscoverSearch extends Component {
             <button className="work">Work</button>
             <button className="anxiety">Anxiety</button>
           </div>
+
+          <div className="meditations-container">
+            <ul className="meditations-list">
+              {meditations.map((meditation) => (
+                <li className="meditation-item" key={meditation.id}>
+                  <button onClick={() => this.handleClick(meditation.id)} >
+                    <p className="meditation-name">{meditation.name}</p>
+                    <div className="meditation-circle">
+                      <i className="fas fa-headphones" />
+                    </div>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
       )
   }

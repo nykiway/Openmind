@@ -3,20 +3,6 @@ import DiscoverNav from '../profile/sub_navs/discover_nav';
 import DiscoverSearch from '../discover/search/discover_search';
 
 class Discover extends React.Component {
-  constructor(props) {
-    super(props); 
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.fetchMeditations();
-  }
-
-  handleClick(meditationId) {
-    this.props.openModal('meditation');
-    this.props.fetchCurrentMeditation(meditationId);
-  }
-  
   render () {
     let { currentMeditation } = this.props;
     if (!currentMeditation) return null;
@@ -39,21 +25,6 @@ class Discover extends React.Component {
             <DiscoverSearch
               meditations={this.props.meditations}
               />
-          </div>
-
-          <div className="meditations-container">
-            <ul className="meditations-list">
-              {this.props.meditations.map((meditation) => (
-                <li className="meditation-item" key={meditation.id}>
-                  <button onClick={() => this.handleClick(meditation.id)} >
-                    <p className="meditation-name">{meditation.name}</p>
-                    <div className="meditation-circle">
-                      <i className="fas fa-headphones"/>
-                    </div>
-                  </button>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <img
