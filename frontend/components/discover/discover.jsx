@@ -40,13 +40,7 @@ class Discover extends React.Component {
               meditations={this.props.meditations}
               />
           </div>
-          <div className="form-buttons">
-            <button className="sleep">Sleep</button>
-            <button className="relax">Relax</button>
-            <button className="gratitude">Gratitude</button>
-            <button className="work">Work</button>
-            <button className="anxiety">Anxiety</button>
-          </div>
+
 
           <div className="meditations-container">
             <ul className="meditations-list">

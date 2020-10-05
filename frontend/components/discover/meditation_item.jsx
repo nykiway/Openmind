@@ -47,7 +47,7 @@ class MeditationItem extends React.Component {
     }
 
     return (
-      <div className="meditation-item">
+      <div className="meditation-play">
         <h1 className="meditation-name-title">{currentMeditation.name}</h1>
         <h2 className="meditation-length">{`${this.renderDuration()}`}</h2>
 

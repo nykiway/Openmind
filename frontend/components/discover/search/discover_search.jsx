@@ -101,6 +101,13 @@ class DiscoverSearch extends Component {
             
             </div>
           ) : null}
+          <div className="form-buttons">
+            <button className="sleep">Sleep</button>
+            <button className="relax">Relax</button>
+            <button className="gratitude">Gratitude</button>
+            <button className="work">Work</button>
+            <button className="anxiety">Anxiety</button>
+          </div>
         </div>
       )
   }

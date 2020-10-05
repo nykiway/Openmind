@@ -18,24 +18,33 @@
   justify-content: center;
 }
 
-.meditation-name {
-  color: #323233;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-align: center;
+.meditation-item {
   width: 150px;
   height: 170px;
   background-color: #FAF6F4;
   padding: 20px;
   border-radius: 10px;
   margin: 10px;
-}
-
-.meditation-item {
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
+}
+
+.meditation-name {
+  font-size: 14px;
+  color: #323233;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-align: center;
+}
+
+.meditation-item > button {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .meditation-circle {
@@ -62,8 +71,13 @@
   justify-content: center;
 }
 
-.search-input {
+.search-form {
+  display: flex;
+  align-items: center;
   justify-content: center;
+}
+
+.search-input {
   width: 300px;
   margin: 30px;
   padding: 15px;
