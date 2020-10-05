@@ -6,9 +6,22 @@ import {logout} from '../../../actions/session_actions';
 class Settings extends Component {
   constructor(props) {
     super(props);
+      this.state = {
+        username: "",
+        password: ""
+      }
+      this.update = this.update.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  
+  update(field) {
+    return (e) => this.setState({ [field]: e.currentTarget.value })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    // this.processForm(this.state);
+  }
 
   render() {
     return (
@@ -22,17 +35,22 @@ class Settings extends Component {
                 className="settings-form-input"
                 type="text"
                 placeholder={this.props.currentUser.username}
+                onChange={this.update("username")}
                 />
               <br/>
 
               <label className="settings-form-label">Email</label>
               <input
                 className="settings-form-input"
-                type="password"
+                type="text"
                 placeholder={this.props.currentUser.email}
+                onChange={this.update("email")}
                 />
               <br />
-              <button className="save-changes-settings" type="submit">
+              <button 
+                onClick={this.handleSubmit}
+                className="save-changes-settings" 
+                type="submit">
                 Save Changes
               </button>
               < br/>
