@@ -106,11 +106,11 @@ class DiscoverSearch extends Component {
             </div>
           ) : null}
           <div className="form-buttons">
-            <button className="sleep">Sleep</button>
-            <button className="relax">Relax</button>
-            <button className="gratitude">Gratitude</button>
-            <button className="work">Work</button>
-            <button className="anxiety">Anxiety</button>
+            <button className="sleep" value="sleep" onClick={this.update}>Sleep</button>
+            <button className="relax" value="relax" onClick={this.update}>Relax</button>
+            <button className="gratitude" value="gratitude" onClick={this.update}>Gratitude</button>
+            <button className="work" value="work" onClick={this.update}>Work</button>
+            <button className="anxiety" value="anxiety" onClick={this.update}>Anxiety</button>
           </div>
 
           <div className="meditations-container">
