@@ -41,7 +41,6 @@ class Discover extends React.Component {
               />
           </div>
 
-
           <div className="meditations-container">
             <ul className="meditations-list">
               {this.props.meditations.map((meditation) => (
