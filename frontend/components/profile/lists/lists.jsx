@@ -2,6 +2,20 @@ import React from 'react';
 import ProfileNav from '../sub_navs/profile_nav';
 
 class Lists extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listName: "",
+      description: "",
+      showModal: false,
+    }
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({ showModal: !this.state.showModal })
+  }
+
   render() {
     return (
       <div>
@@ -15,7 +29,34 @@ class Lists extends React.Component {
           />
         </div>
         <div className="lists-div">
-          <button className="add-meditation-button">Create New List</button>
+          <button 
+            className="add-meditation-button"
+            onClick={this.handleClick}
+            >
+              Create New List
+          </button>
+          { this.state.showModal ? (
+            <div>
+              <h1>Create a new List</h1>
+              <form>
+                <label>List Name</label>
+                <input
+                  value={this.state.listName}
+                  placeholder="List Name"
+                  type="text"
+                  onChange={}
+                  />
+                <label>Description</label>
+                <input
+                  value={this.state.description}
+                  placeholder="List Name"
+                  type="text"
+                  onChange={}
+                  />
+                <button type="submit">Add List</button>
+              </form>
+            </div>
+          ) : "" }
           <br />
           <div className="list-content">
             <div className="list-item">
