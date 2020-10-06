@@ -10,10 +10,16 @@ class Lists extends React.Component {
       showModal: false,
     }
     this.handleClick = this.handleClick.bind(this);
+    this.update = this.update.bind(this);
   }
 
   handleClick() {
     this.setState({ showModal: !this.state.showModal })
+  }
+
+  update(field) {
+    return e =>
+      this.setState({ [field]: e.currentTarget.value })
   }
 
   render() {
@@ -35,29 +41,28 @@ class Lists extends React.Component {
             >
               Create New List
           </button>
-          { this.state.showModal ? (
-            <div>
+          <br />
+          { !this.state.showModal ? (
+            <div className="list-modal">
               <h1>Create a new List</h1>
               <form>
-                <label>List Name</label>
                 <input
                   value={this.state.listName}
                   placeholder="List Name"
                   type="text"
-                  onChange={}
+                  onChange={this.update("listName")}
                   />
-                <label>Description</label>
+                  <br />
                 <input
                   value={this.state.description}
-                  placeholder="List Name"
+                  placeholder="List Description"
                   type="text"
-                  onChange={}
+                  onChange={this.update("description")}
                   />
                 <button type="submit">Add List</button>
               </form>
             </div>
-          ) : "" }
-          <br />
+          ) : (
           <div className="list-content">
             <div className="list-item">
               <h1 className="list-name">Chill Vibes</h1>
@@ -69,6 +74,7 @@ class Lists extends React.Component {
               <li><i className="fas fa-times list-icon-times"></i></li>
             </ul>
           </div>
+          ) }
         </div>
       </div>
     );

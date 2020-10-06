@@ -27,6 +27,89 @@
   -webkit-transition: all .2s ease-in-out;
 }
 
+// Modal:
+
+.list-modal {
+  z-index: 10;
+  height: 100%;
+  width: 50%;
+  font-weight: 700;
+  color: #323233;
+  background-color: #FAF6F4;
+  text-align: center;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.list-modal h1 {
+  color: #323233;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  margin-bottom: 16px;
+}
+
+.list-modal > form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.list-modal input {
+  font-size: 16px;
+  line-height: 12px;
+  font-weight: 400;
+  text-align: start;
+  letter-spacing: 0.7px;
+  cursor: text;
+  width: 90%;
+  padding: 16px;
+  border: 1px solid lightgrey;
+  background-color: white;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Apercu, sans-serif;
+}
+
+.list-modal input:focus {
+  border: 1px solid orange;
+}
+
+.list-modal button {
+  margin-top: 30px;
+  background-color: white;
+  width: 30%;
+  font-family: Apercu, sans-serif;
+  color: white;
+  background-color: #0C6FF9;
+  border: none;
+  border-radius: 24px;
+  height: 45px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding-left: 24px;
+  padding-right: 24px;
+  letter-spacing: 2.5px;
+  line-height: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.list-modal button:hover {
+  background-color: #0e64dd;
+  transition: all .2s ease-in-out;
+}
+
+.list-modal label {
+  margin-top: 30px;
+}
+
+// Content:
+
 .list-content {
   margin-bottom: 30px;
   display: flex;
