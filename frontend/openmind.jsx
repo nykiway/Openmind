@@ -3,7 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {login, logout, signup, } from './util/session_api_util';
-import { fetchMeditations, fetchMeditation } from './actions/meditation_actions'
+import { fetchMeditations, fetchMeditation } from './actions/meditation_actions';
+import { fetchLists, fetchList } from './actions/list_actions';
 
 // Components
 import Root from './components/root';
@@ -34,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.signup = signup;
   window.fetchMeditations = fetchMeditations;
   window.fetchMeditation = fetchMeditation;
+  window.fetchLists = fetchLists;
+  window.fetchList = fetchList;
   // end testing
 
   ReactDOM.render(<Root store={store}/>, root);

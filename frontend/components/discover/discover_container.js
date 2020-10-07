@@ -4,7 +4,6 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import { 
   fetchMeditations, 
   fetchMeditation } from '../../actions/meditation_actions';
-
 import { fetchCurrentMeditation } from '../../actions/current_meditation_actions'
 
 
