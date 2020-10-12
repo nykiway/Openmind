@@ -3,6 +3,7 @@ import Lists from "./lists";
 
 import {
   fetchLists,
+  createList,
   fetchList  } from '../../../actions/list_actions';
 
 const mapStateToProps = (state) => ({

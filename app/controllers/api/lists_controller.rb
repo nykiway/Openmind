@@ -35,7 +35,7 @@ class Api::ListsController < ApplicationController
     end
   end
 
-  def note_params
-    params.require(:list).permit(:title, :description, :userId, :meditationIds)
+  def list_params
+    params.require(:list).permit(:title, :description)
   end
 end

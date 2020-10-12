@@ -10,7 +10,12 @@ class Lists extends React.Component {
       showModal: false,
     }
     this.handleClick = this.handleClick.bind(this);
+    this.createNewList = this.createNewList.bind(this);
     this.update = this.update.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchLists();
   }
 
   handleClick() {
@@ -20,6 +25,10 @@ class Lists extends React.Component {
   update(field) {
     return e =>
       this.setState({ [field]: e.currentTarget.value })
+  }
+
+  createNewList() {
+    this.props.createList();
   }
 
   render() {
@@ -59,7 +68,10 @@ class Lists extends React.Component {
                   type="text"
                   onChange={this.update("description")}
                   />
-                <button type="submit">Add List</button>
+                <button 
+                  type="submit"
+                  onClick={this.createNewList()}
+                  >Add List</button>
               </form>
             </div>
           ) : (
