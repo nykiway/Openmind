@@ -1,5 +1,5 @@
 class Api::ListsController < ApplicationController
-  before_action :require_logged_in!, only: [:create]
+  before_action :require_logged_in!
   def index
     @lists = List.all
     render :index
@@ -11,14 +11,14 @@ class Api::ListsController < ApplicationController
   end
 
   def edit
-    @list = List.find(params[:id])
+    @list = List.find_by(id: params[:id])
     render :edit
   end
 
   def update
     @list = current_user.lists.find_by(id: params[:id])
     if @list && @list.update(list_params)
-      redirect_to user_url(@list.user_id)
+      redirect_to user_url(@list.userId)
     else
       flash[:errors] = ['Your list was not able to be updated!']
       render :edit
@@ -26,16 +26,16 @@ class Api::ListsController < ApplicationController
   end
 
   def create
-    @list = List.create!(list_params)
+    @list = List.create(list_params)
     @list.userId = params[:userId]
     if @list.save
     else
       flash[:errors] = @list.errors.full_messages
-      render :show
     end
+    render :show
   end
 
   def list_params
-    params.require(:list).permit(:title, :description)
+    params.require(:list).permit(:title, :description, :meditationIds)
   end
 end
