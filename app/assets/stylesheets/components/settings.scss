@@ -20,8 +20,13 @@
 
 .settings-form-input {
   background-color: rgb(245, 242, 237);
-  padding: 6px;
-  border-radius: 2px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.settings-form-input:focus {
+  border: 1px solid orange;
 }
 
 .save-changes-settings {
@@ -41,6 +46,12 @@
   letter-spacing: 2.5px;
   text-align: center;
   font-weight: 700;
+  transition: all .5s ease-in-out;
+}
+
+.save-changes-settings:hover {
+  background-color: rgb(255, 251, 251);
+  transition: all .2s ease-in-out;
 }
 
 .logout-settings {
@@ -54,6 +65,12 @@
   font-weight: 700;
   padding-top: 30px;
   padding-bottom: 30px;
+  transition: all .2s ease-in-out;
+}
+
+.logout-settings:hover {
+  color: rgb(245, 158, 104);
+  transition: all .2s ease-in-out;
 }
 
 input::-webkit-input-placeholder {
