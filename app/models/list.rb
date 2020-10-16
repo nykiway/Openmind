@@ -4,5 +4,4 @@ class List < ApplicationRecord
   validates :meditationIds, presence: true
 
   belongs_to :user
-
 end

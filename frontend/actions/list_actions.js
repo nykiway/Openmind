@@ -2,6 +2,7 @@ import * as ListAPI from '../util/list_api_util';
 
 export const RECEIVE_LISTS = "RECEIVE_LISTS";
 export const RECEIVE_LIST = "RECEIVE_LIST";
+export const CREATE_LIST = "CREATE_LIST";
 
 
 const receiveLists = (lists) => {
@@ -15,6 +16,13 @@ const receiveList = ({ list }) => {
   return {
     type: RECEIVE_LIST,
     list,
+  }
+}
+
+const createaList = ({ list }) => {
+  return {
+    type: CREATE_LIST,
+    list
   }
 }
 
@@ -32,5 +40,5 @@ export const fetchList = (id) => dispatch => {
 
 export const createList = list => dispatch => {
   return ListAPI.createList(list)
-    .then(list => dispatch(receiveList(list)))
+    .then(list => dispatch(createaList(list)))
 };

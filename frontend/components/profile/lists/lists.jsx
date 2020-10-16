@@ -23,12 +23,19 @@ class Lists extends React.Component {
   }
 
   update(field) {
+    
     return e =>
       this.setState({ [field]: e.currentTarget.value })
   }
 
   createNewList() {
-    this.props.createList();
+    
+    let test = {
+      userId: this.props.userId,
+      title: this.state.listName,
+      description: this.state.description
+    }
+    this.props.createList(test);
   }
 
   render() {
@@ -51,10 +58,10 @@ class Lists extends React.Component {
               Create New List
           </button>
           <br />
-          { !this.state.showModal ? (
+          { this.state.showModal ? (
             <div className="list-modal">
               <h1>Create a new List</h1>
-              <form>
+              <>
                 <input
                   value={this.state.listName}
                   placeholder="List Name"
@@ -70,21 +77,30 @@ class Lists extends React.Component {
                   />
                 <button 
                   type="submit"
-                  onClick={this.createNewList()}
+                  onClick={this.createNewList}
                   >Add List</button>
-              </form>
+              </>
             </div>
           ) : (
           <div className="list-content">
-            <div className="list-item">
-              <h1 className="list-name">Chill Vibes</h1>
-              <h2 className="list-details">When you need to relax</h2>
-            </div>
-            <ul className="list-icons">
-              <li><i className="fas fa-play list-icon-play"></i></li>
-              <li><i className="fas fa-edit list-icon-edit"></i></li>
-              <li><i className="fas fa-times list-icon-times"></i></li>
-            </ul>
+            { !this.state.showModal ? (
+              <div className="list">
+                <div className="list-item">
+                  {/* {this.state.lists.map((list, idx) => {
+                    return <li key={idx} >{list.title}</li>
+                  })} */}
+                  <h1 className="list-name">Chill Vibes</h1>
+                  <h2 className="list-details">When you need to relax</h2>
+                </div>
+                <ul className="list-icons">
+                  <li><i id="list-play" className="fas fa-play list-icon-play"></i></li>
+                  <li><i className="fas fa-edit list-icon-edit"></i></li>
+                  <li><i className="fas fa-times list-icon-times"></i></li>
+                </ul>
+              </div>
+            ) : (
+              <div></div>
+              )}
           </div>
           ) }
         </div>

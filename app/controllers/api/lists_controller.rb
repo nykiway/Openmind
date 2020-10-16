@@ -26,6 +26,7 @@ class Api::ListsController < ApplicationController
   end
 
   def create
+    debugger
     @list = List.create(list_params)
     @list.userId = params[:userId]
     if @list.save
@@ -35,7 +36,8 @@ class Api::ListsController < ApplicationController
     render :show
   end
 
+  private
   def list_params
-    params.require(:list).permit(:title, :description, :meditationIds)
+    params.require(:list).permit(:title, :description, :userId)
   end
 end
