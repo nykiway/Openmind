@@ -5,7 +5,7 @@ class Lists extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listName: "",
+      title: "",
       description: "",
       showModal: false,
     }
@@ -23,16 +23,14 @@ class Lists extends React.Component {
   }
 
   update(field) {
-    
     return e =>
       this.setState({ [field]: e.currentTarget.value })
   }
 
   createNewList() {
-    
     let test = {
       userId: this.props.userId,
-      title: this.state.listName,
+      title: this.state.title,
       description: this.state.description
     }
     this.props.createList(test);
@@ -50,7 +48,7 @@ class Lists extends React.Component {
             }
           />
         </div>
-        <div className="lists-div">
+        <div className="create-list-btn">
           <button 
             className="add-meditation-button"
             onClick={this.handleClick}
@@ -61,12 +59,12 @@ class Lists extends React.Component {
           { this.state.showModal ? (
             <div className="list-modal">
               <h1>Create a new List</h1>
-              <>
+              <form>
                 <input
-                  value={this.state.listName}
+                  value={this.state.title}
                   placeholder="List Name"
                   type="text"
-                  onChange={this.update("listName")}
+                  onChange={this.update("title")}
                   />
                   <br />
                 <input
@@ -79,25 +77,36 @@ class Lists extends React.Component {
                   type="submit"
                   onClick={this.createNewList}
                   >Add List</button>
-              </>
+              </form>
             </div>
           ) : (
           <div className="list-content">
             { !this.state.showModal ? (
-              <div className="list">
                 <div className="list-item">
-                  {/* {this.state.lists.map((list, idx) => {
-                    return <li key={idx} >{list.title}</li>
-                  })} */}
-                  <h1 className="list-name">Chill Vibes</h1>
-                  <h2 className="list-details">When you need to relax</h2>
+                  {this.props.lists.map((list, idx) => {
+                    return <li key={idx} >
+                        <div>
+                          <h1 className="list-name">{list.title}</h1>
+                          <h2 className="list-details">{list.description}</h2>
+                        </div>
+                        <ul className="list-icons">
+                          <li><i id="list-play" className="fas fa-play list-icon-play"></i></li>
+                          <li><i className="fas fa-edit list-icon-edit"></i></li>
+                          <li><i className="fas fa-times list-icon-times"></i></li>
+                        </ul>
+                      </li>
+                  })}
+                  {/* This div section below can be deleted when error is fixed */}
+                  <div>
+                    <h1 className="list-name">List Name</h1>
+                    <h2 className="list-details">This is the list description</h2>
+                  </div>
+                  <ul className="list-icons">
+                    <li><i id="list-play" className="fas fa-play list-icon-play"></i></li>
+                    <li><i className="fas fa-edit list-icon-edit"></i></li>
+                    <li><i className="fas fa-times list-icon-times"></i></li>
+                  </ul>
                 </div>
-                <ul className="list-icons">
-                  <li><i id="list-play" className="fas fa-play list-icon-play"></i></li>
-                  <li><i className="fas fa-edit list-icon-edit"></i></li>
-                  <li><i className="fas fa-times list-icon-times"></i></li>
-                </ul>
-              </div>
             ) : (
               <div></div>
               )}

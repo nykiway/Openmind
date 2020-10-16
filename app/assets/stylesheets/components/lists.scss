@@ -1,4 +1,4 @@
-.lists-div {
+.create-list-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,8 +112,6 @@
 
 .list-content {
   margin-bottom: 30px;
-  display: flex;
-  justify-content: space-between;
   background: rgb(31,26,119);
   background: linear-gradient(317deg, rgba(31,26,119,1) 0%, rgba(14,100,221,1) 75%, rgba(14,100,221,1) 100%);
   padding: 30px 10px 30px 10px;
@@ -128,6 +126,10 @@
 }
 
 .list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   color: white;
 }
 

@@ -26,7 +26,6 @@ class Api::ListsController < ApplicationController
   end
 
   def create
-    debugger
     @list = List.create(list_params)
     @list.userId = params[:userId]
     if @list.save
