@@ -6,9 +6,6 @@
   background-color: #F47D31;
 }
 
-.meditations-container {
-}
-
 .meditations-list {
   cursor: pointer;
   display: flex;
@@ -65,6 +62,24 @@
 
 // search
 
+.search-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  background-color: #F47D31;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  border-radius: 50px 0px 0px 50px;
+}
+
+#search-icon {
+  color: white;
+  font-size: 20px;
+}
+
 .search-form-box {
   display: flex;
   align-items: center;
@@ -79,14 +94,18 @@
 
 .search-input {
   width: 300px;
-  margin: 30px;
+  margin: 30px 30px 30px 0px;
   padding: 15px;
-  border: 1px solid lightgrey;
-  border-radius: 50px;
+  border-top: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  border-radius: 0px 50px 50px 0px;
 }
 
 .search-input:focus {
-  border: 1px solid #F47D31;
+  border-top: 1px solid #F47D31;
+  border-right: 1px solid #F47D31;
+  border-bottom: 1px solid #F47D31;
 }
 
 .form-buttons {
@@ -177,6 +196,11 @@
 
 .anxiety {
   background-color:#0C6FF9;
+}
+
+.anxiety:hover {
+  background-color: #0959c9;
+  -webkit-transition: all .2s ease-in-out;
 }
 
 // #0C6FF9 - blue

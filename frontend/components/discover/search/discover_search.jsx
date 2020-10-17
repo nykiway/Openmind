@@ -73,14 +73,20 @@ class DiscoverSearch extends Component {
             onSubmit={this.handleSubmit}
             className="search-form"
             >
+            <div className="search-div">
+            <i id="search-icon" className="fas fa-search"></i>
+            </div>
             <input
               type="text"
               value={this.state.searchInput}
               onClick={this.triggerDropdown}
               onChange={this.update}
+              onFocus={(e) => e.target.placeholder = ""} // removes placeholder text
+              onBlur={(e) => e.target.placeholder = "ie. sleep, anxiety, etc..."}
               className="search-input"
-              placeholder="ie. sleep, anxiety, etc..."
+              placeholder={`ie. sleep, anxiety, etc...`}
             />
+
           </form>
           {this.state.showDropdown ? (
             <div className="search-dropdown">

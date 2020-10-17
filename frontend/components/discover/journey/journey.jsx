@@ -25,7 +25,7 @@ class Journey extends React.Component {
             </div>
             <ul className="journey-icons">
               <li>
-                <i className="fas fa-play journey-icon-play"></i>
+                <i id="journey-play" className="fas fa-play journey-icon-play"></i>
               </li>
               <li>
                 <i className="fas fa-star journey-icon-star"></i>
