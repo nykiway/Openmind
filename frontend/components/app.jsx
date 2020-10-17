@@ -28,18 +28,21 @@ const App = () => (
     <Modal />
       <NavBarContainer />
       <Switch>
-        <Route path="/home" component={HomeContainer} />
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+
+        <ProtectedRoute path="/discover" component={DiscoverContainer} />
+
+        <Route path="/home" component={HomeContainer} />
+
+        <ProtectedRoute path="/journey" component={JourneyContainer} />
+        <ProtectedRoute path="/timers" component={TimersContainer} />
 
         <ProtectedRoute path="/stats" component={StatsContainer} />
         <ProtectedRoute path="/lists" component={ListsContainer} />
         <ProtectedRoute path="/settings" component={SettingsContainer} />
 
-        <ProtectedRoute path="/journey" component={JourneyContainer} />
-        <ProtectedRoute path="/timers" component={TimersContainer} />
-        <ProtectedRoute path="/discover" component={DiscoverContainer} />
-        <Redirect to="/home" />
+        <AuthRoute path="/" component={HomeContainer}/>
       </Switch>
       <Footer />
   </div>

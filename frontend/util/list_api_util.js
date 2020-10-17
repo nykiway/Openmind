@@ -14,12 +14,9 @@ export const fetchList = (id) => {
 };
 
 export const createList = listForm => {
-  console.log({listForm})
   return $.ajax({
     method: 'POST',
     url: 'api/lists',
-    data: {listForm},
-    contentType: false,
-    processData: false
+    data: {listForm}
   })
 }

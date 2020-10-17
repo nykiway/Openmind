@@ -4,6 +4,20 @@ import { Link } from "react-router-dom";
 import ProfileNav from '../sub_navs/profile_nav';
 
 class Stats extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      totalTime: 0,
+      totalSessions: 0,
+      currentStreak: 0,
+      lastTime: "never",
+    }
+  }
+
+  componentDidMount() {
+    this.state.isPlaying ? this.setState({ totalSessions: this.state.totalSessions += 1}) : null;
+  }
+
 
   render() {
     return (
@@ -28,22 +42,22 @@ class Stats extends React.Component {
           <div className="stat">
             <i className="fas fa-chart-pie"></i>
             <h2>Total time meditated</h2>
-            <h3>Test</h3>
+            <h3>{this.state.totalTime}</h3>
           </div>
           <div className="stat">
             <i className="fas fa-headphones"></i>
             <h2>Sessions Completed</h2>
-            <h3>Test</h3>
+            <h3>{this.state.totalSessions}</h3>
           </div>
           <div className="stat">
             <i className="fas fa-stopwatch"></i>
             <h2>Current run streak</h2>
-            <h3>Test</h3>
+            <h3>{this.state.currentStreak}</h3>
           </div>
           <div className="stat">
             <i className="far fa-clock"></i>
             <h2>Last time meditated</h2>
-            <h3>Test</h3>
+            <h3>{this.state.lastTime}</h3>
           </div>
         </div>
       </div>
