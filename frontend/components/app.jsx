@@ -19,6 +19,9 @@ import JourneyContainer from './discover/journey/journey_container';
 import TimersContainer from './discover/timers/timers_container';
 import DiscoverContainer from './discover/discover_container';
 
+// Error Page
+import ErrorPage from './error_pages/404';
+
 import Footer from './footer/footer';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -28,6 +31,7 @@ const App = () => (
     <Modal />
       <NavBarContainer />
       <Switch>
+        
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
 
@@ -42,7 +46,7 @@ const App = () => (
         <ProtectedRoute path="/lists" component={ListsContainer} />
         <ProtectedRoute path="/settings" component={SettingsContainer} />
 
-        <AuthRoute path="/" component={HomeContainer}/>
+        <AuthRoute path="/" component={ErrorPage}/>
       </Switch>
       <Footer />
   </div>
