@@ -5,7 +5,7 @@ const NavBar = ({ currentUser, logout }) => {
   const display = currentUser ? (
     <div>
       <ul className="header-links">
-        <Link to="#">
+        <Link to="/home">
           <li className="home">Home</li>
         </Link>
         <Link to="/discover">
