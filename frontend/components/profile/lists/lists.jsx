@@ -12,12 +12,16 @@ class Lists extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.createNewList = this.createNewList.bind(this);
     this.update = this.update.bind(this);
-    this.editList = this.editList.bind(this);
-    this.handleDeleteList = this.handleDeleteList.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchLists();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.lists.length != prevProps.lists.length) {
+      this.props.fetchLists();
+    }
   }
 
   handleClick() {
@@ -38,16 +42,6 @@ class Lists extends React.Component {
     this.props.createList(newList);
   }
 
-  editList() {
-
-  }
-
-  handleDeleteList(e) {
-    e.preventDefault();
-    this.props.deleteList()
-
-  }
-
   render() {
     return (
       <div>
@@ -60,7 +54,7 @@ class Lists extends React.Component {
             }
           />
         </div>
-        <div className="create-list-btn">
+        <div className="lists-container">
           <button 
             className="add-meditation-button"
             onClick={this.handleClick}
@@ -93,43 +87,38 @@ class Lists extends React.Component {
             </div>
           ) : (
             <div className="list-list">
-                    {this.props.lists ? (
                 <div className="list-content">
-                    
-                 
-                {this.props.lists.map((list, idx) => {
-                  return (
-                    <div key={idx} className="list-item">
-
-                      <div>
-                        <h1 className="list-name">{list.title}</h1>
-                        <h2 className="list-details">{list.description}</h2>
+                  {this.props.lists.map((list, idx) => {
+                  if (this.props.lists) {
+                    return (
+                      <div key={idx} className="list-item">
+                        <div>
+                          <h1 className="list-name">{list.title}</h1>
+                          <h2 className="list-details">{list.description}</h2>
+                        </div>
+                        <div className="list-icons">
+                          <i id="list-play" className="fas fa-play list-icon-play"></i>
+                          <i className="fas fa-edit list-icon-edit"></i>
+                          <i
+                            listid={list.id}
+                            className="fas fa-times list-icon-times"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              this.props.deleteList(list.id)
+                              // .then(() => this.props.history.push("/lists"));
+                            }}
+                          ></i>
+                        </div>
                       </div>
-
-                      <div className="list-icons">
-                        <i id="list-play" className="fas fa-play list-icon-play"></i>
-                        <i className="fas fa-edit list-icon-edit"></i>
-                        <i
-                          listid={list.id}
-                          className="fas fa-times list-icon-times"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            this.props.deleteList(list.id)
-                            .then(() => this.props.history.push("/lists"));
-                          }}
-                        ></i>
-                      </div>
-
-                    </div>
-                      )
-                    })}
-              </div>
-                    ) : null}
+                    )
+                    }
+                  })}
+                </div>
             </div>
           ) }
-          </div>
-          </div>
-          );
+      </div>
+    </div>
+    );
   }
 }
 

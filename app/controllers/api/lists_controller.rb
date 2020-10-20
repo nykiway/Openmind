@@ -7,7 +7,11 @@ class Api::ListsController < ApplicationController
   
   def show
     @list = List.find(params[:id])
-    render :show
+    if @list
+      render :show
+    else
+      render json: ['There are no lists']
+    end
   end
 
   def edit
@@ -36,10 +40,10 @@ class Api::ListsController < ApplicationController
   end
 
   def destroy
-    list = List.find(params[:id])
-    if list
-      list.delete
-      render :index
+    @list = List.find(params[:id])
+    if @list
+      @list.destroy
+      render :show
     else
       render json: ["List does not exist"], status: 404
     end

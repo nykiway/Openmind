@@ -1,3 +1,3 @@
 json.list do
-  json.partial! '/api/lists/list', list: @list
+  json.extract! @list, :id, :title, :userId, :meditationIds
 end
