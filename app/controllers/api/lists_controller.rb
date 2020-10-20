@@ -27,8 +27,8 @@ class Api::ListsController < ApplicationController
 
   def create
     @list = List.create(list_params)
-    @list.userId = params[:userId]
-    if @list.save
+    # @list.userId = params[:userId]
+    if @list.save!
     else
       flash[:errors] = @list.errors.full_messages
     end

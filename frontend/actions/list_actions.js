@@ -19,7 +19,7 @@ const receiveList = ({ list }) => {
   }
 }
 
-const createaList = ({ list }) => {
+const createAList = ( list ) => {
   return {
     type: CREATE_LIST,
     list
@@ -40,5 +40,5 @@ export const fetchList = (id) => dispatch => {
 
 export const createList = list => dispatch => {
   return ListAPI.createList(list)
-    .then(list => dispatch(createaList(list)))
+    .then(list => dispatch(createAList(list)))
 };

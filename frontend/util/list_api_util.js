@@ -13,10 +13,10 @@ export const fetchList = (id) => {
   })
 };
 
-export const createList = listForm => {
+export const createList = list => {
   return $.ajax({
     method: 'POST',
     url: 'api/lists',
-    data: {listForm}
+    data: { list }
   })
 }

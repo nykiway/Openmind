@@ -12,6 +12,8 @@ class Lists extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.createNewList = this.createNewList.bind(this);
     this.update = this.update.bind(this);
+    this.editList = this.editList.bind(this);
+    this.deleteList = this.deleteList.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +36,14 @@ class Lists extends React.Component {
       description: this.state.description
     }
     this.props.createList(test);
+  }
+
+  editList() {
+
+  }
+
+  deleteList() {
+
   }
 
   render() {
@@ -80,41 +90,33 @@ class Lists extends React.Component {
               </form>
             </div>
           ) : (
-          <div className="list-content">
-            { !this.state.showModal ? (
-                <div className="list-item">
-                  {this.props.lists.map((list, idx) => {
-                    return <li key={idx} >
-                        <div>
-                          <h1 className="list-name">{list.title}</h1>
-                          <h2 className="list-details">{list.description}</h2>
-                        </div>
-                        <ul className="list-icons">
-                          <li><i id="list-play" className="fas fa-play list-icon-play"></i></li>
-                          <li><i className="fas fa-edit list-icon-edit"></i></li>
-                          <li><i className="fas fa-times list-icon-times"></i></li>
-                        </ul>
-                      </li>
-                  })}
-                  {/* This div section below can be deleted when error is fixed */}
-                  <div>
-                    <h1 className="list-name">List Name</h1>
-                    <h2 className="list-details">This is the list description</h2>
-                  </div>
-                  <ul className="list-icons">
-                    <li><i id="list-play" className="fas fa-play list-icon-play"></i></li>
-                    <li><i className="fas fa-edit list-icon-edit"></i></li>
-                    <li><i className="fas fa-times list-icon-times"></i></li>
-                  </ul>
-                </div>
+            <div className="list-list">
+              { !this.state.showModal ? (
+                <div className="list-content">
+                {this.props.lists.map((list, idx) => {
+                  return (
+                    <div key={idx}className="list-item">
+                      <div>
+                        <h1 className="list-name">{list.title}</h1>
+                        <h2 className="list-details">{list.description}</h2>
+                      </div>
+                      <div className="list-icons">
+                        <i id="list-play" className="fas fa-play list-icon-play"></i>
+                        <i className="fas fa-edit list-icon-edit"></i>
+                        <i className="fas fa-times list-icon-times"></i>
+                      </div>
+                    </div>
+                      )
+                    })}
+              </div>
             ) : (
-              <div></div>
+              null
               )}
-          </div>
+            </div>
           ) }
-        </div>
-      </div>
-    );
+          </div>
+          </div>
+          );
   }
 }
 

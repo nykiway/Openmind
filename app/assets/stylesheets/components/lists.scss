@@ -110,27 +110,35 @@
 
 // Content:
 
+.list-list {
+  width: 100%;
+}
+
 .list-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.list-item {
+  width: 60%;
   margin-bottom: 30px;
   background: rgb(31,26,119);
   background: linear-gradient(317deg, rgba(31,26,119,1) 0%, rgba(14,100,221,1) 75%, rgba(14,100,221,1) 100%);
   padding: 30px 10px 30px 10px;
-  width: 50%;
   border-radius: 5px 20px 20px 20px;
-}
-
-.list-content:hover {
-  background: rgb(31,26,119);
-  background: linear-gradient(119deg, rgba(31,26,119,1) 0%, rgba(14,100,221,1) 75%, rgba(14,100,221,1) 100%);
-  -webkit-transition: all 3s ease-in-out;
-}
-
-.list-item {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   color: white;
+}
+
+.list-item:hover {
+  background: rgb(31,26,119);
+  background: linear-gradient(119deg, rgba(31,26,119,1) 0%, rgba(14,100,221,1) 75%, rgba(14,100,221,1) 100%);
+  -webkit-transition: all 3s ease-in-out;
 }
 
 .list-name {
