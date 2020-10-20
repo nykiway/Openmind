@@ -35,6 +35,16 @@ class Api::ListsController < ApplicationController
     render :show
   end
 
+  def destroy
+    list = List.find_by(id: params[:id])
+    if list
+      list.destroy
+      render :index
+    else
+      render json: ["List does not exist"], status: 404
+    end
+  end
+
   private
   def list_params
     params.require(:list).permit(:title, :description, :userId)

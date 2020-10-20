@@ -3,12 +3,12 @@ import { merge } from "lodash";
 import {
   RECEIVE_LISTS,
   RECEIVE_LIST,
-  CREATE_LIST
+  CREATE_LIST,
+  DELETE_LIST
 } from '../actions/list_actions';
 
 const listsReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_LISTS:
       return action.lists;
@@ -16,8 +16,11 @@ const listsReducer = (state = {}, action) => {
       const newList = { [action.list.id]: action.list };
       return Object.assign({}, state, newList);
     case CREATE_LIST:
-      // return Object.assign({}, state).new = action.list.data
       newState.new = action.list.data;
+      return newState;
+    case DELETE_LIST:
+      let newState = Object.assign({}, state);
+      delete newState[action.list.id];
       return newState;
     default:
       return state;

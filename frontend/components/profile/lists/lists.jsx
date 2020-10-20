@@ -13,7 +13,7 @@ class Lists extends React.Component {
     this.createNewList = this.createNewList.bind(this);
     this.update = this.update.bind(this);
     this.editList = this.editList.bind(this);
-    this.deleteList = this.deleteList.bind(this);
+    this.handleDeleteList = this.handleDeleteList.bind(this);
   }
 
   componentDidMount() {
@@ -30,20 +30,24 @@ class Lists extends React.Component {
   }
 
   createNewList() {
-    let test = {
+    let newList = {
       userId: this.props.userId,
       title: this.state.title,
       description: this.state.description
     }
-    this.props.createList(test);
+    this.props.createList(newList);
   }
 
   editList() {
 
   }
 
-  deleteList() {
-
+  handleDeleteList(e) {
+    e.preventDefault();
+    const { lists, userId, deleteList } = this.props;
+    // if (userId === lists.userId) {
+        deleteList(lists.id);
+    // }
   }
 
   render() {
@@ -103,7 +107,10 @@ class Lists extends React.Component {
                       <div className="list-icons">
                         <i id="list-play" className="fas fa-play list-icon-play"></i>
                         <i className="fas fa-edit list-icon-edit"></i>
-                        <i className="fas fa-times list-icon-times"></i>
+                        <i 
+                          className="fas fa-times list-icon-times"
+                          onClick={this.handleDeleteList}
+                        ></i>
                       </div>
                     </div>
                       )
