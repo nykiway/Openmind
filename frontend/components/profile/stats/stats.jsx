@@ -15,7 +15,6 @@ class Stats extends React.Component {
   }
 
   componentDidMount() {
-    this.state.isPlaying ? this.setState({ totalSessions: this.state.totalSessions += 1}) : null;
   }
 
 

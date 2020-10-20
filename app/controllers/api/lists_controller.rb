@@ -36,9 +36,9 @@ class Api::ListsController < ApplicationController
   end
 
   def destroy
-    list = List.find_by(id: params[:id])
+    list = List.find(params[:id])
     if list
-      list.destroy
+      list.delete
       render :index
     else
       render json: ["List does not exist"], status: 404

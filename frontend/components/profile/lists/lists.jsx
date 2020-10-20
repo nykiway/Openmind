@@ -44,10 +44,8 @@ class Lists extends React.Component {
 
   handleDeleteList(e) {
     e.preventDefault();
-    const { lists, userId, deleteList } = this.props;
-    // if (userId === lists.userId) {
-        deleteList(lists.id);
-    // }
+    this.props.deleteList()
+
   }
 
   render() {
@@ -95,30 +93,38 @@ class Lists extends React.Component {
             </div>
           ) : (
             <div className="list-list">
-              { !this.state.showModal ? (
+                    {this.props.lists ? (
                 <div className="list-content">
+                    
+                 
                 {this.props.lists.map((list, idx) => {
                   return (
-                    <div key={idx}className="list-item">
+                    <div key={idx} className="list-item">
+
                       <div>
                         <h1 className="list-name">{list.title}</h1>
                         <h2 className="list-details">{list.description}</h2>
                       </div>
+
                       <div className="list-icons">
                         <i id="list-play" className="fas fa-play list-icon-play"></i>
                         <i className="fas fa-edit list-icon-edit"></i>
-                        <i 
+                        <i
+                          listid={list.id}
                           className="fas fa-times list-icon-times"
-                          onClick={this.handleDeleteList}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            this.props.deleteList(list.id)
+                            .then(() => this.props.history.push("/lists"));
+                          }}
                         ></i>
                       </div>
+
                     </div>
                       )
                     })}
               </div>
-            ) : (
-              null
-              )}
+                    ) : null}
             </div>
           ) }
           </div>

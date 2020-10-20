@@ -4,23 +4,27 @@ import {
   RECEIVE_LISTS,
   RECEIVE_LIST,
   CREATE_LIST,
-  DELETE_LIST
+  REMOVE_LIST
 } from '../actions/list_actions';
 
 const listsReducer = (state = {}, action) => {
   Object.freeze(state);
+  let newState;
   switch (action.type) {
     case RECEIVE_LISTS:
       return action.lists;
+
     case RECEIVE_LIST:
       const newList = { [action.list.id]: action.list };
       return Object.assign({}, state, newList);
+
     case CREATE_LIST:
+      newState = merge({}, state);
       newState.new = action.list.data;
       return newState;
-    case DELETE_LIST:
-      let newState = Object.assign({}, state);
-      delete newState[action.list.id];
+
+    case REMOVE_LIST:
+      delete newState[action.listId];
       return newState;
     default:
       return state;

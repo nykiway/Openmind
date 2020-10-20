@@ -21,7 +21,7 @@ export const createList = list => {
   })
 }
 
-export const deleteList = (id) => {
+export const destroyList = (id) => {
   return $.ajax({
     method: 'DELETE',
     url: `api/lists/${id}`

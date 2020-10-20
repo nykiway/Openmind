@@ -3,7 +3,7 @@ import * as ListAPI from '../util/list_api_util';
 export const RECEIVE_LISTS = "RECEIVE_LISTS";
 export const RECEIVE_LIST = "RECEIVE_LIST";
 export const CREATE_LIST = "CREATE_LIST";
-export const DELETE_LIST = "DELETE_LIST";
+export const REMOVE_LIST = "REMOVE_LIST";
 
 const receiveLists = (lists) => {
   return {
@@ -26,6 +26,13 @@ const createAList = ( list ) => {
   }
 }
 
+const removeList = (listId) => {
+  return {
+    type: REMOVE_LIST,
+    listId,
+  }
+}
+
 // Thunk Actions
 
 export const fetchLists = () => dispatch => {
@@ -44,6 +51,6 @@ export const createList = list => dispatch => {
 };
 
 export const deleteList = (id) => dispatch => {
-  return ListAPI.deleteList(id)
-    .then(list => dispatch(receiveList(list)))
+  return ListAPI.destroyList(id)
+    .then(() => dispatch(removeList(id)))
 };
