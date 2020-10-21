@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ls from 'local-storage';
 
 import ProfileNav from '../sub_navs/profile_nav';
 
@@ -15,6 +16,12 @@ class Stats extends React.Component {
   }
 
   componentDidMount() {
+    const {totalTime, totalSessions, currentStreak, lastTime} = this.state;
+
+    localStorage.setItem('totalTime', totalTime);
+    localStorage.setItem('totalSessions', totalSessions);
+    localStorage.setItem('currentStreak', currentStreak);
+    localStorage.setItem('lastTime', lastTime);
   }
 
 
