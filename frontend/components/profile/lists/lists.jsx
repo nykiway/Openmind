@@ -40,6 +40,7 @@ class Lists extends React.Component {
       description: this.state.description
     }
     this.props.createList(newList);
+    this.setState({ showModal: !this.state.showModal });
   }
 
   render() {
@@ -88,7 +89,7 @@ class Lists extends React.Component {
           ) : (
             <div className="list-list">
                 <div className="list-content">
-                  {this.props.lists.map((list, idx) => {
+                  {this.props.lists ? this.props.lists.map((list, idx) => {
                   if (this.props.lists) {
                     return (
                       <div key={idx} className="list-item">
@@ -112,7 +113,7 @@ class Lists extends React.Component {
                       </div>
                     )
                     }
-                  })}
+                  }) : null }
                 </div>
             </div>
           ) }

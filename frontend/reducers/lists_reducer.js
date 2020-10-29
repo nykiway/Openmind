@@ -24,6 +24,7 @@ const listsReducer = (state = {}, action) => {
       return newState;
 
     case REMOVE_LIST:
+      newState = Object.assign({}, state);
       delete newState[action.listId];
       return newState;
     default:
