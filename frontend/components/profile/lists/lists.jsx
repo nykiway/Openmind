@@ -33,14 +33,14 @@ class Lists extends React.Component {
       this.setState({ [field]: e.currentTarget.value })
   }
 
-  createNewList() {
+  createNewList(e) {
+    e.preventDefault();
     let newList = {
       userId: this.props.userId,
       title: this.state.title,
       description: this.state.description
     }
     this.props.createList(newList);
-    this.setState({ showModal: !this.state.showModal });
   }
 
   render() {
@@ -83,7 +83,9 @@ class Lists extends React.Component {
                 <button 
                   type="submit"
                   onClick={this.createNewList}
-                  >Add List</button>
+                  >
+                    Add List
+                </button>
               </form>
             </div>
           ) : (
@@ -106,7 +108,6 @@ class Lists extends React.Component {
                             onClick={(e) => {
                               e.preventDefault();
                               this.props.deleteList(list.id)
-                              // .then(() => this.props.history.push("/lists"));
                             }}
                           ></i>
                         </div>
