@@ -7,10 +7,10 @@ class Lists extends React.Component {
     this.state = {
       title: "",
       description: "",
-      showModal: false,
+      showNewListModal: false,
     }
-    this.handleClick = this.handleClick.bind(this);
     this.createNewList = this.createNewList.bind(this);
+    this.createNewListModal = this.createNewListModal.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -23,16 +23,12 @@ class Lists extends React.Component {
       this.props.fetchLists();
     }
   }
-
-  handleClick() {
-    this.setState({ showModal: !this.state.showModal })
-  }
-
+  
   update(field) {
     return e =>
-      this.setState({ [field]: e.currentTarget.value })
+    this.setState({ [field]: e.currentTarget.value })
   }
-
+  
   createNewList(e) {
     e.preventDefault();
     let newList = {
@@ -41,6 +37,10 @@ class Lists extends React.Component {
       description: this.state.description
     }
     this.props.createList(newList);
+  }
+  
+  createNewListModal() {
+    this.setState({ showNewListModal: !this.state.showNewListModal })
   }
 
   render() {
@@ -58,12 +58,12 @@ class Lists extends React.Component {
         <div className="lists-container">
           <button 
             className="add-meditation-button"
-            onClick={this.handleClick}
+            onClick={this.createNewListModal}
             >
               Create New List
           </button>
           <br />
-          { this.state.showModal ? (
+          { this.state.showNewListModal ? (
             <div className="list-modal">
               <h1>Create a new List</h1>
               <form>
@@ -94,14 +94,20 @@ class Lists extends React.Component {
                   {this.props.lists ? this.props.lists.map((list, idx) => {
                   if (this.props.lists) {
                     return (
-                      <div key={idx} className="list-item">
+                      <div 
+                        key={idx} 
+                        className="list-item"
+                        >
                         <div>
                           <h1 className="list-name">{list.title}</h1>
                           <h2 className="list-details">{list.description}</h2>
                         </div>
                         <div className="list-icons">
                           <i id="list-play" className="fas fa-play list-icon-play"></i>
-                          <i className="fas fa-edit list-icon-edit"></i>
+                          <i 
+                            listid={list.id}
+                            className="fas fa-edit list-icon-edit"
+                          ></i>
                           <i
                             listid={list.id}
                             className="fas fa-times list-icon-times"

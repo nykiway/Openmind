@@ -21,6 +21,14 @@ export const createList = list => {
   })
 }
 
+export const updateList = (list, id) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/lists/${id}`,
+    data: { list }
+  })
+}
+
 export const destroyList = (id) => {
   return $.ajax({
     method: 'DELETE',

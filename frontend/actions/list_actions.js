@@ -45,6 +45,11 @@ export const fetchList = (id) => dispatch => {
     .then(list => dispatch(receiveList(list)))
 };
 
+export const updateList = (list, id) => dispatch => {
+  return ListAPI.updateList(list, id)
+    .then(list => dispatch(receiveList(list)))
+}
+
 export const createList = list => dispatch => {
   return ListAPI.createList(list)
     .then(list => dispatch(createAList(list)))
