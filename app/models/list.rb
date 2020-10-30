@@ -1,5 +1,6 @@
 class List < ApplicationRecord
   validates :title, presence: true, uniqueness: true
+  validates :description, presence: true
   validates :userId, presence: true
   # validates :meditationIds, presence: true
 
