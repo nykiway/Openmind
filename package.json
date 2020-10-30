@@ -16,10 +16,8 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^5.1.1",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "yarn": "^1.22.10"
+    "webpack-cli": "^3.3.12"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
