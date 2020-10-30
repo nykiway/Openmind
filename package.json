@@ -15,7 +15,6 @@
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.1",
     "webpack": "^4.44.1",
@@ -36,7 +35,9 @@
     "lib": "lib",
     "test": "test"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nykiway/Openmind.git"
