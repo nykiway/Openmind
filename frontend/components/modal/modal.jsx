@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MeditationItemContainer from '../discover/meditation_item_container'
 import { closeModal } from '../../actions/modal_actions';
+import { toggleMeditation} from '../../actions/current_meditation_actions';
+
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -37,7 +39,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    toggleMeditation: () => dispatch(toggleMeditation()),
   };
 };
 
