@@ -6,7 +6,6 @@ class MeditationItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      play: false,
       duration: null,
     }
     this.controlAudio = this.controlAudio.bind(this);
@@ -37,9 +36,10 @@ class MeditationItem extends React.Component {
     const playIcon = <i className="fas fa-play meditation-stack-1x"  />
 
     // checks if audio & mp3 file exists
-    if (!this.audio && currentMeditation.mp3) {
-      this.audio = document.createElement('audio')
-      this.audio.src = currentMeditation.mp3
+    if (!this.audio && currentMeditation.mp3) { // if there is no audio file, but the current meditation has a mp3
+      this.audio = document.createElement('audio');
+      this.audio.src = currentMeditation.mp3;
+      // this.state.audio = currentMeditation.mp3;
     }
     // if audio file is non-existent return null
     if (!this.audio) {

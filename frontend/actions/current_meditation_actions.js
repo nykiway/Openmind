@@ -1,7 +1,8 @@
 import * as MeditationAPI from '../util/meditation_api_util';
 
 export const RECEIVE_CURRENT_MEDITATION = "RECEIVE_CURRENT_MEDITATION";
-export const TOGGLE_PLAY = "TOGGLE PLAY";
+export const TOGGLE_PLAY = "TOGGLE_PLAY";
+export const NULL_CURRENT_MEDITATION = "NULL_CURRENT_MEDITATION";
 
 export const receiveCurrentMeditation = (meditation) => {
   return {
@@ -15,6 +16,12 @@ export const toggleMeditation = () => {
     type: TOGGLE_PLAY,
   };
 };
+
+export const nullCurrentMeditation = () => {
+  return {
+    type: NULL_CURRENT_MEDITATION
+  }
+}
 
 // Thunk Actions
 
