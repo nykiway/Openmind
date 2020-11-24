@@ -119,19 +119,25 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.list-item-container {
+  width: 60%;
 }
 
 .list-item {
-  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  // width: 60%;
   margin-bottom: 30px;
   background: rgb(31,26,119);
   background: linear-gradient(317deg, rgba(31,26,119,1) 0%, rgba(14,100,221,1) 75%, rgba(14,100,221,1) 100%);
   padding: 30px 10px 30px 10px;
   border-radius: 5px 20px 20px 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  
   color: white;
 }
 
@@ -190,4 +196,76 @@
   
 }
 
+// edit list form
 
+.edit-list-content {
+  background-color: #FAF6F4;
+  border-radius: 30px;
+  margin-bottom: 30px;
+}
+
+.edit-list-fields {
+  padding: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-list-fields > input{
+  background-color: white;
+  cursor: text;
+  font-size: 16px;
+  line-height: 12px;
+  font-weight: 400;
+  letter-spacing: 0.7px;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px 0 0 0;
+  min-width: 0;
+  width: 90%;
+}
+
+.edit-list-fields > input:focus {
+  border: 1px solid orange;
+}
+
+.edit-list-label {
+  color: #323233;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.edit-list-label:last-of-type {
+  margin-top: 30px;
+}
+
+.edit-list-fields > button {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 50%;
+  font-family: Apercu, sans-serif;
+  color: white;
+  background-color: rgba(14,100,221,1);
+  border: none;
+  border-radius: 24px;
+  height: 45px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding-left: 24px;
+  padding-right: 24px;
+  letter-spacing: 2.5px;
+  line-height: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: all .5s ease-in-out;
+}
+
+.edit-list-fields > button:hover {
+  background-color: rgba(31,26,119,1);
+  transition: all .5s ease-in-out;
+}
