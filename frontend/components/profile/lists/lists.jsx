@@ -11,6 +11,7 @@ class Lists extends React.Component {
       editDescription: "",
       showNewListModal: false,
       showEditListModal: false,
+      clickedList: null,
     }
     this.createNewList = this.createNewList.bind(this);
     this.createNewListModal = this.createNewListModal.bind(this);
@@ -48,8 +49,9 @@ class Lists extends React.Component {
     this.setState({ showNewListModal: !this.state.showNewListModal });
   }
 
-  editListModal(e) {
-    this.setState({ showEditListModal: !this.state.showEditListModal });
+  editListModal(id) {
+    this.setState({ showEditListModal: !this.state.showEditListModal, clickedList: id })
+    // this.setState({ showEditListModal: !this.state.showEditListModal });
   }
 
   handleEditSubmit(e, id) {
@@ -139,7 +141,7 @@ class Lists extends React.Component {
                             <i 
                               listid={list.id}
                               className="fas fa-edit list-icon-edit"
-                              onClick={this.editListModal}
+                              onClick={() => this.editListModal(list.id)}
                             ></i>
                             <i
                               listid={list.id}
@@ -152,7 +154,7 @@ class Lists extends React.Component {
                           </div>
                         </div>
                         <div className="edit-list-container">
-                          {!this.state.showEditListModal ? (
+                          {!this.state.showEditListModal && this.state.clickedList == list.id ? (
                             <div className="edit-list-content">
                               <form>
                                 <div className="edit-list-fields">
