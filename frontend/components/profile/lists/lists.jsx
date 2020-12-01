@@ -55,7 +55,6 @@ class Lists extends React.Component {
   }
 
   handleEditSubmit(e, id) {
-    console.log("hitting handle edit submit")
     e.preventDefault();
 
     let updatedList = {

@@ -14,36 +14,15 @@ class Api::ListsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @list = List.find_by(id: params[:id])
-  #   render :edit
-  # end
-
   def update
-    # @list = List.find_by(id: params[:id])
     @list = current_user.lists.find_by(id: params[:id])
     if @list && @list.update(list_params)
       render :show
-      # redirect_to user_url(@list.userId)
     else
       flash[:errors] = ['Your list was not able to be updated!']
       render :show
     end
   end
-
-  # def update
-  #   @list = List.find_by(id: params[:list_id])
-  #   if @list && @list.user_id == current_user.id
-  #       if @list.update(list_params)
-  #           render :show
-  #       else
-  #           flash[:errors] = ['Your list was not able to be updated!']
-  #           render :edit
-  #       end
-  #   else
-  #       render :edit
-  #   end
-  # end
 
   def create
     @list = List.create(list_params)

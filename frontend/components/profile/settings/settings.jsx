@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ProfileNav from '../sub_navs/profile_nav';
-import {logout} from '../../../actions/session_actions';
+import {logout } from '../../../actions/session_actions';
+import { updateUser } from '../../../actions/user_actions';
 
 class Settings extends Component {
   constructor(props) {
     super(props);
       this.state = {
         username: "",
-        password: ""
+        email: ""
       }
       this.update = this.update.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,9 +19,16 @@ class Settings extends Component {
     return (e) => this.setState({ [field]: e.currentTarget.value })
   }
 
-  handleSubmit(e) {
+  handleSubmit(e, id) {
     e.preventDefault();
-    // this.processForm(this.state);
+
+    let updatedUser = {
+      username: this.state.username,
+      email: this.state.email,
+      id: id
+    }
+
+    this.props.updateUser(updatedUser, id);
   }
 
   render() {
@@ -48,7 +56,7 @@ class Settings extends Component {
                 />
               <br />
               <button 
-                onClick={this.handleSubmit}
+                onClick={(e) => this.handleSubmit(e, this.props.currentUser.id)}
                 className="save-changes-settings" 
                 type="submit">
                 Save Changes
