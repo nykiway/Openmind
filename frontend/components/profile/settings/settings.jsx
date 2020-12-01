@@ -19,6 +19,15 @@ class Settings extends Component {
     return (e) => this.setState({ [field]: e.currentTarget.value })
   }
 
+  componentDidUpdate(prevProps) {
+    if (
+      (this.props.currentUser.username !== prevProps.currentUser.username) ||
+      (this.props.currentUser.email !== prevProps.currentUser.email)
+    ) {
+      window.location.reload();
+    }
+  }
+
   handleSubmit(e, id) {
     e.preventDefault();
 
