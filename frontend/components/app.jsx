@@ -32,12 +32,12 @@ const App = () => (
       <NavBarContainer />
       <Switch>
         
+        <Route path="/" exact component={HomeContainer} />
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
 
         <ProtectedRoute path="/discover" component={DiscoverContainer} />
 
-        <Route path="/home" component={HomeContainer} />
 
         <ProtectedRoute path="/journey" component={JourneyContainer} />
         <ProtectedRoute path="/timers" component={TimersContainer} />
@@ -45,8 +45,8 @@ const App = () => (
         <ProtectedRoute path="/stats" component={StatsContainer} />
         <ProtectedRoute path="/lists" component={ListsContainer} />
         <ProtectedRoute path="/settings" component={SettingsContainer} />
+        <Route component={ErrorPage}/>
 
-        <AuthRoute path="/" component={ErrorPage}/>
       </Switch>
       <Footer />
   </div>
