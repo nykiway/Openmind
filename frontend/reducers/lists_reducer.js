@@ -15,8 +15,11 @@ const listsReducer = (state = {}, action) => {
       return action.lists;
 
     case RECEIVE_LIST:
-      const newList = { [action.list.id]: action.list };
+      const newList = { [action.listId]: action.list };
       return Object.assign({}, state, newList);
+      // newState = merge({}, state);
+      // newState[action.listId] = action.list;
+      // return newState;
 
     case CREATE_LIST:
       newState = merge({}, state);

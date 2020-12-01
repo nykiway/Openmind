@@ -20,6 +20,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchLists: (data) => dispatch(fetchLists(data)),
   fetchList: id => dispatch(fetchList(id)),
+  updateList: list => dispatch(fetchList(list)),
   createList: list => dispatch(createList(list)),
   deleteList: (id) => dispatch(deleteList(id))
 });
