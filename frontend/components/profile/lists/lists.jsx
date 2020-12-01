@@ -52,16 +52,17 @@ class Lists extends React.Component {
     this.setState({ showEditListModal: !this.state.showEditListModal });
   }
 
-  handleEditSubmit(e) {
+  handleEditSubmit(e, id) {
     console.log("hitting handle edit submit")
     e.preventDefault();
-    
+
     let updatedList = {
       userId: this.props.userId,
       title: this.state.editTitle,
-      description: this.state.editDescription
+      description: this.state.editDescription,
+      id: id
     }
-    this.props.updateList(updatedList);
+    this.props.updateList(updatedList, id);
   }
 
   render() {
@@ -171,7 +172,7 @@ class Lists extends React.Component {
                                     />
                                   <button
                                     type="submit"
-                                    onClick={(e) => this.handleEditSubmit(e)}
+                                    onClick={(e) => this.handleEditSubmit(e, list.id)}
                                   >Save Changes</button>
                                 </div>
                               </form>

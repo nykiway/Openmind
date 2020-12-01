@@ -21,10 +21,10 @@ export const createList = list => {
   })
 }
 
-export const updateList = (list, id) => {
+export const updateList = (list) => {
   return $.ajax({
     method: 'PATCH',
-    url: `api/lists/${id}`,
+    url: `api/lists/${list.id}`,
     data: { list }
   })
 }

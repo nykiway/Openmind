@@ -5,6 +5,7 @@ import {
   fetchLists,
   createList,
   fetchList,
+  updateList,
   deleteList  } from '../../../actions/list_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -20,8 +21,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchLists: (data) => dispatch(fetchLists(data)),
   fetchList: id => dispatch(fetchList(id)),
-  updateList: list => dispatch(fetchList(list)),
-  createList: list => dispatch(createList(list)),
+  updateList: list => dispatch(updateList(list)),
+  createList: (list, id) => dispatch(createList(list, id)),
   deleteList: (id) => dispatch(deleteList(id))
 });
 
