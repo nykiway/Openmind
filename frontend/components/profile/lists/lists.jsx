@@ -1,196 +1,117 @@
-import React from 'react';
+import React, { useState, useEffect, useRef, usePrevious } from 'react';
 import ProfileNav from '../sub_navs/profile_nav';
 
-class Lists extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "",
-      description: "",
-      editTitle: "",
-      editDescription: "",
-      showNewListModal: false,
-      showEditListModal: false,
-      clickedList: null,
-    }
-    this.createNewList = this.createNewList.bind(this);
-    this.createNewListModal = this.createNewListModal.bind(this);
-    this.editListModal = this.editListModal.bind(this);
-    this.update = this.update.bind(this);
-    this.handleEditSubmit = this.handleEditSubmit.bind(this);
-  }
+const Lists = ({ lists, userId, fetchLists, createList, deleteList }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [showListModal, setshowListModal] = useState(false);
 
-  componentDidMount() {
-    this.props.fetchLists();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.lists.length != prevProps.lists.length) {
-      this.props.fetchLists();
+  useEffect(() => {
+    fetchLists();
+    return () => {
+      fetchLists();
     }
-  }
-  
-  update(field) {
-    return e =>
-    this.setState({ [field]: e.currentTarget.value })
-  }
-  
-  createNewList(e) {
+  }, [lists.length])
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     let newList = {
-      userId: this.props.userId,
-      title: this.state.title,
-      description: this.state.description
+      userId: userId,
+      title: title,
+      description: description
     }
-    this.props.createList(newList);
-  }
-  
-  createNewListModal() {
-    this.setState({ showNewListModal: !this.state.showNewListModal });
-  }
 
-  editListModal(id) {
-    this.setState({ showEditListModal: !this.state.showEditListModal, clickedList: id })
-    // this.setState({ showEditListModal: !this.state.showEditListModal });
-  }
+    createList(newList);
+  };
 
-  handleEditSubmit(e, id) {
+  const toggleNewList = (e) => {
     e.preventDefault();
-
-    let updatedList = {
-      userId: this.props.userId,
-      title: this.state.editTitle,
-      description: this.state.editDescription,
-      id: id
-    }
-    this.props.updateList(updatedList, id);
+    setshowListModal(!showListModal)
   }
 
-  render() {
-    return (
-      <div>
-        <ProfileNav />
-        <div className="list-hero">
-          <img
-            className="list-hero-image"
-            src={
-              "https://openmind-seeds.s3-us-west-1.amazonaws.com/images/hero_images/HS-MAY2019-BLOG_Mindfulness-BLOG-HERO-1440x512-FINAL.jpg"
-            }
-          />
-        </div>
-        <div className="lists-container">
-          { this.state.showNewListModal ? (
-          <button 
-            className="add-meditation-button"
-            onClick={this.createNewListModal}
-            >
-              Return to Lists
-          </button>
-          ) : (
-          <button 
-            className="add-meditation-button"
-            onClick={this.createNewListModal}
-            >
-              Create New List
-          </button>
-          )}
-          <br />
-          { this.state.showNewListModal ? (
-            <div className="list-modal">
-              <h1>Create a new List</h1>
-              <form>
-                <input
-                  value={this.state.title}
-                  placeholder="List Name"
-                  type="text"
-                  onChange={this.update("title")}
-                  />
-                  <br />
-                <input
-                  value={this.state.description}
-                  placeholder="List Description"
-                  type="text"
-                  onChange={this.update("description")}
-                  />
-                <button 
-                  type="submit"
-                  onClick={this.createNewList}
-                  >
-                    Add List
-                </button>
-              </form>
-            </div>
-          ) : (
-            <div className="list-list">
-                <div className="list-content">
-                  {this.props.lists ? this.props.lists.map((list, idx) => {
-                  if (this.props.lists) {
-                    return (
-                      <div 
-                        key={idx} 
-                        className="list-item-container"
-                        >
-                        <div className="list-item">
-                          <div>
-                            <h1 className="list-name">{list.title}</h1>
-                            <h2 className="list-details">{list.description}</h2>
-                          </div>
-                          <div className="list-icons">
-                            <i id="list-play" className="fas fa-play list-icon-play"></i>
-                            <i 
-                              listid={list.id}
-                              className="fas fa-edit list-icon-edit"
-                              onClick={() => this.editListModal(list.id)}
-                            ></i>
-                            <i
-                              listid={list.id}
-                              className="fas fa-times list-icon-times"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                this.props.deleteList(list.id)
-                              }}
-                            ></i>
-                          </div>
-                        </div>
-                        <div className="edit-list-container">
-                          {!this.state.showEditListModal && this.state.clickedList == list.id ? (
-                            <div className="edit-list-content">
-                              <form>
-                                <div className="edit-list-fields">
-                                  <h1 className="edit-list-label">Name</h1>
-                                  <input 
-                                    type="text" 
-                                    value={this.state.editTitle}
-                                    placeholder={list.title}
-                                    onChange={this.update("editTitle")}
-                                    />
-                                  <h1 className="edit-list-label">Description</h1>
-                                  <input 
-                                    type="text" 
-                                    value={this.state.editDescription}
-                                    onChange={this.update("editDescription")}
-                                    placeholder={list.description}
-                                    />
-                                  <button
-                                    type="submit"
-                                    onClick={(e) => this.handleEditSubmit(e, list.id)}
-                                  >Save Changes</button>
-                                </div>
-                              </form>
-                            </div>
-                          ) : null}
-                        </div>
-                      </div>
-                    )
-                  }
-                  }) : null }
-                </div>
-            </div>
-          ) }
+  return (
+    <div>
+      <ProfileNav />
+      <div className="list-hero">
+        <img
+        className="list-hero-image"
+        src={
+          "https://openmind-seeds.s3-us-west-1.amazonaws.com/images/hero_images/HS-MAY2019-BLOG_Mindfulness-BLOG-HERO-1440x512-FINAL.jpg"
+        }
+        />
       </div>
-    </div>
-    );
-  }
+      <div className="lists-container">
+        <button 
+          className="add-meditation-button"
+          onClick={toggleNewList}
+          >Create New List</button>
+      </div>
+      {showListModal ? (
+        <div className="list-modal">
+          <h1>Create a new List</h1>
+          <form>
+            <input
+              type="text"
+              placeholder="List Name"
+              name="title"
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+              />
+              <br />
+            <input
+              type="text"
+              placeholder="List Description"
+              value={description}
+              name="description"
+              onChange={e => setDescription(e.target.value)}
+              />
+            <button 
+              type="submit"
+              value="Submit"
+              onClick={handleSubmit}
+              > Add List
+            </button>
+          </form>
+        </div>
+      ) : null}
+      <div className="list-list">
+        {lists.map((list, idx) => {
+            return (
+              <div key={idx} className="list-content">  
+                <div className="list-item-container">
+                      {list !== undefined ? (
+                    <div className="list-item">
+                      <div>
+                          <h1 className="list-name">{list.title}</h1>
+                          <h1 className="list-details">{list.description}</h1>
+                      </div>
+
+                    <div className="list-icons">
+                      <i id="list-play" className="fas fa-play list-icon-play"></i>
+                      <i
+                        listid={list.id}
+                        className="fas fa-edit list-icon-edit"
+                        // onClick={updateList(list.id)}
+                        ></i>
+                      <i
+                        listid={list.id}
+                        className="fas fa-times list-icon-times"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          deleteList(list.id)
+                        }}
+                        ></i>
+                    </div>
+                  </div>
+                        ) : null}
+                </div>
+              </div>
+            )}
+          )}
+        </div>
+      </div>
+  )
+
 }
 
 export default Lists;
