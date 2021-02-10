@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef, usePrevious } from 'react';
 import ProfileNav from '../sub_navs/profile_nav';
 
-const Lists = ({ lists, userId, fetchLists, createList, deleteList }) => {
+const Lists = ({ lists, userId, fetchLists, createList, updateList, deleteList }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [showListModal, setshowListModal] = useState(false);
+  const [showListModal, setShowListModal] = useState(false);
+  const [editListModal, setEditListModal] = useState(false);
 
   useEffect(() => {
     fetchLists();
@@ -21,12 +22,18 @@ const Lists = ({ lists, userId, fetchLists, createList, deleteList }) => {
       description: description
     }
 
-    createList(newList);
+    createList(newList).then(setShowListModal(!showListModal));
   };
 
   const toggleNewList = (e) => {
     e.preventDefault();
-    setshowListModal(!showListModal)
+    setShowListModal(!showListModal);
+  }
+
+  const changeList = (e) => {
+    e.preventDefault();
+    setEditListModal(!editListModal);
+    // updateList(listid)
   }
 
   return (
@@ -91,7 +98,7 @@ const Lists = ({ lists, userId, fetchLists, createList, deleteList }) => {
                       <i
                         listid={list.id}
                         className="fas fa-edit list-icon-edit"
-                        // onClick={updateList(list.id)}
+                        onClick={changeList}
                         ></i>
                       <i
                         listid={list.id}
@@ -103,7 +110,8 @@ const Lists = ({ lists, userId, fetchLists, createList, deleteList }) => {
                         ></i>
                     </div>
                   </div>
-                        ) : null}
+                ) : null}
+                { editListModal ? ("Edit List Modal") : null}
                 </div>
               </div>
             )}
