@@ -4,9 +4,11 @@ import {
   fetchLists,
   deleteList  } from '../../../actions/list_actions'
 import EditListForm from './edit_list_form';
+import ShowListMeditations from './show_list_meditations';
 
 const ListItem = ({ fetchLists, lists, list, deleteList }) => {
   const [editListModal, setEditListModal] = useState(false);
+  const [showMeditations, setShowMeditations] = useState(false);
 
   useEffect(() => {
       fetchLists();
@@ -20,6 +22,11 @@ const ListItem = ({ fetchLists, lists, list, deleteList }) => {
       setEditListModal(!editListModal);
     }
 
+    const toggleShowMeditations = (e) => {
+      e.preventDefault();
+      setShowMeditations(!showMeditations);
+    }
+
     return (
         // <div className="list-item-container">
         <div className="list-content">
@@ -30,7 +37,10 @@ const ListItem = ({ fetchLists, lists, list, deleteList }) => {
                   <h1 className="list-details">{list.description}</h1>
               </div>
               <div className="list-icons">
-                <i id="list-play" className="fas fa-play list-icon-play"></i>
+                <i id="list-play" 
+                  className="fas fa-play list-icon-play"
+                  onClick={toggleShowMeditations}
+                  ></i>
                 <i
                   listid={list.id}
                   className="fas fa-edit list-icon-edit"
@@ -48,6 +58,7 @@ const ListItem = ({ fetchLists, lists, list, deleteList }) => {
             </div>
           ) : null}
           { editListModal ? <EditListForm list={list} />: null}
+          { showMeditations ? <ShowListMeditations list={list} /> : null}
         </div>
     )
 }

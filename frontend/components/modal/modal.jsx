@@ -96,6 +96,7 @@ class Modal extends React.Component {
                 </div>
               </button>
               <h3 id="counter" className="timer-countdown"></h3>
+              <button>Add Meditation To Playlist</button>
             </div>
             <audio ref={this.audioRef} src={this.props.currentMeditation.mp3}></audio>
           </div>
