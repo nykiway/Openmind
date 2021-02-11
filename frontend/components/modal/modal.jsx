@@ -21,6 +21,7 @@ class Modal extends React.Component {
     this.handleModalClose = this.handleModalClose.bind(this);
     this.controlAudio = this.controlAudio.bind(this);
     this.renderDuration = this.renderDuration.bind(this);
+    this.addMeditationToPlaylist = this.addMeditationToPlaylist.bind(this);
   }
 
   handleModalClose() {
@@ -48,6 +49,10 @@ class Modal extends React.Component {
   renderDuration() {
     const seconds = this.props.currentMeditation.duration;
     return moment.duration(seconds, "seconds").humanize();
+  }
+
+  addMeditationToPlaylist() {
+    
   }
 
   render() {
@@ -96,7 +101,9 @@ class Modal extends React.Component {
                 </div>
               </button>
               <h3 id="counter" className="timer-countdown"></h3>
-              <button>Add Meditation To Playlist</button>
+              <button
+                onClick={this.addMeditationToPlaylist()}
+              >Add Meditation To Playlist</button>
             </div>
             <audio ref={this.audioRef} src={this.props.currentMeditation.mp3}></audio>
           </div>
