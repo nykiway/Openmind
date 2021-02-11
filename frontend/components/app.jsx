@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 
 import NavBarContainer from './nav_bar/nav_bar_container';
-import HomeContainer from './home/home_container';
+import Home from './home/home';
 
 import Modal from './modal/modal';
 
@@ -10,7 +10,7 @@ import LogInFormContainer from "./session_form/login_form_container";
 import SignUpFormContainer from './session_form/signup_form_container';
 
 // Profile
-import StatsContainer from './profile/stats/stats_container';
+import Stats from './profile/stats/stats';
 import ListsContainer from './profile/lists/lists_container';
 import SettingsContainer from './profile/settings/settings_container';
 
@@ -32,11 +32,11 @@ const App = () => (
       <NavBarContainer />
       <Switch>
         
-        <Route path="/" exact component={HomeContainer} />
-        <Route path="/home" exact component={HomeContainer} />
+        <Route path="/" exact component={Home} />
+        <Route path="/home" exact component={Home} />
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-        <Route path="/logout" component={HomeContainer}/>
+        <Route path="/logout" component={Home}/>
 
         <ProtectedRoute path="/discover" component={DiscoverContainer} />
 
@@ -44,7 +44,7 @@ const App = () => (
         <ProtectedRoute path="/journey" component={JourneyContainer} />
         <ProtectedRoute path="/timers" component={TimersContainer} />
 
-        <ProtectedRoute path="/stats" component={StatsContainer} />
+        <ProtectedRoute path="/stats" component={Stats} />
         <ProtectedRoute path="/lists" component={ListsContainer} />
         <ProtectedRoute path="/settings" component={SettingsContainer} />
         <Route component={ErrorPage}/>
