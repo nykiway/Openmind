@@ -1,46 +1,30 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProfileNav from '../sub_navs/profile_nav';
-import {logout } from '../../../actions/session_actions';
+import { logout } from '../../../actions/session_actions';
 import { updateUser } from '../../../actions/user_actions';
+import { connect } from "react-redux";
 
-class Settings extends Component {
-  constructor(props) {
-    super(props);
-      this.state = {
-        username: "",
-        email: ""
-      }
-      this.update = this.update.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-  }
+const Settings = ({ currentUser, logout, updateUser }) =>  {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
 
-  update(field) {
-    return (e) => this.setState({ [field]: e.currentTarget.value })
-  }
-
-  componentDidUpdate(prevProps) {
-    if (
-      (this.props.currentUser.username !== prevProps.currentUser.username) ||
-      (this.props.currentUser.email !== prevProps.currentUser.email)
-    ) {
+  useEffect(() => {
+    return () => {
       window.location.reload();
     }
-  }
+  }, [currentUser.username, currentUser.email])
 
-  handleSubmit(e, id) {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     let updatedUser = {
-      username: this.state.username,
-      email: this.state.email,
-      id: id
+      username: username,
+      email: email,
+      id: currentUser.id
     }
-
-    this.props.updateUser(updatedUser, id);
+    updateUser(updatedUser, currentUser.id)
   }
-
-  render() {
     return (
         <div>
           <ProfileNav />
@@ -51,8 +35,8 @@ class Settings extends Component {
               <input
                 className="settings-form-input"
                 type="text"
-                placeholder={this.props.currentUser.username}
-                onChange={this.update("username")}
+                placeholder={currentUser.username}
+                onChange={e => setUsername(e.target.value)}
                 />
               <br/>
 
@@ -60,12 +44,13 @@ class Settings extends Component {
               <input
                 className="settings-form-input"
                 type="text"
-                placeholder={this.props.currentUser.email}
-                onChange={this.update("email")}
+                placeholder={currentUser.email}
+                onChange={e => setEmail(e.target.value)}
                 />
               <br />
               <button 
-                onClick={(e) => this.handleSubmit(e, this.props.currentUser.id)}
+                id={currentUser.id}
+                onClick={handleSubmit}
                 className="save-changes-settings" 
                 type="submit">
                 Save Changes
@@ -81,7 +66,15 @@ class Settings extends Component {
         </div>
       );
     }
-  }
-  
-  export default Settings;
+
+const mapStateToProps = (state) => ({
+  currentUser: state.entities.users[state.session.id],
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => dispatch(logout()),
+  updateUser: (user, id) => dispatch(updateUser(user, id)), 
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);
   
