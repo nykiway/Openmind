@@ -26,7 +26,7 @@ const EditListForm = ({ updateList, list, userId }) => {
         <form>
         <input
           type="text"
-          placeholder="List Name"
+          placeholder={list.title}
           name="title"
           value={title}
           onChange={e => setTitle(e.target.value)}
@@ -34,7 +34,7 @@ const EditListForm = ({ updateList, list, userId }) => {
           <br />
         <input
           type="text"
-          placeholder="List Description"
+          placeholder={list.description}
           value={description}
           name="description"
           onChange={e => setDescription(e.target.value)}
@@ -51,19 +51,14 @@ const EditListForm = ({ updateList, list, userId }) => {
   )
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     userId: state.entities.users[state.session.id].id,
-    lists: Object.values(state.entities.lists),
   }
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchLists: (data) => dispatch(fetchLists(data)),
-  fetchList: id => dispatch(fetchList(id)),
   updateList: list => dispatch(updateList(list)),
-  createList: (list, id) => dispatch(createList(list, id)),
-  deleteList: (id) => dispatch(deleteList(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditListForm);
