@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import MeditationItemContainer from '../discover/meditation_item_container'
 import { closeModal } from '../../actions/modal_actions';
 import { 
   toggleMeditation, 
@@ -10,7 +9,7 @@ import {
 import { fetchMeditation } from '../../actions/meditation_actions'
 
 
-const  Modal = ({ currentMeditation, modal, closeModal }) => {
+const  MeditationModal = ({ currentMeditation, modal, closeModal }) => {
   const [playing, setPlaying] = useState(false);
   const audioRef = React.createRef();
 
@@ -37,29 +36,17 @@ const  Modal = ({ currentMeditation, modal, closeModal }) => {
     return moment.duration(seconds, "seconds").humanize();
   }
 
-  const addMeditationToPlaylist = () => {
-
-  }
-
   if (!modal) {
     return null;
   }
 
-  let component;
-  switch(modal) {
-    case 'meditation':
-      component = <MeditationItemContainer />;
-      break;
-    default:
-      return null;
-  }
 
     // dynamic pause/ play buttons
     
     const pauseIcon = <i className="fas fa-pause meditation-stack-1x" />
     const playIcon = <i className="fas fa-play meditation-stack-1x"  />
 
-    // if current meditation exists, return modal : don't
+    // if current meditation exists, return modal, otherwise don't:
 
     if (Object.keys(currentMeditation).length !== 0) { 
       return (
@@ -81,9 +68,6 @@ const  Modal = ({ currentMeditation, modal, closeModal }) => {
                 </div>
               </button>
               <h3 id="counter" className="timer-countdown"></h3>
-              <button
-                onClick={addMeditationToPlaylist}
-              >Add Meditation To Playlist</button>
             </div>
             <audio ref={audioRef} src={currentMeditation.mp3}></audio>
           </div>
@@ -114,4 +98,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(mapStateToProps, mapDispatchToProps)(MeditationModal);

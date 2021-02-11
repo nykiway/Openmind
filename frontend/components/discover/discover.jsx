@@ -1,13 +1,11 @@
 import React from "react";
+import { connect } from 'react-redux';
 import DiscoverNav from '../profile/sub_navs/discover_nav';
 import DiscoverSearch from '../discover/search/discover_search';
 
-class Discover extends React.Component {
-  render () {
-    let { currentMeditation } = this.props;
+const Discover = ({ currentMeditation, meditations }) => {
     if (!currentMeditation) return null;
-
-    if (this.props.meditations !== undefined) {
+    if (meditations !== undefined) {
       return (
         <div>
           <div>
@@ -26,7 +24,7 @@ class Discover extends React.Component {
           </div>
           <div className="search-form-box">
             <DiscoverSearch
-              meditations={this.props.meditations}
+              meditations={meditations}
               />
           </div>
 
@@ -38,7 +36,16 @@ class Discover extends React.Component {
         </div>
       );
     }
-  }
 }
 
-export default Discover;
+const mapStateToProps = (state) => {
+  return {
+    meditations: Object.values(state.entities.meditations),
+    currentMeditation: state.ui.currentMeditation,
+  }
+};
+
+const mapDispatchToProps = (dispatch) => ({
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Discover);
