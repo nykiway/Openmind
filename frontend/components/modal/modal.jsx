@@ -1,78 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import MeditationItemContainer from '../discover/meditation_item_container'
 import { closeModal } from '../../actions/modal_actions';
 import { 
   toggleMeditation, 
-  nullCurrentMeditation,
   receiveCurrentMeditation
   } from '../../actions/current_meditation_actions';
 import { fetchMeditation } from '../../actions/meditation_actions'
 
 
-class Modal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.audioRef = React.createRef();
-    this.state = {
-      playing: false
-    }
-    this.handleModalClose = this.handleModalClose.bind(this);
-    this.controlAudio = this.controlAudio.bind(this);
-    this.renderDuration = this.renderDuration.bind(this);
-    this.addMeditationToPlaylist = this.addMeditationToPlaylist.bind(this);
+const  Modal = ({ currentMeditation, modal, closeModal }) => {
+  const [playing, setPlaying] = useState(false);
+  const audioRef = React.createRef();
+
+  const handleModalClose = (e) => {
+    e.preventDefault();
+    setPlaying(!playing);
+    audioRef.current.pause();
+    closeModal();
   }
 
-  handleModalClose() {
-    this.setState({ playing: !this.state.playing});
-    this.audioRef.current.pause();
-    this.props.closeModal();
-  }
+  const controlAudio = (e) => {
+    e.preventDefault();
+    setPlaying(!playing);
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.playing !== this.props.playing) {
-      this.state.playing ? this.audioRef.current.play() : this.audioRef.current.pause();
-    }
-  }
-
-  controlAudio() {
-    this.setState({ playing: !this.state.playing })
-
-    if(this.state.playing) {
-      this.audioRef.current.pause();
+    if(playing) {
+      audioRef.current.pause();
     } else {
-      this.audioRef.current.play();
+      audioRef.current.play();
     }
   }
 
-  renderDuration() {
-    const seconds = this.props.currentMeditation.duration;
+  const renderDuration = () => {
+    const seconds = currentMeditation.duration;
     return moment.duration(seconds, "seconds").humanize();
   }
 
-  addMeditationToPlaylist() {
-    
+  const addMeditationToPlaylist = () => {
+
   }
 
-  render() {
-    let { modal } = this.props;
-    const { currentMeditation } = this.props;
+  if (!modal) {
+    return null;
+  }
 
-    // modal functionality:
-
-    if (!modal) {
+  let component;
+  switch(modal) {
+    case 'meditation':
+      component = <MeditationItemContainer />;
+      break;
+    default:
       return null;
-    }
-
-    let component;
-    switch(modal) {
-      case 'meditation':
-        component = <MeditationItemContainer />;
-        break;
-      default:
-        return null;
-    }
+  }
 
     // dynamic pause/ play buttons
     
@@ -81,31 +61,31 @@ class Modal extends React.Component {
 
     // if current meditation exists, return modal : don't
 
-    if (Object.keys(this.props.currentMeditation).length !== 0) { 
+    if (Object.keys(currentMeditation).length !== 0) { 
       return (
         <div className="modal-background">
           <div 
-            onClick={this.handleModalClose} 
+            onClick={handleModalClose} 
             className="close-x">
             <i className="fas fa-times"></i>
           </div>
           <div className="modal-child" onClick={(e) => e.stopPropagation()}>
             <div className="meditation-play">
               <h1 className="meditation-name-title">{currentMeditation.name}</h1>
-              <h2 className="meditation-length">{`${this.renderDuration()}`}</h2>
-              <button onClick={() => this.controlAudio()}>
+              <h2 className="meditation-length">{`${renderDuration()}`}</h2>
+              <button onClick={controlAudio}>
                 <div className="transparent-circle" >
                   <div className="opaque-circle" >
-                    {this.state.playing ? pauseIcon : playIcon}
+                    {playing ? pauseIcon : playIcon}
                   </div>
                 </div>
               </button>
               <h3 id="counter" className="timer-countdown"></h3>
               <button
-                onClick={this.addMeditationToPlaylist()}
+                onClick={addMeditationToPlaylist}
               >Add Meditation To Playlist</button>
             </div>
-            <audio ref={this.audioRef} src={this.props.currentMeditation.mp3}></audio>
+            <audio ref={audioRef} src={currentMeditation.mp3}></audio>
           </div>
         </div>
       )
@@ -115,7 +95,6 @@ class Modal extends React.Component {
       )
     }
   }
-}
 
 const mapStateToProps = state => {
   return {
@@ -130,7 +109,6 @@ const mapDispatchToProps = dispatch => {
   return {
     closeModal: () => dispatch(closeModal()),
     toggleMeditation: () => dispatch(toggleMeditation()),
-    nullCurrentMeditation: () => dispatch(nullCurrentMeditation()),
     fetchMeditation: (id) => dispatch(fetchMeditation(id)),
     receiveCurrentMeditation: (id) => dispatch(receiveCurrentMeditation(id)),
   };
