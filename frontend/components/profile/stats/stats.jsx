@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ls from 'local-storage';
 
@@ -15,10 +15,10 @@ const Stats = ({}) => {
     }
   }, [])
 
-  const onChange = (e) => {
-    localStorage.setItem('totalTimeStorage', e.target.value);
-    setTotalTime(e.target.value)
-  }
+  const getTotalTime = () => {}
+  const getTotalSessions = () => {}
+  const getCurrentStreak = () => {}
+  const getLastTimeMeditated = () => {}
 
     return (
       <div>
@@ -42,22 +42,22 @@ const Stats = ({}) => {
           <div className="stat">
             <i className="fas fa-chart-pie"></i>
             <h2>Total time meditated</h2>
-            {/* <h3>{this.state.totalTime}</h3> */}
+            <h3>{totalTime}</h3>
           </div>
           <div className="stat">
             <i className="fas fa-headphones"></i>
             <h2>Sessions Completed</h2>
-            {/* <h3>{this.state.totalSessions}</h3> */}
+            <h3>{totalSessions}</h3>
           </div>
           <div className="stat">
             <i className="fas fa-stopwatch"></i>
             <h2>Current run streak</h2>
-            {/* <h3>{this.state.currentStreak}</h3> */}
+            <h3>{currentStreak}</h3>
           </div>
           <div className="stat">
             <i className="far fa-clock"></i>
             <h2>Last time meditated</h2>
-            {/* <h3>{this.state.lastTime}</h3> */}
+            <h3>{lastTimeMeditated}</h3>
           </div>
         </div>
       </div>
