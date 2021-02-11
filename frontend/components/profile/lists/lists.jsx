@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef, usePrevious } from 'react';
 import ProfileNav from '../sub_navs/profile_nav';
+import ListItem from './list_item';
 
 const Lists = ({ lists, userId, fetchLists, createList, updateList, deleteList }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [showListModal, setShowListModal] = useState(false);
-  const [editListModal, setEditListModal] = useState(false);
 
   useEffect(() => {
     fetchLists();
@@ -28,12 +28,6 @@ const Lists = ({ lists, userId, fetchLists, createList, updateList, deleteList }
   const toggleNewList = (e) => {
     e.preventDefault();
     setShowListModal(!showListModal);
-  }
-
-  const changeList = (e) => {
-    e.preventDefault();
-    setEditListModal(!editListModal);
-    // updateList(listid)
   }
 
   return (
@@ -84,36 +78,7 @@ const Lists = ({ lists, userId, fetchLists, createList, updateList, deleteList }
       <div className="list-list">
         {lists.map((list, idx) => {
             return (
-              <div key={idx} className="list-content">  
-                <div className="list-item-container">
-                      {list !== undefined ? (
-                    <div className="list-item">
-                      <div>
-                          <h1 className="list-name">{list.title}</h1>
-                          <h1 className="list-details">{list.description}</h1>
-                      </div>
-
-                    <div className="list-icons">
-                      <i id="list-play" className="fas fa-play list-icon-play"></i>
-                      <i
-                        listid={list.id}
-                        className="fas fa-edit list-icon-edit"
-                        onClick={changeList}
-                        ></i>
-                      <i
-                        listid={list.id}
-                        className="fas fa-times list-icon-times"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          deleteList(list.id)
-                        }}
-                        ></i>
-                    </div>
-                  </div>
-                ) : null}
-                { editListModal ? ("Edit List Modal") : null}
-                </div>
-              </div>
+              <ListItem list={list} key={idx}/>
             )}
           )}
         </div>
