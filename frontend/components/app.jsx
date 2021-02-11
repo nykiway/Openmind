@@ -33,8 +33,10 @@ const App = () => (
       <Switch>
         
         <Route path="/" exact component={HomeContainer} />
+        <Route path="/home" exact component={HomeContainer} />
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+        <Route path="/logout" component={HomeContainer}/>
 
         <ProtectedRoute path="/discover" component={DiscoverContainer} />
 
