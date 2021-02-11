@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import { closeModal } from '../../actions/modal_actions';
+import { closeModal } from '../../../actions/modal_actions';
 import { 
   toggleMeditation, 
   receiveCurrentMeditation
-  } from '../../actions/current_meditation_actions';
-import { fetchMeditation } from '../../actions/meditation_actions'
+  } from '../../../actions/current_meditation_actions';
+import { fetchMeditation } from '../../../actions/meditation_actions'
 
 
 const  MeditationModal = ({ currentMeditation, modal, closeModal }) => {

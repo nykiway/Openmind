@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
-import DiscoverNav from '../profile/sub_navs/discover_nav';
-import DiscoverSearch from '../discover/search/discover_search';
+import DiscoverNav from '../../profile/sub_navs/discover_nav';
+import DiscoverSearch from './discover_search';
 
 const Discover = ({ currentMeditation, meditations }) => {
     if (!currentMeditation) return null;

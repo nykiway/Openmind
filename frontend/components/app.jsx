@@ -4,7 +4,7 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import NavBarContainer from './nav_bar/nav_bar_container';
 import Home from './home/home';
 
-import Modal from './modal/meditation_modal';
+import Modal from './discover/meditate/meditation_modal';
 
 import LogInFormContainer from "./session_form/login_form_container";
 import SignUpFormContainer from './session_form/signup_form_container';
@@ -17,7 +17,7 @@ import SettingsContainer from './profile/settings/settings_container';
 // Discover:
 import JourneyContainer from './discover/journey/journey_container';
 import TimersContainer from './discover/timers/timers_container';
-import Discover from './discover/discover';
+import Discover from './discover/meditate/discover';
 
 // Error Page
 import ErrorPage from './error_pages/404';
