@@ -28,6 +28,9 @@ const Settings = ({ currentUser, logout, updateUser }) =>  {
     return (
         <div>
           <ProfileNav />
+          <div className="nav-wrapper">
+            <div className="nav-settings"></div>
+          </div>
           <div className="settings-div">
             <form className="settings-form">
               <label className="settings-form-label">Username</label>

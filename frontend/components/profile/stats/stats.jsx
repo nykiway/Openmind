@@ -23,6 +23,9 @@ const Stats = ({}) => {
     return (
       <div>
         <ProfileNav />
+        <div className="nav-wrapper">
+        <div className="nav-stats"></div>
+      </div>
         <div className="stats-hero">
           <h1>
             Every day is a chance to train your mind for a happier, healthier

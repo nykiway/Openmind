@@ -12,6 +12,9 @@ class Discover extends React.Component {
         <div>
           <div>
             <DiscoverNav />
+            <div className="nav-wrapper">
+              <div className="nav-discover"></div>
+            </div>
           </div>
           <div className="discover-hero">
             <img

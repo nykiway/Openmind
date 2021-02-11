@@ -10,6 +10,9 @@ class Journey extends React.Component {
     return (
       <div>
         <DiscoverNav />
+        <div className="nav-wrapper">
+          <div className="nav-journey"></div>
+        </div>
         <img
           className="journey-hero"
           src="https://openmind-seeds.s3-us-west-1.amazonaws.com/images/hero_images/winking_sun.jpg?versionId=null"

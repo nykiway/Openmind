@@ -62,6 +62,9 @@ class Timers extends React.Component {
     return (
       <div>
         <DiscoverNav />
+        <div className="nav-wrapper">
+          <div className="nav-timer"></div>
+        </div>
         <div className="timers-section">
           <img
             src="https://openmind-seeds.s3-us-west-1.amazonaws.com/images/hero_images/smiles.jpg"

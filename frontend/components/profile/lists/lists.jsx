@@ -33,6 +33,9 @@ const Lists = ({ lists, userId, fetchLists, createList}) => {
   return (
     <div>
       <ProfileNav />
+      <div className="nav-wrapper">
+        <div className="nav-lists"></div>
+      </div>
       <div className="list-hero">
         <img
         className="list-hero-image"

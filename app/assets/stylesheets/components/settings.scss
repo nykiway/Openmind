@@ -1,5 +1,35 @@
 .settings-div {
+  // border-top: 4px solid #EBE8E4;
   padding: 60px;
+}
+
+.nav-wrapper {
+  background-color: #EBE8E4;
+  height: 4px;
+}
+
+.nav-settings, .nav-timer {
+  position: relative;
+  background-color: rgb(108, 122, 160);
+  height: 4px;
+  width: 30%;
+  margin: 0 70%;
+}
+
+.nav-lists, .nav-discover {
+  position: relative;
+  background-color: rgb(108, 122, 160);
+  height: 4px;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.nav-stats, .nav-journey {
+  position: relative;
+  background-color: rgb(108, 122, 160);
+  height: 4px;
+  width: 30%;
+  margin: 0;
 }
 
 .settings-form {
