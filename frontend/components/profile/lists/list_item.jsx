@@ -6,6 +6,7 @@ import {
   fetchList,
   updateList,
   deleteList  } from '../../../actions/list_actions'
+import EditListForm from './edit_list_form';
 
 const ListItem = ({ fetchLists, lists, list, deleteList }) => {
   const [editListModal, setEditListModal] = useState(false);
@@ -26,44 +27,40 @@ const ListItem = ({ fetchLists, lists, list, deleteList }) => {
     return (
       <div className="list-content">  
         <div className="list-item-container">
-              {list !== undefined ? (
+          {list !== undefined ? (
             <div className="list-item">
               <div>
                   <h1 className="list-name">{list.title}</h1>
                   <h1 className="list-details">{list.description}</h1>
               </div>
-
-            <div className="list-icons">
-              <i id="list-play" className="fas fa-play list-icon-play"></i>
-              <i
-                listid={list.id}
-                className="fas fa-edit list-icon-edit"
-                onClick={changeList}
-                ></i>
-              <i
-                listid={list.id}
-                className="fas fa-times list-icon-times"
-                onClick={(e) => {
-                  e.preventDefault();
-                  deleteList(list.id)
-                }}
-                ></i>
+              <div className="list-icons">
+                <i id="list-play" className="fas fa-play list-icon-play"></i>
+                <i
+                  listid={list.id}
+                  className="fas fa-edit list-icon-edit"
+                  onClick={changeList}
+                  ></i>
+                <i
+                  listid={list.id}
+                  className="fas fa-times list-icon-times"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    deleteList(list.id)
+                  }}
+                  ></i>
+              </div>
             </div>
-          </div>
-        ) : null}
-        { editListModal ? ("Edit List Modal") : null}
+          ) : null}
+        { editListModal ? <EditListForm list={list} />: null}
         </div>
       </div>
     )
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // const list = state.entities.lists[ownProps.match.params.listId];
-
   return {
     userId: state.entities.users[state.session.id].id,
     lists: Object.values(state.entities.lists),
-    // currentList: list
   }
 };
 

@@ -9,12 +9,9 @@ import {
   deleteList  } from '../../../actions/list_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  const list = state.entities.lists[ownProps.match.params.listId];
-
   return {
     userId: state.entities.users[state.session.id].id,
     lists: Object.values(state.entities.lists),
-    currentList: list
   }
 };
 

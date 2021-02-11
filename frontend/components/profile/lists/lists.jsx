@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, usePrevious } from 'react';
 import ProfileNav from '../sub_navs/profile_nav';
 import ListItem from './list_item';
 
-const Lists = ({ lists, userId, fetchLists, createList, updateList, deleteList }) => {
+const Lists = ({ lists, userId, fetchLists, createList}) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [showListModal, setShowListModal] = useState(false);
