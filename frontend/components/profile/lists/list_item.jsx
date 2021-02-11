@@ -2,9 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import {
   fetchLists,
-  createList,
-  fetchList,
-  updateList,
   deleteList  } from '../../../actions/list_actions'
 import EditListForm from './edit_list_form';
 
@@ -18,15 +15,14 @@ const ListItem = ({ fetchLists, lists, list, deleteList }) => {
       }
     }, [lists.length])
 
-    const changeList = (e) => {
+    const toggleUpdateModal = (e) => {
       e.preventDefault();
       setEditListModal(!editListModal);
-      // updateList(listid)
-  }
+    }
 
     return (
-      <div className="list-content">  
-        <div className="list-item-container">
+        // <div className="list-item-container">
+        <div className="list-content">
           {list !== undefined ? (
             <div className="list-item">
               <div>
@@ -38,7 +34,7 @@ const ListItem = ({ fetchLists, lists, list, deleteList }) => {
                 <i
                   listid={list.id}
                   className="fas fa-edit list-icon-edit"
-                  onClick={changeList}
+                  onClick={toggleUpdateModal}
                   ></i>
                 <i
                   listid={list.id}
@@ -51,9 +47,8 @@ const ListItem = ({ fetchLists, lists, list, deleteList }) => {
               </div>
             </div>
           ) : null}
-        { editListModal ? <EditListForm list={list} />: null}
+          { editListModal ? <EditListForm list={list} />: null}
         </div>
-      </div>
     )
 }
 
@@ -66,9 +61,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchLists: (data) => dispatch(fetchLists(data)),
-  fetchList: id => dispatch(fetchList(id)),
-  updateList: list => dispatch(updateList(list)),
-  createList: (list, id) => dispatch(createList(list, id)),
   deleteList: (id) => dispatch(deleteList(id))
 });
 

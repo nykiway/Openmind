@@ -20,6 +20,7 @@ const EditListForm = ({ updateList, list, userId }) => {
   }
 
   return (
+    <div className="edit-list-form">
     <div className="list-modal">
       <h1>Edit {list.title}</h1>
         <form>
@@ -45,6 +46,7 @@ const EditListForm = ({ updateList, list, userId }) => {
           > Confirm Changes
         </button>
       </form>
+    </div>
     </div>
   )
 }

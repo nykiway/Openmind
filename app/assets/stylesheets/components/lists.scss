@@ -13,7 +13,7 @@
   padding: 20px;
   width: 30%;
   border-radius: 100px;
-  margin: 30px 10px 10px 10px;
+  margin: 30px 10px 30px 10px;
   font-size: 16px;
   line-height: 18px;
   text-transform: uppercase;
@@ -30,9 +30,8 @@
 // Modal:
 
 .list-modal {
-  z-index: 10;
   height: 100%;
-  width: 50%;
+  width: 90%;
   font-weight: 700;
   color: #323233;
   background-color: #FAF6F4;
@@ -40,6 +39,13 @@
   padding: 30px;
   border-radius: 8px;
   margin-bottom: 30px;
+}
+
+.edit-list-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .list-modal h1 {
@@ -110,20 +116,8 @@
 
 // Content:
 
-.list-list {
-  width: 100%;
-}
-
 .list-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-.list-item-container {
-  width: 60%;
+  width: 70%;
 }
 
 .list-item {
@@ -131,13 +125,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  // width: 60%;
   margin-bottom: 30px;
   background: rgb(31,26,119);
   background: linear-gradient(317deg, rgba(31,26,119,1) 0%, rgba(14,100,221,1) 75%, rgba(14,100,221,1) 100%);
   padding: 30px 10px 30px 10px;
   border-radius: 5px 20px 20px 20px;
-  
   color: white;
 }
 

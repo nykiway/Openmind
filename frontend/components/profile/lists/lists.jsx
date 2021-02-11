@@ -45,11 +45,12 @@ const Lists = ({ lists, userId, fetchLists, createList}) => {
         <button 
           className="add-meditation-button"
           onClick={toggleNewList}
-          >Create New List</button>
-      </div>
+          >
+          Create New List
+        </button>
       {showListModal ? (
         <div className="list-modal">
-          <h1>Create a new List</h1>
+          <h1>Create a New List</h1>
           <form>
             <input
               type="text"
@@ -73,16 +74,15 @@ const Lists = ({ lists, userId, fetchLists, createList}) => {
               > Add List
             </button>
           </form>
-        </div>
-      ) : null}
-      <div className="list-list">
+          </div>
+        ) : null}
         {lists.map((list, idx) => {
-            return (
-              <ListItem list={list} key={idx}/>
-            )}
+          return (
+            <ListItem list={list} key={idx}/>
           )}
-        </div>
+        )}
       </div>
+    </div>
   )
 
 }
