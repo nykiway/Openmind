@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 import { openModal, closeModal } from '../../../actions/modal_actions';
 import {
@@ -8,69 +8,59 @@ import {
 
 import { fetchCurrentMeditation } from '../../../actions/current_meditation_actions'
 
-class DiscoverSearch extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      defaultText: "search for meditations...",
-      searchInput: "",
-      showDropdown: false,
-    }
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.triggerDropdown = this.triggerDropdown.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.update = this.update.bind(this);
-  }
+const DiscoverSearch = ({ fetchMeditations, meditations, openModal, fetchCurrentMeditation }) => {
+  const [defaultText, setDefaultText] = useState("search for meditations...")
+  const [searchInput, setSearchInput] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
 
-  componentDidMount() {
-    this.props.fetchMeditations();
-  }
+  useEffect(() => {
+    fetchMeditations();
+  }, [])
 
-  searchedMeditations() {
-    const meditations = [];
-    for (let i = 0; i < this.props.meditations.length; i++) {
-      let meditation = this.props.meditations[i];
+  const searchedMeditations = () => {
+    const meditationsArray = [];
+    for (let i = 0; i < meditations.length; i++) {
+      let meditation = meditations[i];
       let meditationName = meditation.name;
       let meditationCategories = meditation.categories;
 
-      if (meditationName.includes(this.state.searchInput.toLowerCase()) || meditationCategories.includes(this.state.searchInput.toLowerCase())) {
-        meditations.push(meditation);
+      if (meditationName.includes(searchInput.toLowerCase()) || meditationCategories.includes(searchInput.toLowerCase())) {
+        meditationsArray.push(meditation);
       }
     }
 
-    if (meditations[23] !== undefined) {
-      const firstMeditation = meditations.slice(0, 23);
+    if (meditationsArray[23] !== undefined) {
+      const firstMeditation = meditationsArray.slice(0, 23);
       return firstMeditation;
     } else {
-      return meditations;
+      return meditationsArray;
     }
   }
 
-  handleClick(meditationId) {
-    this.props.openModal('meditation');
-    this.props.fetchCurrentMeditation(meditationId);
+  const handleClick = (meditationId) => {
+    openModal('meditation');
+    fetchCurrentMeditation(meditationId);
   }
 
 
-  triggerDropdown() {
-    this.setState({ showDropdown: !this.state.showDropdown });
+  const triggerDropdown = () => {
+    setShowDropdown(!showDropdown);
   }
 
-  update(e) {
-      this.setState({ searchInput: e.currentTarget.value });
+  const update = (e) => {
+      setSearchInput(e.currentTarget.value);
   }
 
-  handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
   }
 
-  render() {
-    const meditations = this.searchedMeditations();
-
+  const searchedMeds = searchedMeditations(); 
       return (
+
         <div>
           <form 
-            onSubmit={this.handleSubmit}
+            onSubmit={handleSubmit}
             className="search-form"
             >
             <div className="search-div">
@@ -78,9 +68,9 @@ class DiscoverSearch extends Component {
             </div>
             <input
               type="text"
-              value={this.state.searchInput}
-              onClick={this.triggerDropdown}
-              onChange={this.update}
+              value={searchInput}
+              onClick={triggerDropdown}
+              onChange={update}
               onFocus={(e) => e.target.placeholder = ""} // removes placeholder text
               onBlur={(e) => e.target.placeholder = "ie. sleep, anxiety, etc..."}
               className="search-input"
@@ -88,19 +78,19 @@ class DiscoverSearch extends Component {
             />
 
           </form>
-          {this.state.showDropdown ? (
+          {showDropdown ? (
             <div className="search-dropdown">
-              {meditations.length < 1 ? (
+              {searchedMeds.length < 1 ? (
                 <div>
                   <p>No Meditations match your search</p>
                 </div>
               ) : (
                 <div className="medtiations-search-container">
                   <ul className="meditations-search-list">
-                    {meditations.map((meditation, idx) => {
+                    {searchedMeds.map((meditation, idx) => {
                       return <li 
                         key={idx}
-                        onClick={() => this.handleClick(meditation.id)}
+                        onClick={() => handleClick(meditation.id)}
                         >
                           {meditation.name}
                         </li>
@@ -112,18 +102,18 @@ class DiscoverSearch extends Component {
             </div>
           ) : null}
           <div className="form-buttons">
-            <button className="sleep" value="sleep" onClick={this.update}>Sleep</button>
-            <button className="relax" value="relax" onClick={this.update}>Relax</button>
-            <button className="gratitude" value="gratitude" onClick={this.update}>Gratitude</button>
-            <button className="work" value="work" onClick={this.update}>Work</button>
-            <button className="anxiety" value="anxiety" onClick={this.update}>Anxiety</button>
+            <button className="sleep" value="sleep" onClick={update}>Sleep</button>
+            <button className="relax" value="relax" onClick={update}>Relax</button>
+            <button className="gratitude" value="gratitude" onClick={update}>Gratitude</button>
+            <button className="work" value="work" onClick={update}>Work</button>
+            <button className="anxiety" value="anxiety" onClick={update}>Anxiety</button>
           </div>
 
           <div className="meditations-container">
             <ul className="meditations-list">
-              {meditations.map((meditation) => (
+              {searchedMeds.map((meditation) => (
                 <li className="meditation-item" key={meditation.id}>
-                  <button onClick={() => this.handleClick(meditation.id)} >
+                  <button onClick={() => handleClick(meditation.id)} >
                     <p className="meditation-name">{meditation.name}</p>
                     <div className="meditation-circle">
                       <i className="fas fa-headphones" />
@@ -137,8 +127,6 @@ class DiscoverSearch extends Component {
         </div>
       )
   }
-
-}
 
 const mapStateToProps = (state) => {
   return {

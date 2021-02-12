@@ -40,45 +40,44 @@ const  MeditationModal = ({ currentMeditation, modal, closeModal }) => {
     return null;
   }
 
-
     // dynamic pause/ play buttons
     
-    const pauseIcon = <i className="fas fa-pause meditation-stack-1x" />
-    const playIcon = <i className="fas fa-play meditation-stack-1x"  />
+  const pauseIcon = <i className="fas fa-pause meditation-stack-1x" />
+  const playIcon = <i className="fas fa-play meditation-stack-1x"  />
 
-    // if current meditation exists, return modal, otherwise don't:
+  // if current meditation exists, return modal, otherwise don't:
 
-    if (Object.keys(currentMeditation).length !== 0) { 
-      return (
-        <div className="modal-background">
-          <div 
-            onClick={handleModalClose} 
-            className="close-x">
-            <i className="fas fa-times"></i>
-          </div>
-          <div className="modal-child" onClick={(e) => e.stopPropagation()}>
-            <div className="meditation-play">
-              <h1 className="meditation-name-title">{currentMeditation.name}</h1>
-              <h2 className="meditation-length">{`${renderDuration()}`}</h2>
-              <button onClick={controlAudio}>
-                <div className="transparent-circle" >
-                  <div className="opaque-circle" >
-                    {playing ? pauseIcon : playIcon}
-                  </div>
-                </div>
-              </button>
-              <h3 id="counter" className="timer-countdown"></h3>
-            </div>
-            <audio ref={audioRef} src={currentMeditation.mp3}></audio>
-          </div>
+  if (Object.keys(currentMeditation).length !== 0) { 
+    return (
+      <div className="modal-background">
+        <div 
+          onClick={handleModalClose} 
+          className="close-x">
+          <i className="fas fa-times"></i>
         </div>
-      )
-    } else {
-      return (
-        null
-      )
-    }
+        <div className="modal-child" onClick={(e) => e.stopPropagation()}>
+          <div className="meditation-play">
+            <h1 className="meditation-name-title">{currentMeditation.name}</h1>
+            <h2 className="meditation-length">{`${renderDuration()}`}</h2>
+            <button onClick={controlAudio}>
+              <div className="transparent-circle" >
+                <div className="opaque-circle" >
+                  {playing ? pauseIcon : playIcon}
+                </div>
+              </div>
+            </button>
+            <h3 id="counter" className="timer-countdown"></h3>
+          </div>
+          <audio ref={audioRef} src={currentMeditation.mp3}></audio>
+        </div>
+      </div>
+    )
+  } else {
+    return (
+      null
+    )
   }
+}
 
 const mapStateToProps = state => {
   return {
