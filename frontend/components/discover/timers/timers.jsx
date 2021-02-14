@@ -1,36 +1,12 @@
 import React from "react";
 import DiscoverNav from '../../profile/sub_navs/discover_nav';
+import UnlimitedTimer from './unlimited_timer';
+import MinuteTimers from './minute_timers';
+import HourTimers from './hour_timers'
 
-class Timers extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { count: 0 }
-    this.stopTimer = this.stopTimer.bind(this);
-    this.onClickStop = this.onClickStop.bind(this);
-  }
+const Timers = () => {
 
-  componentWillUnmount () {
-    clearInterval(this.timer)
-  }
-
-  tick() {
-    this.setState({count: (this.state.count + 1)})
-  }
-
-  startTimer () {
-    clearInterval(this.timer)
-    this.timer = setInterval(this.tick.bind(this), 1000)
-  }
-
-  stopTimer() {
-    clearInterval(this.timer)
-  }
-
-  resetTimer() {
-    this.setState({count: (this.state.count = 0)});
-  }
-
-  secondsToTime(secs) {
+  const secondsToTime = (secs) => {
     let hours = Math.floor(secs / (60 * 60));
 
     let divisor_for_minutes = secs % (60 * 60);
@@ -39,26 +15,22 @@ class Timers extends React.Component {
     let divisor_for_seconds = divisor_for_minutes % 60;
     let seconds = Math.ceil(divisor_for_seconds);
 
-    let formatted =
+    let formattedMinutes =
+      minutes.toString().padStart(2, "0") +
+      ":" +
+      seconds.toString().padStart(2, "0");
+    
+    let formattedHours =
       hours.toString().padStart(2, "0") +
       ":" +
       minutes.toString().padStart(2, "0") +
       ":" +
       seconds.toString().padStart(2, "0");
 
-    return formatted;
+    if (secs <= 3540) return formattedMinutes;
+    if (secs > 3540) return formattedHours;
   }
 
-  onClickStop() {
-    this.stopTimer();
-    let bell = new Audio(
-      "https://openmind-seeds.s3-us-west-1.amazonaws.com/meditations/Japanese+temple+small+bell+-+Sound+effect.mp3"
-    );
-
-    bell.play();
-  }
-
-  render() {
     return (
       <div>
         <DiscoverNav />
@@ -70,37 +42,12 @@ class Timers extends React.Component {
             src="https://openmind-seeds.s3-us-west-1.amazonaws.com/images/hero_images/smiles.jpg"
             alt="timers hero image"
           />
-          <h1 className="unlimited-timer">The Unlimited Timer</h1>
-          <div className="count-up-timer">
-            <h2 className="count-number">
-              {this.secondsToTime(this.state.count)}
-            </h2>
-            <button
-              id="count-up-button-1"
-              className="count-up-button"
-              onClick={this.startTimer.bind(this)}
-            >
-              Start
-            </button>
-            <button
-              id="count-up-button-2"
-              className="count-up-button"
-              onClick={() => this.onClickStop()}
-            >
-              Stop
-            </button>
-            <button
-              id="reset-timer-button"
-              className="count-up-button"
-              onClick={this.resetTimer.bind(this)}
-            >
-              Reset
-            </button>
-          </div>
+          <UnlimitedTimer secondsToTime={secondsToTime} />
+          <MinuteTimers secondsToTime={secondsToTime} />
+          <HourTimers secondsToTime={secondsToTime} />
         </div>
       </div>
     );
   }
-}
 
 export default Timers;

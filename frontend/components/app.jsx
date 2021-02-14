@@ -16,7 +16,7 @@ import SettingsContainer from './profile/settings/settings_container';
 
 // Discover:
 import JourneyContainer from './discover/journey/journey_container';
-import TimersContainer from './discover/timers/timers_container';
+import Timers from './discover/timers/timers';
 import Discover from './discover/meditate/discover';
 
 // Error Page
@@ -42,7 +42,7 @@ const App = () => (
 
 
         <ProtectedRoute path="/journey" component={JourneyContainer} />
-        <ProtectedRoute path="/timers" component={TimersContainer} />
+        <ProtectedRoute path="/timers" component={Timers} />
 
         <ProtectedRoute path="/stats" component={Stats} />
         <ProtectedRoute path="/lists" component={ListsContainer} />
